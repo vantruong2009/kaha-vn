@@ -60,6 +60,25 @@ function collectItems(parsed) {
   return Array.isArray(raw) ? raw : [raw];
 }
 
+function parseSeoFromPostmeta(item) {
+  const raw = item["wp:postmeta"];
+  const blocks =
+    raw === undefined ? [] : Array.isArray(raw) ? raw : [raw];
+  /** @type {Map<string, string>} */
+  const map = new Map();
+  for (const b of blocks) {
+    const k = extractText(b["wp:meta_key"]);
+    const v = extractText(b["wp:meta_value"]);
+    if (k) map.set(k, v);
+  }
+  const t1 = map.get("_yoast_wpseo_title") || map.get("_rank_math_title");
+  const t2 = map.get("_yoast_wpseo_metadesc") || map.get("_rank_math_description");
+  return {
+    seo_title: t1?.trim() ? t1.trim() : null,
+    seo_description: t2?.trim() ? t2.trim() : null,
+  };
+}
+
 const argv = process.argv.slice(2);
 let dryRun = false;
 let limit = Infinity;
@@ -140,6 +159,8 @@ for (const item of items) {
       "",
   );
 
+  const { seo_title, seo_description } = parseSeoFromPostmeta(item);
+
   rows.push({
     wp_post_id: Number.isFinite(wpId) ? wpId : null,
     post_type: postType,
@@ -149,6 +170,8 @@ for (const item of items) {
     excerpt: rawExcerpt.trim() || null,
     status,
     published_at: publishedAt,
+    seo_title,
+    seo_description,
   });
 
   if (rows.length >= limit) break;
@@ -173,8 +196,9 @@ const client = await pool.connect();
 
 const sql = `
 INSERT INTO content_nodes (
-  wp_post_id, post_type, slug, title, body_html, excerpt, status, published_at
-) VALUES ($1, $2, $3, $4, $5, $6, $7, $8::timestamptz)
+  wp_post_id, post_type, slug, title, body_html, excerpt, status, published_at,
+  seo_title, seo_description
+) VALUES ($1, $2, $3, $4, $5, $6, $7, $8::timestamptz, $9, $10)
 ON CONFLICT (slug) DO UPDATE SET
   wp_post_id = excluded.wp_post_id,
   post_type = excluded.post_type,
@@ -183,6 +207,8 @@ ON CONFLICT (slug) DO UPDATE SET
   excerpt = excluded.excerpt,
   status = excluded.status,
   published_at = excluded.published_at,
+  seo_title = excluded.seo_title,
+  seo_description = excluded.seo_description,
   updated_at = now()
 `;
 
@@ -198,6 +224,8 @@ try {
       r.excerpt,
       r.status,
       r.published_at,
+      r.seo_title,
+      r.seo_description,
     ]);
     inserted++;
   }

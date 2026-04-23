@@ -4,12 +4,12 @@
 
 | Phạm vi | % |
 |--------|---|
-| **Đến live + cutover (P0–P6, không tính P7 monitoring)** | **~27%** |
+| **Đến live + cutover (P0–P6, không tính P7 monitoring)** | **~29%** |
 | P0 bootstrap + SEO prep | ~74% |
 | P1 WP export + R2 | ~22% |
 | P2 Obsidian đủ catalog/UI | ~18% |
 | P3 tính năng lõi (variants, quote, …) | ~2% |
-| P4 import DB + redirect map | ~22% |
+| P4 import DB + redirect map | ~26% |
 | P5 perf budgets | ~0% |
 | P6 staging + cutover | ~0% |
 

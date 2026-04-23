@@ -45,6 +45,11 @@ const nextConfig: NextConfig = {
   },
   images: {
     remotePatterns: [
+      {
+        protocol: "https",
+        hostname: "kaha.vn",
+        pathname: "/wp-content/uploads/**",
+      },
       { protocol: "https", hostname: "**.r2.dev", pathname: "/**" },
       {
         protocol: "https",
