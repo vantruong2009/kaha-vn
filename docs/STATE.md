@@ -4,12 +4,12 @@
 
 | Phạm vi | % |
 |--------|---|
-| **Đến live + cutover (P0–P6, không tính P7 monitoring)** | **~14%** |
-| P0 bootstrap + SEO prep | ~72% |
-| P1 WP export + R2 | ~0% |
+| **Đến live + cutover (P0–P6, không tính P7 monitoring)** | **~18%** |
+| P0 bootstrap + SEO prep | ~74% |
+| P1 WP export + R2 | ~12% |
 | P2 Obsidian đủ catalog/UI | ~18% |
 | P3 tính năng lõi (variants, quote, …) | ~2% |
-| P4 import DB + redirect map | ~0% |
+| P4 import DB + redirect map | ~6% |
 | P5 perf budgets | ~0% |
 | P6 staging + cutover | ~0% |
 
@@ -19,4 +19,4 @@ P7 (30 ngày giám sát) không tính vào % “tới live”.
 - **Stack:** Next 16 / React 19 / Tailwind 4; `loading`/`error`/`not-found` Obsidian; security headers trong `next.config`.
 - **Build Oracle:** `node >=20.9` (tránh `/usr/bin/node` v16 — làm optional `@tailwindcss/oxide-*` fail). Cursor bundle: `/home/opc/.cursor-server/bin/linux-arm64/.../node`.
 - **Safety:** §1c master plan — không đụng site live / ERP; chỉ boundary KAHA.
-- **Next:** `git remote add origin`; đặt WP XML vào `docs/migration-inputs/`; merge crawl → CSV; GSC; `public/images/logo.png`.
+- **Next:** remote git; WP XML vào `docs/migration-inputs/` + `MANIFEST.json`; `psql … -f scripts/sql/001_seo_baseline.sql` trên **`kaha_vn`**; `DATABASE_URL` → `npm run migrate:import-seo-baseline`; GSC + logo PNG.

@@ -1,0 +1,10 @@
+{
+  "$schema_comment": "Copy to MANIFEST.json (gitignored). Paths relative to docs/migration-inputs/",
+  "domain": "kaha.vn",
+  "xml_all": "wordpress.xml",
+  "xml_products": null,
+  "products_csv": null,
+  "uploads_dir": null,
+  "r2_prefix": "kaha/",
+  "woocommerce_orders_import": false
+}
