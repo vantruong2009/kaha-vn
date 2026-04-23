@@ -9,7 +9,7 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint",
+    "lint": "eslint .",
     "migrate:check-inputs": "node scripts/check_migration_inputs.mjs",
     "migrate:import-seo-baseline": "node scripts/import_seo_baseline.mjs",
     "migrate:xml-count": "node scripts/count_wp_xml_items.mjs"
