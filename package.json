@@ -12,13 +12,14 @@
     "lint": "eslint .",
     "migrate:check-inputs": "node scripts/check_migration_inputs.mjs",
     "migrate:import-seo-baseline": "node scripts/import_seo_baseline.mjs",
-    "migrate:xml-count": "node scripts/count_wp_xml_items.mjs"
+    "migrate:xml-count": "node scripts/count_wp_xml_items.mjs",
+    "migrate:import-wp-xml": "node scripts/import_wp_xml_content.mjs"
   },
   "dependencies": {
     "next": "16.2.4",
+    "pg": "^8.13.1",
     "react": "19.2.4",
     "react-dom": "19.2.4",
-    "pg": "^8.13.1",
     "server-only": "^0.0.1"
   },
   "devDependencies": {
@@ -29,6 +30,7 @@
     "@types/react-dom": "^19",
     "eslint": "^9",
     "eslint-config-next": "16.2.4",
+    "fast-xml-parser": "^5.7.1",
     "tailwindcss": "^4",
     "typescript": "^5"
   }
