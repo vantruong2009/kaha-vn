@@ -17,6 +17,7 @@ ENV NODE_ENV=production
 ENV NEXT_TELEMETRY_DISABLED=1
 ENV PORT=3102
 ENV HOSTNAME=0.0.0.0
+ENV KAHA_SITEMAP_MODE=minimal
 RUN groupadd --gid 1001 nodejs && useradd --uid 1001 --gid nodejs nextjs
 COPY --from=builder /app/public ./public
 COPY --from=builder --chown=nextjs:nodejs /app/.next/standalone ./

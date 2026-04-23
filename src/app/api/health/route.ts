@@ -1,5 +1,28 @@
 import { NextResponse } from "next/server";
 
-export function GET() {
-  return NextResponse.json({ ok: true, service: "kaha-vn" }, { status: 200 });
+export const dynamic = "force-dynamic";
+
+export async function GET() {
+  const base: Record<string, unknown> = {
+    ok: true,
+    service: "kaha-vn",
+  };
+
+  if (!process.env.DATABASE_URL?.trim()) {
+    base.db = "skipped";
+    return NextResponse.json(base, { status: 200 });
+  }
+
+  try {
+    const { getPool } = await import("@/server/db");
+    const pool = getPool();
+    await pool.query("SELECT 1");
+    base.db = "ok";
+    return NextResponse.json(base, { status: 200 });
+  } catch {
+    return NextResponse.json(
+      { ok: false, service: "kaha-vn", db: "error" },
+      { status: 503 },
+    );
+  }
 }

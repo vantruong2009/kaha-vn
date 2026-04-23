@@ -5,6 +5,7 @@ services:
     image: kaha-vn:local
     environment:
       NEXT_PUBLIC_SITE_URL: https://kaha.vn
+      KAHA_SITEMAP_MODE: minimal
     ports:
       - "127.0.0.1:3102:3102"
     healthcheck:
