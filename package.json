@@ -11,7 +11,8 @@
     "start": "next start",
     "lint": "eslint",
     "migrate:check-inputs": "node scripts/check_migration_inputs.mjs",
-    "migrate:import-seo-baseline": "node scripts/import_seo_baseline.mjs"
+    "migrate:import-seo-baseline": "node scripts/import_seo_baseline.mjs",
+    "migrate:xml-count": "node scripts/count_wp_xml_items.mjs"
   },
   "dependencies": {
     "next": "16.2.4",

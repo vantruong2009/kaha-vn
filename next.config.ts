@@ -1,9 +1,29 @@
 import type { NextConfig } from "next";
+import fs from "node:fs";
+import path from "node:path";
 
 const nextConfig: NextConfig = {
   output: "standalone",
   trailingSlash: false,
   poweredByHeader: false,
+  async redirects() {
+    try {
+      const fp = path.join(process.cwd(), "docs/redirects/redirects.json");
+      const rows = JSON.parse(fs.readFileSync(fp, "utf8")) as Array<{
+        source: string;
+        destination: string;
+        permanent?: boolean;
+      }>;
+      if (!Array.isArray(rows)) return [];
+      return rows.map((r) => ({
+        source: r.source,
+        destination: r.destination,
+        permanent: r.permanent ?? true,
+      }));
+    } catch {
+      return [];
+    }
+  },
   async headers() {
     return [
       {
