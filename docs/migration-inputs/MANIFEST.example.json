@@ -7,5 +7,5 @@
   "uploads_dir": null,
   "r2_prefix": "kaha/",
   "woocommerce_orders_import": false,
-  "import_content_command": "DATABASE_URL=… npm run migrate:import-wp-xml -- docs/migration-inputs/wordpress.xml"
+  "import_content_command": "DATABASE_URL=postgresql://…/kaha_vn npm run migrate:import-wp-xml:auto --"
 }

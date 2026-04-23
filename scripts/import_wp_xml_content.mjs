@@ -9,6 +9,7 @@ import fs from "node:fs";
 import path from "node:path";
 import { XMLParser } from "fast-xml-parser";
 import pg from "pg";
+import { plainTextFromHtml } from "./lib/plain_text.mjs";
 
 const KEEP_TYPES = new Set(["post", "page", "product"]);
 
@@ -77,9 +78,12 @@ function parsePostmetaMap(item) {
 function seoFromMap(map) {
   const t1 = map.get("_yoast_wpseo_title") || map.get("_rank_math_title");
   const t2 = map.get("_yoast_wpseo_metadesc") || map.get("_rank_math_description");
+  const rawMeta = t2?.trim() ? t2.trim() : null;
   return {
     seo_title: t1?.trim() ? t1.trim() : null,
-    seo_description: t2?.trim() ? t2.trim() : null,
+    seo_description: rawMeta
+      ? plainTextFromHtml(rawMeta, { maxLength: 320 }) || null
+      : null,
   };
 }
 
@@ -195,7 +199,8 @@ const rows = [];
 for (const item of items) {
   const postType = extractText(item["wp:post_type"]) || extractText(item.post_type);
   const status = extractText(item["wp:status"]) || extractText(item.status);
-  if (status === "trash" || status === "auto-draft") {
+  // Import tối giản: chỉ nội dung publish (không kéo draft/private/pending).
+  if (status !== "publish") {
     skipped++;
     continue;
   }
@@ -241,7 +246,9 @@ for (const item of items) {
     slug,
     title: title || null,
     body_html: stripWpCruft(rawBody) || null,
-    excerpt: rawExcerpt.trim() || null,
+    excerpt: rawExcerpt.trim()
+      ? plainTextFromHtml(rawExcerpt, { maxLength: 800 }) || null
+      : null,
     status,
     published_at: publishedAt,
     seo_title,

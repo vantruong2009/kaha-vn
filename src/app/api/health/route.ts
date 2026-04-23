@@ -6,6 +6,7 @@ export async function GET() {
   const base: Record<string, unknown> = {
     ok: true,
     service: "kaha-vn",
+    node: process.version,
   };
 
   if (!process.env.DATABASE_URL?.trim()) {
@@ -21,7 +22,7 @@ export async function GET() {
     return NextResponse.json(base, { status: 200 });
   } catch {
     return NextResponse.json(
-      { ok: false, service: "kaha-vn", db: "error" },
+      { ok: false, service: "kaha-vn", db: "error", node: process.version },
       { status: 503 },
     );
   }

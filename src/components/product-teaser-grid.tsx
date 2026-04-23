@@ -1,21 +1,9 @@
 import Image from "next/image";
 import Link from "next/link";
 import type { ProductTeaser } from "@/server/content";
+import { plainTextFromHtml } from "@/lib/plain-text-from-html";
+import { isNextImageRemoteSrc } from "@/lib/remote-image-host";
 import { rewriteKahaMediaUrls } from "@/lib/rewrite-kaha-media-url";
-
-function imgOk(src: string): boolean {
-  try {
-    const h = new URL(src).hostname;
-    return (
-      h === "kaha.vn" ||
-      h === "www.kaha.vn" ||
-      h.endsWith(".r2.dev") ||
-      h.includes("r2.cloudflarestorage.com")
-    );
-  } catch {
-    return false;
-  }
-}
 
 export function ProductTeaserGrid({ items }: { items: ProductTeaser[] }) {
   if (items.length === 0) return null;
@@ -31,6 +19,9 @@ export function ProductTeaserGrid({ items }: { items: ProductTeaser[] }) {
             const raw = p.featured_image_source_url?.trim();
             const src = raw ? rewriteKahaMediaUrls(raw).trim() : "";
             const alt = (p.title ?? "Sản phẩm").trim();
+            const excerptPlain = plainTextFromHtml(p.excerpt, {
+              maxLength: 160,
+            });
 
             return (
               <li key={p.slug}>
@@ -40,7 +31,7 @@ export function ProductTeaserGrid({ items }: { items: ProductTeaser[] }) {
                 >
                   <div className="relative aspect-[4/5] w-full overflow-hidden bg-hairline">
                     {src ? (
-                      imgOk(src) ? (
+                      isNextImageRemoteSrc(src) ? (
                         <Image
                           src={src}
                           alt={alt}
@@ -66,9 +57,9 @@ export function ProductTeaserGrid({ items }: { items: ProductTeaser[] }) {
                     <p className="text-base font-semibold leading-snug text-ink-900 group-hover:text-platinum-deep">
                       {p.title ?? p.slug}
                     </p>
-                    {p.excerpt ? (
+                    {excerptPlain ? (
                       <p className="mt-2 line-clamp-2 text-sm leading-relaxed text-ink-600">
-                        {p.excerpt}
+                        {excerptPlain}
                       </p>
                     ) : null}
                   </div>

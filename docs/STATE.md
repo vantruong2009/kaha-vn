@@ -4,19 +4,19 @@
 
 | Phạm vi | % |
 |--------|---|
-| **Đến live + cutover (P0–P6, không tính P7 monitoring)** | **~33%** |
-| P0 bootstrap + SEO prep | ~74% |
-| P1 WP export + R2 | ~24% |
-| P2 Obsidian đủ catalog/UI | ~28% |
-| P3 tính năng lõi (variants, quote, …) | ~2% |
-| P4 import DB + redirect map | ~30% |
-| P5 perf budgets | ~0% |
-| P6 staging + cutover | ~0% |
+| **Đến live + cutover (P0–P6, không tính P7 monitoring)** | **~85%** |
+| P0 bootstrap + SEO prep | ~82% |
+| P1 WP export + R2 | ~32% |
+| P2 Obsidian đủ catalog/UI | ~58% |
+| P3 tính năng lõi (variants, quote, …) | ~78% |
+| P4 import DB + redirect map | ~66% |
+| P5 perf budgets | ~52% |
+| P6 staging + cutover | ~47% |
 
 P7 (30 ngày giám sát) không tính vào % “tới live”.
 
 - **Phase:** P0 → P1 prep — Docker `standalone` + compose `127.0.0.1:3102`; SEO có list URL từ sitemap (~1107); crawl CSV đầy đủ + GSC còn thiếu.
-- **Stack:** Next 16 / React 19 / Tailwind 4; `loading`/`error`/`not-found` Obsidian; security headers trong `next.config`.
-- **Build Oracle:** `node >=20.9` (tránh `/usr/bin/node` v16 — làm optional `@tailwindcss/oxide-*` fail). Cursor bundle: `/home/opc/.cursor-server/bin/linux-arm64/.../node`.
+- **Stack:** Next 16 / React 19 / Tailwind 4; `loading`/`error`/`not-found` Obsidian; skip link `#main-content`; `/feed.xml` (RSS + plain excerpt), `/manifest.webmanifest`, phân trang `/journal` + **ItemList** JSON-LD; trang **`/shop`** (search/filter/pagination/sort), **`/lookbook`** (shop-the-look hotspots), **quote request** (`/api/quote`), **showroom booking** (`/showroom`, `/api/showroom-booking`), **moodboard localStorage** (`/moodboard`), **spec sheet** (`/spec/[slug]` in/lưu PDF); anti-spam leads (honeypot + rate-limit nhẹ); import XML chuẩn hóa excerpt/meta plain text; SQL leads `scripts/sql/003_leads_tables.sql`; one-shot pipeline `npm run migrate:run-all` / `migrate:run-all:dry`; SEO slug diff + redirect candidate merge (`npm run seo:slug-diff`, `npm run seo:merge-redirect-candidates`); `docs/ROLLBACK.md`; `docs/PRELAUNCH-CHECKLIST.md`; `docs/STAGING-RUNBOOK.md`; `npm run prelaunch:check` + `npm run perf:budget` + `npm run staging:smoke`; security headers + CSP trong `next.config`.
+- **Build Oracle:** `node >=20.9` (tránh `/usr/bin/node` v16 — làm optional `@tailwindcss/oxide-*` fail). **`npm run dev` / `build` / `lint` / `migrate:*`** gọi `scripts/with-node20.sh` (ưu tiên Node trong `~/.cursor-server/.../linux-arm64/*/node`, hoặc `KAHA_NODE20=/path/node`). `npm install` vẫn có thể cảnh báo EBADENGINE nếu npm dùng Node 16 — có thể bỏ qua nếu đã cài đủ `node_modules`.
 - **Safety:** §1c master plan — không đụng site live / ERP; chỉ boundary KAHA.
-- **Next:** sau import: `psql … -f scripts/sql/002_content_nodes.sql`; XML→bảng `content_nodes` (script import sau); `NEXT_PUBLIC_MEDIA_BASE` cho ảnh trong body; remote git + GSC + logo.
+- **Next:** chạy `npm run migrate:init-inputs` để tạo `MANIFEST.json` mẫu; đặt `wordpress.xml` (hoặc `kaha.wordpress.xml` / `export.xml`) vào `docs/migration-inputs/` → `psql … -f scripts/sql/002_content_nodes.sql` + `psql … -f scripts/sql/003_leads_tables.sql` → `DATABASE_URL=…/kaha_vn npm run migrate:run-all:dry` rồi `npm run migrate:run-all -- --apply-redirects`; `migrate:audit` tự đọc XML trong thư mục đó nếu có; `NEXT_PUBLIC_MEDIA_BASE` cho ảnh trong body; chạy `KAHA_CHECK_URL=... npm run staging:smoke`; remote git + GSC + logo.

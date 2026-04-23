@@ -1,12 +1,14 @@
 #!/usr/bin/env node
 /**
  * Audit: đếm content_nodes theo Postgres; tuỳ chọn so khớp WXR (.xml).
+ * Không truyền XML → tự tìm file trong docs/migration-inputs/ nếu có.
  * DATABASE_URL …/kaha_vn
  */
 import fs from "node:fs";
 import path from "node:path";
 import { XMLParser } from "fast-xml-parser";
 import pg from "pg";
+import { resolveMigrationXml } from "./migration_inputs_resolve.mjs";
 
 const KEEP_TYPES = new Set(["post", "page", "product"]);
 
@@ -47,7 +49,8 @@ function countImportable(items) {
       extractText(item["wp:post_type"]) || extractText(item.post_type);
     const status =
       extractText(item["wp:status"]) || extractText(item.status);
-    if (status === "trash" || status === "auto-draft") {
+    // Mirror rule của importer: chỉ publish.
+    if (status !== "publish") {
       skipped++;
       continue;
     }
@@ -73,7 +76,11 @@ if (!dbUrl?.trim()) {
 }
 assertKahaDb(dbUrl);
 
-const xmlArg = process.argv[2];
+const ROOT = path.join(import.meta.dirname, "..");
+let xmlArg = process.argv[2];
+if (!xmlArg) {
+  xmlArg = resolveMigrationXml(ROOT);
+}
 
 const pool = new pg.Pool({ connectionString: dbUrl, max: 3 });
 

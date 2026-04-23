@@ -1,6 +1,8 @@
 import type { Metadata, Viewport } from "next";
 import { Inter, Playfair_Display } from "next/font/google";
 import { JsonLdOrganization } from "@/components/json-ld-organization";
+import { SkipLink } from "@/components/skip-link";
+import { JsonLdWebSite } from "@/components/json-ld-website";
 import { getSiteUrl } from "@/lib/site-url";
 import "./globals.css";
 
@@ -26,6 +28,11 @@ const site = getSiteUrl();
 
 export const metadata: Metadata = {
   metadataBase: new URL(site),
+  alternates: {
+    types: {
+      "application/rss+xml": `${site}/feed.xml`,
+    },
+  },
   title: {
     default: "KAHA.VN — Đèn cao cấp",
     template: "%s · KAHA.VN",
@@ -62,7 +69,9 @@ export default function RootLayout({
       <body
         className="min-h-full flex flex-col [font-family:var(--font-body)]"
       >
+        <SkipLink />
         <JsonLdOrganization />
+        <JsonLdWebSite />
         {children}
       </body>
     </html>

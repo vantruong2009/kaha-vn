@@ -3,50 +3,42 @@
  * Validates migration-inputs before wp-xml-to-postgres.
  * Exit 1 only with --strict when required files missing.
  */
-import fs from "node:fs";
 import path from "node:path";
+import {
+  XML_CANDIDATES,
+  existsReadable,
+  migrationInputsDir,
+  resolveMigrationXml,
+} from "./migration_inputs_resolve.mjs";
 
 const ROOT = path.join(import.meta.dirname, "..");
-const INPUT = path.join(ROOT, "docs/migration-inputs");
+const INPUT = migrationInputsDir(ROOT);
 const strict = process.argv.includes("--strict");
-
-function exists(p) {
-  try {
-    fs.accessSync(p, fs.constants.R_OK);
-    return true;
-  } catch {
-    return false;
-  }
-}
 
 let failed = false;
 const manifest = path.join(INPUT, "MANIFEST.json");
 const manifestExample = path.join(INPUT, "MANIFEST.example.json");
 
-if (!exists(manifestExample)) {
+if (!existsReadable(manifestExample)) {
   console.error("Missing MANIFEST.example.json");
   failed = true;
 }
 
-if (!exists(manifest)) {
+if (!existsReadable(manifest)) {
   console.warn(
     "[migrate] MANIFEST.json absent — copy MANIFEST.example.json → MANIFEST.json",
   );
   if (strict) failed = true;
 }
 
-const xmlCandidates = [
-  "wordpress.xml",
-  "kaha.wordpress.xml",
-  "export.xml",
-];
-const hasXml = xmlCandidates.some((f) => exists(path.join(INPUT, f)));
-
-if (!hasXml) {
+const foundXml = resolveMigrationXml(ROOT);
+if (!foundXml) {
   console.warn(
-    `[migrate] No WP XML (${xmlCandidates.join(", ")}) — place export under docs/migration-inputs/`,
+    `[migrate] No WP XML (${XML_CANDIDATES.join(", ")}) — place export under docs/migration-inputs/`,
   );
   if (strict) failed = true;
+} else {
+  console.log("[migrate] WP XML:", path.relative(ROOT, foundXml));
 }
 
 process.exit(failed ? 1 : 0);

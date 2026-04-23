@@ -6,15 +6,24 @@
     "node": ">=20.9.0"
   },
   "scripts": {
-    "dev": "next dev",
-    "build": "next build",
-    "start": "next start",
-    "lint": "eslint .",
-    "migrate:check-inputs": "node scripts/check_migration_inputs.mjs",
-    "migrate:import-seo-baseline": "node scripts/import_seo_baseline.mjs",
-    "migrate:xml-count": "node scripts/count_wp_xml_items.mjs",
-    "migrate:import-wp-xml": "node scripts/import_wp_xml_content.mjs",
-    "migrate:audit": "node scripts/audit_content_import.mjs"
+    "dev": "bash scripts/with-node20.sh node_modules/next/dist/bin/next dev -p 3102",
+    "build": "bash scripts/with-node20.sh node_modules/next/dist/bin/next build",
+    "start": "bash scripts/with-node20.sh node_modules/next/dist/bin/next start",
+    "lint": "bash scripts/with-node20.sh node_modules/eslint/bin/eslint.js .",
+    "migrate:check-inputs": "bash scripts/with-node20.sh node scripts/check_migration_inputs.mjs",
+    "migrate:init-inputs": "bash scripts/with-node20.sh node scripts/init_migration_inputs.mjs",
+    "migrate:import-seo-baseline": "bash scripts/with-node20.sh node scripts/import_seo_baseline.mjs",
+    "migrate:xml-count": "bash scripts/with-node20.sh node scripts/count_wp_xml_items.mjs",
+    "migrate:import-wp-xml": "bash scripts/with-node20.sh node scripts/import_wp_xml_content.mjs",
+    "migrate:import-wp-xml:auto": "bash scripts/with-node20.sh node scripts/import_wp_xml_auto.mjs",
+    "migrate:run-all": "bash scripts/with-node20.sh node scripts/migration_run_all.mjs",
+    "migrate:run-all:dry": "bash scripts/with-node20.sh node scripts/migration_run_all.mjs --dry-run",
+    "migrate:audit": "bash scripts/with-node20.sh node scripts/audit_content_import.mjs",
+    "seo:slug-diff": "bash scripts/with-node20.sh node scripts/seo_slug_diff.mjs",
+    "seo:merge-redirect-candidates": "bash scripts/with-node20.sh node scripts/merge_redirect_candidates.mjs",
+    "prelaunch:check": "bash scripts/with-node20.sh node scripts/prelaunch_check.mjs",
+    "perf:budget": "bash scripts/with-node20.sh node scripts/perf_budget_check.mjs",
+    "staging:smoke": "bash scripts/with-node20.sh node scripts/staging_smoke.mjs"
   },
   "dependencies": {
     "next": "16.2.4",
