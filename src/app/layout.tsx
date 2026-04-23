@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Inter, Playfair_Display } from "next/font/google";
+import { getSiteUrl } from "@/lib/site-url";
 import "./globals.css";
 
 const fontDisplay = Playfair_Display({
@@ -17,6 +18,7 @@ const fontBody = Inter({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL(getSiteUrl()),
   title: {
     default: "KAHA.VN — Đèn cao cấp",
     template: "%s · KAHA.VN",

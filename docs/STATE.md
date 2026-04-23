@@ -4,4 +4,4 @@
 - **Stack:** Next 16 / React 19 / Tailwind 4 (`src/app`, Obsidian tokens + platinum trong `globals.css`).
 - **Build Oracle:** `node >=20.9` (tránh `/usr/bin/node` v16 — làm optional `@tailwindcss/oxide-*` fail). Cursor bundle: `/home/opc/.cursor-server/bin/linux-arm64/.../node`.
 - **Safety:** §1c master plan — không đụng site live / ERP; chỉ boundary KAHA.
-- **Next:** `git remote add origin`; crawl đủ cột → `docs/seo-baseline/kaha-YYYYMMDD.csv`; GSC export; logo PNG → `public/images/logo.png`; WP XML export khi sẵn.
+- **Next:** `git remote add origin`; merge crawl thật vào seed CSV hoặc thay bằng export Screaming Frog; GSC export; `public/images/logo.png`; WP XML khi sẵn.
