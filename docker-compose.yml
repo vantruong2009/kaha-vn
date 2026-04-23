@@ -1,13 +1,15 @@
-# Chỉ stack KAHA — không đụng service site khác. Bind loopback.
+# Chỉ stack KAHA — không đụng service site khác.
+# network_mode: host để DATABASE_URL dùng 127.0.0.1:5432 tới Postgres trên cùng máy (bridge 127.0.0.1 = container).
 services:
   kaha-vn:
     build: .
     image: kaha-vn:local
-    # Nạp DATABASE_URL / NEXT_PUBLIC_* từ máy Oracle (không vào image — .dockerignore .env*).
+    network_mode: host
     env_file:
       - .env.local
-    ports:
-      - "127.0.0.1:3102:3102"
+    environment:
+      HOSTNAME: "127.0.0.1"
+      PORT: "3102"
     healthcheck:
       test:
         [
