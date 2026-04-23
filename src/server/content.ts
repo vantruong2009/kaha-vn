@@ -15,6 +15,35 @@ export type ContentNode = {
   published_at: string | null;
 };
 
+export type ProductTeaser = {
+  slug: string;
+  title: string | null;
+  excerpt: string | null;
+  featured_image_source_url: string | null;
+};
+
+/** Sản phẩm mới nhất (trang chủ). Trả [] nếu không có DB hoặc lỗi. */
+export async function getFeaturedProducts(
+  limit = 6,
+): Promise<ProductTeaser[]> {
+  if (!process.env.DATABASE_URL?.trim()) return [];
+
+  try {
+    const pool = getPool();
+    const r = await pool.query<ProductTeaser>(
+      `SELECT slug, title, excerpt, featured_image_source_url
+       FROM content_nodes
+       WHERE post_type = 'product' AND status = 'publish'
+       ORDER BY COALESCE(published_at, imported_at) DESC NULLS LAST
+       LIMIT $1`,
+      [limit],
+    );
+    return r.rows;
+  } catch {
+    return [];
+  }
+}
+
 export async function getContentBySlugPath(
   segments: string[],
 ): Promise<ContentNode | null> {

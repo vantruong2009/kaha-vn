@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Image from "next/image";
+import { JsonLdArticle } from "@/components/json-ld-article";
 import { SiteFooter } from "@/components/site-footer";
 import { SiteHeader } from "@/components/site-header";
 import { rewriteKahaMediaUrls } from "@/lib/rewrite-kaha-media-url";
@@ -76,10 +77,25 @@ export default async function LegacyPathPlaceholder({ params }: Props) {
       : null;
     const heroAlt = (content.title ?? "").trim() || "KAHA";
 
+    const base = getSiteUrl();
+    const articleUrl = `${base}/${segs.filter(Boolean).join("/")}`;
+    const headline = (content.seo_title || content.title || path).trim();
+    const articleDesc = (
+      content.seo_description ||
+      content.excerpt ||
+      ""
+    ).trim();
+
     return (
       <div className="flex min-h-full flex-col bg-paper-warm">
         <SiteHeader />
         <article className="flex-1 px-5 py-16 md:px-12">
+          <JsonLdArticle
+            url={articleUrl}
+            headline={headline}
+            description={articleDesc || undefined}
+            datePublished={content.published_at}
+          />
           <header className="mx-auto max-w-3xl">
             <p className="text-[13px] font-medium uppercase tracking-[0.08em] text-ink-500">
               {content.post_type}

@@ -1,12 +1,16 @@
 import type { Metadata } from "next";
+import { ProductTeaserGrid } from "@/components/product-teaser-grid";
 import { SiteFooter } from "@/components/site-footer";
 import { SiteHeader } from "@/components/site-header";
+import { getFeaturedProducts } from "@/server/content";
 
 export const metadata: Metadata = {
   alternates: { canonical: "/" },
 };
 
-export default function Home() {
+export default async function Home() {
+  const products = await getFeaturedProducts(6);
+
   return (
     <div className="flex min-h-full flex-1 flex-col bg-paper-warm">
       <SiteHeader />
@@ -19,13 +23,18 @@ export default function Home() {
             Ánh sáng dẫn không gian
           </h1>
           <p className="mt-6 max-w-lg text-base leading-relaxed text-ink-700">
-            Đèn trang trí cao cấp — bản Next.js đang khởi tạo (Obsidian / platinum).
+            Đèn trang trí cao cấp — Obsidian / platinum; nội dung từ Postgres sau
+            import.
           </p>
-          <p className="mt-4 text-sm font-medium text-platinum-deep">
-            Giá & catalogue — sắp có
-          </p>
+          {products.length === 0 ? (
+            <p className="mt-4 text-sm font-medium text-platinum-deep">
+              Thêm sản phẩm trong DB hoặc chạy import WP XML.
+            </p>
+          ) : null}
         </div>
       </main>
+
+      <ProductTeaserGrid items={products} />
 
       <SiteFooter />
     </div>
