@@ -1,0 +1,14 @@
+{
+  "url": "https://kaha.vn/",
+  "captured_utc": "2026-04-23",
+  "source": "live HTML",
+  "status_note": "Rank Math schema on page; relative URLs in JSON-LD",
+  "title": "Kaha® - Đèn Vải Trang Trí & Chụp Đèn Khách Sạn 5 sao",
+  "meta_description": "Kaha® chuyên sản xuất 100+ mẫu đèn vải trang trí, chụp đèn khách sạn cao cấp. Xưởng gia công đèn vải uy tín, giá sỉ tận gốc tại TPHCM. Mua ngay để nhận ưu đãi!",
+  "robots": "follow, index, max-snippet:-1, max-video-preview:-1, max-image-preview:large",
+  "canonical_expected": "https://kaha.vn/",
+  "og_title": "Kaha® - Đèn Vải Trang Trí & Chụp Đèn Khách Sạn 5 sao",
+  "og_image_path": "/wp-content/uploads/2021/11/Kaha-Living-Avatar1.jpg",
+  "json_ld_types": ["Organization", "WebSite", "WebPage", "ImageObject", "Person", "Article"],
+  "sitemap_index": "https://kaha.vn/sitemap_index.xml"
+}

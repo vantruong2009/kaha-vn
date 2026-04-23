@@ -1,0 +1,59 @@
+---
+description: KAHA.VN enterprise migration umbrella rule, always active when working on KAHA
+alwaysApply: false
+globs: ["**/kaha-vn/**", "**/kaha.vn/**", "docs/KAHA-VN-*.md"]
+---
+
+# KAHA.VN Migration Rule
+
+## First action
+Always read `docs/KAHA-VN-MASTER-PLAN.md` before planning or coding.
+
+## Zero-wander mandate
+- Never re-explore what is already documented in master plan or existing skills.
+- Never narrate intent; execute the next concrete action.
+- Never retry a failed command without changing inputs. Diagnose or escalate model.
+- Never re-read a file written in the same session.
+- Stop at 5 exploration calls without an edit plan. Write plan, then act.
+- Deliver only what the user asked. No bonus suggestions unless requested.
+Detail: see `agent-economy` skill, section 0.
+
+## Hard constraints
+- **Live sites + ERP:** Không thao tác làm mất hoặc ghi đè dữ liệu các site đang chạy, ERP, hoặc DB/API không thuộc scope KAHA. Chỉ dùng DB `kaha_vn`, prefix R2 `kaha/`, port **3102**. Không `DROP`/`TRUNCATE` DB chung; không đổi schema bảng dùng chung với site khác.
+- Do NOT touch `longdenviet.com` app, data, DNS, nginx vhost, Cloudflare record.
+- Do NOT change any slug from source kaha.vn WP without 301 map.
+- Do NOT deploy to Vultr port 3100 or 3101. KAHA uses 3102.
+- Do NOT redesign away from Obsidian tokens without user approval.
+- WooCommerce orders: không migrate (ngoài phạm vi; không import).
+
+## Environment (SSH → Oracle)
+- Work happens on Oracle VPS (`opc@129.150.50.69`) via Cursor Remote SSH, not on MacBook.
+- Project root: `/home/opc/cursor-workspace/projects/kaha-vn/`.
+- Preserve `chmod 700` on project directory and `chmod 600` on sensitive files.
+- Never write project files under `/tmp` or outside the project root.
+- Never `chmod 755` or `chmod 644` on project files — break the private-by-default guarantee.
+- Do not copy project files back to MacBook filesystem except through `git clone`.
+
+## Routing of work
+- Broad search / repo understanding → `explore` subagent.
+- Bulk mechanical edits → `composer-2-fast` or `shell` subagent.
+- Architecture, SEO strategy, security review → main agent on Opus.
+- Feature code implementation → Sonnet.
+- Commit message, format, small text → Haiku.
+Details: see `agent-economy` skill.
+
+## SEO guarantee
+Any change to URL, title, description, canonical, schema must run through `seo-baseline-preserve` skill diff check before commit.
+
+## Token economy
+- Never read full source file when `Grep`/`Glob` can answer.
+- Always `TodoWrite` for 3+ step tasks, never narrate plan in prose.
+- Batch independent tool calls in one message.
+- Reuse existing 7-sites skills, never re-explain WP export / R2 upload procedures.
+
+## Reference index
+- Master plan: `docs/KAHA-VN-MASTER-PLAN.md`
+- Design: `.cursor/skills/kaha-design-obsidian/SKILL.md`
+- SEO: `~/.cursor/skills/seo-baseline-preserve/SKILL.md`
+- Agent economy: `~/.cursor/skills/agent-economy/SKILL.md`
+- 7-sites base flow: `.cursor/rules/kaha-7-sites-migration.mdc`

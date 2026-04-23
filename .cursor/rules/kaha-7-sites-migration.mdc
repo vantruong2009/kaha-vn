@@ -1,0 +1,85 @@
+---
+description: Enforce KAHA 7-sites WP to Next migration workflow
+alwaysApply: true
+---
+
+# KAHA 7-Sites Migration Rule
+
+## Primary goals
+- Keep content accurate (text + image).
+- Keep legacy slugs unchanged for SEO.
+- Ensure mobile responsiveness.
+- Improve speed vs old WordPress sites.
+
+## Required architecture
+- MacBook: controller + localhost dev.
+- Oracle: migration factory + staging.
+- Vultr: production.
+- Cloudflare: DNS + SSL + Edge.
+- Cloudflare R2: media storage.
+
+## Hard constraints
+- Do not redesign UI without explicit user request.
+- Do not change slugs unless explicitly requested.
+- Do not use `revalidatePath(..., 'layout')`.
+- Do not use `runtime = 'edge'` for self-hosted VPS runtime.
+- Do not cut over production before staging checks pass.
+
+## Zero-wander mandate (highest priority)
+- Execute the next concrete action. Do not narrate, summarise, or re-confirm.
+- Never re-read a file already read this session; reference prior content.
+- Two identical failures = stop and diagnose root cause, never a third retry.
+- Cap exploration at 5 read/grep calls, then write plan and act.
+- Reply with action + one-line result. No preamble, no apology paragraphs.
+- Deliver strictly what user asked, no volunteered extras.
+Full detail in `agent-economy` skill section 0.
+
+## 7 sites queue (priority order)
+1. dengiasi.com       — has XML + products.xml + uploads
+2. longdengiare.com   — ~70% done on Oracle, needs media fix
+3. denthavai.com
+4. denvai.vn
+5. kaha.vn
+6. maytrexanh.com
+7. longdengiasi.com
+
+## What to KEEP from WP
+- post_type: post, page, product
+- All slugs (never change without 301)
+- Featured images (rewrite URL to R2)
+- Categories + tags
+- SEO meta (Yoast: title, desc, focus keyword)
+- Schema JSON-LD
+
+## What to DISCARD from WP
+- shop_orders, attachments, nav_menu_item, amp_validated_url, wp_global_styles
+- WP shortcodes: [gallery], [caption], [vc_row], [vc_column], all [/*] tags
+- WP block comments: <!-- wp:... --> <!-- /wp:... -->
+- Elementor/Visual Composer markup
+- WP sidebar widgets
+- WP comments
+
+## Standard per-site flow
+1. Parse XML → audit counts (wp-xml-to-postgres skill).
+2. Upload media to R2 (r2-upload-and-verify skill).
+3. Clone longdenviet skeleton + apply brand (site-brand-apply skill).
+4. Import data to Postgres (postgres-import-audit skill).
+5. Test localhost (content/slug/image/mobile).
+6. Deploy Oracle staging.
+7. Run pre-launch checks (site-launch-checklist skill).
+8. Cut over Vultr + Cloudflare DNS (staging-to-production-cutover skill).
+
+## Pre-live checklist
+- Critical 404 issues = 0.
+- Redirects verified.
+- Sitemap and robots valid.
+- Images load correctly.
+- GA/GSC verification completed.
+
+## Skill file locations
+- wp-xml-to-postgres: .cursor/skills/wp-xml-to-postgres/SKILL.md
+- site-brand-apply: .cursor/skills/site-brand-apply/SKILL.md
+- site-launch-checklist: .cursor/skills/site-launch-checklist/SKILL.md
+- r2-upload-and-verify: .cursor/skills/r2-upload-and-verify/SKILL.md
+- postgres-import-audit: .cursor/skills/postgres-import-audit/SKILL.md
+- staging-to-production-cutover: .cursor/skills/staging-to-production-cutover/SKILL.md
