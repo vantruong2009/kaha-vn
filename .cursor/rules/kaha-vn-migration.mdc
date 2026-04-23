@@ -57,6 +57,15 @@ Any change to URL, title, description, canonical, schema must run through `seo-b
 - Cập nhật `docs/STATE.md` trong batch **không** đồng nghĩa phải đọc lại bảng % trong chat — chỉ nhắc tiến độ trong **một** khối cuối.
 - User có thể siết thêm một dòng trong prompt: *«Không báo cáo giữa chừng; chỉ báo khi xong / khi stuck.»*
 
+## Chạy tới live (ưu tiên làm tiếp, chỉ dừng khi thật cần)
+- Ưu tiên đẩy luồng đến **staging → cutover → live** theo master plan + skill; trong một lượt làm **tối đa** bước khả thi **không** chờ chat xác nhận giữa chừng cho việc cơ học có thể hoàn tác (`git`/file trong repo).
+- **Chỉ** dừng và hỏi user khi **một** trong các trường hợp:
+  - Quyết định **quan trọng** không có mặc định chuẩn trong master plan/skills và không suy ra an toàn được.
+  - Thiếu **secret / credential / file** không có trong workspace (GitHub remote URL, Cloudflare/DNS, `DATABASE_URL` production, XML export thật, v.v.).
+  - Hành động **nguy hiểm** vượt boundary (site live khác, ERP, DB không phải `kaha_vn`) — phải xin xác nhận rõ ràng.
+  - **Không làm được kỹ thuật** trong môi trường hiện tại (không root, không mạng, provider chặn) sau khi đã thử phương án thay thế.
+- Không dừng để “xin phép” các bước đã được rule/skill cho phép và có thể revert.
+
 ## Reference index
 - Master plan: `docs/KAHA-VN-MASTER-PLAN.md`
 - Design: `.cursor/skills/kaha-design-obsidian/SKILL.md`
