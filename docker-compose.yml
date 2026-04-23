@@ -3,9 +3,9 @@ services:
   kaha-vn:
     build: .
     image: kaha-vn:local
-    environment:
-      NEXT_PUBLIC_SITE_URL: https://kaha.vn
-      KAHA_SITEMAP_MODE: minimal
+    # Nạp DATABASE_URL / NEXT_PUBLIC_* từ máy Oracle (không vào image — .dockerignore .env*).
+    env_file:
+      - .env.local
     ports:
       - "127.0.0.1:3102:3102"
     healthcheck:

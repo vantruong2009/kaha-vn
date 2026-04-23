@@ -4,7 +4,7 @@ Runbook rút gọn để kiểm tra staging trước cutover.
 
 ## 1. Chuẩn bị env
 
-- Copy `.env.example` -> `.env.local` (hoặc env compose).
+- Copy `.env.example` -> `.env.local` tại root project. `docker compose` **đọc** `.env.local` qua `env_file` (không đóng gói vào image).
 - Bắt buộc:
   - `NEXT_PUBLIC_SITE_URL=https://staging.kaha.vn` (hoặc URL staging thật)
   - `DATABASE_URL=.../kaha_vn`
