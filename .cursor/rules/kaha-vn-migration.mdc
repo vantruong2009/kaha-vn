@@ -51,6 +51,12 @@ Any change to URL, title, description, canonical, schema must run through `seo-b
 - Batch independent tool calls in one message.
 - Reuse existing 7-sites skills, never re-explain WP export / R2 upload procedures.
 
+## Batch work / báo cáo (tránh spam sau mỗi commit)
+- Khi user nói **tiếp tục** / làm hàng loạt bước migration: **không** trả lời chat sau mỗi commit hoặc sau mỗi file — làm liền mạch trong cùng lượt (nhiều commit/tool ok).
+- **Một** phản hồi tóm tắt cho user **chỉ khi**: (1) hết việc trong lượt đó, (2) bị chặn cần input, (3) đạt milestone user ghi rõ (vd. «xong P1»).
+- Cập nhật `docs/STATE.md` trong batch **không** đồng nghĩa phải đọc lại bảng % trong chat — chỉ nhắc tiến độ trong **một** khối cuối.
+- User có thể siết thêm một dòng trong prompt: *«Không báo cáo giữa chừng; chỉ báo khi xong / khi stuck.»*
+
 ## Reference index
 - Master plan: `docs/KAHA-VN-MASTER-PLAN.md`
 - Design: `.cursor/skills/kaha-design-obsidian/SKILL.md`
