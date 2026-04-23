@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { SiteFooter } from "@/components/site-footer";
 import { SiteHeader } from "@/components/site-header";
 
 export const metadata: Metadata = {
@@ -26,11 +27,7 @@ export default function Home() {
         </div>
       </main>
 
-      <footer className="border-t border-hairline px-5 py-8 md:px-12">
-        <p className="text-[13px] uppercase tracking-[0.08em] text-ink-500">
-          © KAHA.VN
-        </p>
-      </footer>
+      <SiteFooter />
     </div>
   );
 }
