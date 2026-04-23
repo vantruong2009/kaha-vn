@@ -1,0 +1,8 @@
+# Chỉ stack KAHA — không đụng service site khác. Bind loopback.
+services:
+  kaha-vn:
+    build: .
+    image: kaha-vn:local
+    ports:
+      - "127.0.0.1:3102:3102"
+    restart: unless-stopped

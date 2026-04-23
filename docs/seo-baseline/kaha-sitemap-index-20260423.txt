@@ -1,4 +1,3 @@
-https://kaha.vn/sitemap_index.xml
 https://kaha.vn/post-sitemap1.xml
 https://kaha.vn/post-sitemap2.xml
 https://kaha.vn/page-sitemap.xml
