@@ -14,7 +14,7 @@ Runbook rút gọn để kiểm tra staging trước cutover.
 
 - `npm run lint`
 - `npm run build`
-- `docker compose up -d --build` (`network_mode: host` + `HOSTNAME=127.0.0.1` — app và Postgres cùng stack loopback trên Oracle)
+- `docker compose --env-file .env.local up -d --build` (`network_mode: host` + `HOSTNAME=127.0.0.1` — để **build** nhận `NEXT_PUBLIC_MEDIA_BASE` / `NEXT_PUBLIC_SITE_URL` vì `.env.local` không nằm trong Docker build context)
 - `curl -s http://127.0.0.1:3102/api/health`
 
 ## 3. Smoke + budget

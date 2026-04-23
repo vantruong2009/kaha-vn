@@ -2,6 +2,26 @@ import type { NextConfig } from "next";
 import fs from "node:fs";
 import path from "node:path";
 
+function mediaBaseRemotePattern(): {
+  protocol: "https" | "http";
+  hostname: string;
+  pathname: string;
+} | null {
+  const raw = process.env.NEXT_PUBLIC_MEDIA_BASE?.trim();
+  if (!raw) return null;
+  try {
+    const u = new URL(raw);
+    const proto = u.protocol === "http:" ? "http" : "https";
+    const path =
+      u.pathname && u.pathname !== "/"
+        ? `${u.pathname.replace(/\/+$/, "")}/**`
+        : "/**";
+    return { protocol: proto, hostname: u.hostname, pathname: path };
+  } catch {
+    return null;
+  }
+}
+
 const csp = [
   "default-src 'self'",
   "base-uri 'self'",
@@ -13,6 +33,27 @@ const csp = [
   "frame-ancestors 'self'",
   "form-action 'self'",
 ].join("; ");
+
+const imageRemotePatterns = [
+  {
+    protocol: "https" as const,
+    hostname: "kaha.vn",
+    pathname: "/wp-content/uploads/**",
+  },
+  {
+    protocol: "https" as const,
+    hostname: "www.kaha.vn",
+    pathname: "/wp-content/uploads/**",
+  },
+  { protocol: "https" as const, hostname: "**.r2.dev", pathname: "/**" },
+  {
+    protocol: "https" as const,
+    hostname: "**.r2.cloudflarestorage.com",
+    pathname: "/**",
+  },
+];
+const mediaExtra = mediaBaseRemotePattern();
+if (mediaExtra) imageRemotePatterns.push(mediaExtra);
 
 const nextConfig: NextConfig = {
   output: "standalone",
@@ -57,24 +98,7 @@ const nextConfig: NextConfig = {
     ];
   },
   images: {
-    remotePatterns: [
-      {
-        protocol: "https",
-        hostname: "kaha.vn",
-        pathname: "/wp-content/uploads/**",
-      },
-      {
-        protocol: "https",
-        hostname: "www.kaha.vn",
-        pathname: "/wp-content/uploads/**",
-      },
-      { protocol: "https", hostname: "**.r2.dev", pathname: "/**" },
-      {
-        protocol: "https",
-        hostname: "**.r2.cloudflarestorage.com",
-        pathname: "/**",
-      },
-    ],
+    remotePatterns: imageRemotePatterns,
   },
 };
 

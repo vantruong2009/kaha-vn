@@ -2,7 +2,12 @@
 # network_mode: host để DATABASE_URL dùng 127.0.0.1:5432 tới Postgres trên cùng máy (bridge 127.0.0.1 = container).
 services:
   kaha-vn:
-    build: .
+    build:
+      context: .
+      args:
+        # Build cần NEXT_PUBLIC_* (dockerignore loại .env*). Dùng: docker compose --env-file .env.local up -d --build
+        NEXT_PUBLIC_MEDIA_BASE: ${NEXT_PUBLIC_MEDIA_BASE:-}
+        NEXT_PUBLIC_SITE_URL: ${NEXT_PUBLIC_SITE_URL:-}
     image: kaha-vn:local
     network_mode: host
     env_file:
