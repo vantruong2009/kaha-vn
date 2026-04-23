@@ -50,6 +50,11 @@ const nextConfig: NextConfig = {
         hostname: "kaha.vn",
         pathname: "/wp-content/uploads/**",
       },
+      {
+        protocol: "https",
+        hostname: "www.kaha.vn",
+        pathname: "/wp-content/uploads/**",
+      },
       { protocol: "https", hostname: "**.r2.dev", pathname: "/**" },
       {
         protocol: "https",

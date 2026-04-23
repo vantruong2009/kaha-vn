@@ -1,9 +1,28 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import { SiteFooter } from "@/components/site-footer";
 import { SiteHeader } from "@/components/site-header";
 import { rewriteKahaMediaUrls } from "@/lib/rewrite-kaha-media-url";
 import { getSiteUrl } from "@/lib/site-url";
 import { getContentBySlugPath } from "@/server/content";
+
+function featuredSrcForDisplay(url: string): string {
+  return rewriteKahaMediaUrls(url).trim();
+}
+
+function useNextImageForRemote(src: string): boolean {
+  try {
+    const h = new URL(src).hostname;
+    return (
+      h === "kaha.vn" ||
+      h === "www.kaha.vn" ||
+      h.endsWith(".r2.dev") ||
+      h.includes("r2.cloudflarestorage.com")
+    );
+  } catch {
+    return false;
+  }
+}
 
 type Props = { params: Promise<{ slug: string[] }> };
 
@@ -22,11 +41,15 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       content.excerpt ||
       ""
     ).trim();
+    const ogImage = content.featured_image_source_url
+      ? featuredSrcForDisplay(content.featured_image_source_url)
+      : undefined;
     return {
       title,
       description: description || undefined,
       alternates: { canonical },
       robots: { index: true, follow: true },
+      openGraph: ogImage ? { images: [{ url: ogImage }] } : undefined,
     };
   }
 
@@ -48,6 +71,11 @@ export default async function LegacyPathPlaceholder({ params }: Props) {
       ? rewriteKahaMediaUrls(content.body_html)
       : null;
 
+    const hero = content.featured_image_source_url
+      ? featuredSrcForDisplay(content.featured_image_source_url)
+      : null;
+    const heroAlt = (content.title ?? "").trim() || "KAHA";
+
     return (
       <div className="flex min-h-full flex-col bg-paper-warm">
         <SiteHeader />
@@ -66,7 +94,35 @@ export default async function LegacyPathPlaceholder({ params }: Props) {
                 {content.excerpt}
               </p>
             ) : null}
+            {(content.categories?.length || content.tags?.length) ? (
+              <p className="mt-4 text-[13px] uppercase tracking-[0.06em] text-ink-500">
+                {[...(content.categories ?? []), ...(content.tags ?? [])].join(
+                  " · ",
+                )}
+              </p>
+            ) : null}
           </header>
+          {hero ? (
+            <div className="relative mx-auto mt-10 aspect-[4/5] w-full max-w-xl overflow-hidden bg-hairline">
+              {useNextImageForRemote(hero) ? (
+                <Image
+                  src={hero}
+                  alt={heroAlt}
+                  fill
+                  className="object-cover"
+                  sizes="(max-width: 768px) 100vw, 576px"
+                  priority
+                />
+              ) : (
+                // eslint-disable-next-line @next/next/no-img-element -- host ngoài chưa khai báo remotePatterns
+                <img
+                  src={hero}
+                  alt={heroAlt}
+                  className="h-full w-full object-cover"
+                />
+              )}
+            </div>
+          ) : null}
           {html ? (
             <div
               className="mx-auto mt-12 max-w-3xl space-y-4 text-base leading-relaxed text-ink-800 [&_a]:text-platinum-deep [&_a]:underline [&_h2]:mt-10 [&_h2]:font-semibold [&_h2]:text-ink-900 [&_img]:my-6 [&_img]:max-w-full [&_p]:my-4"
