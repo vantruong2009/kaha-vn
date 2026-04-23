@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Inter, Playfair_Display } from "next/font/google";
 import { JsonLdOrganization } from "@/components/json-ld-organization";
 import { getSiteUrl } from "@/lib/site-url";
@@ -18,14 +18,35 @@ const fontBody = Inter({
   display: "swap",
 });
 
+export const viewport: Viewport = {
+  themeColor: "#faf8f5",
+};
+
+const site = getSiteUrl();
+
 export const metadata: Metadata = {
-  metadataBase: new URL(getSiteUrl()),
+  metadataBase: new URL(site),
   title: {
     default: "KAHA.VN — Đèn cao cấp",
     template: "%s · KAHA.VN",
   },
   description:
     "KAHA.VN — chiếu sáng cao cấp, thiết kế editorial.",
+  openGraph: {
+    type: "website",
+    locale: "vi_VN",
+    url: site,
+    siteName: "KAHA.VN",
+    title: "KAHA.VN — Đèn cao cấp",
+    description:
+      "KAHA.VN — chiếu sáng cao cấp, thiết kế editorial.",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "KAHA.VN — Đèn cao cấp",
+    description:
+      "KAHA.VN — chiếu sáng cao cấp, thiết kế editorial.",
+  },
 };
 
 export default function RootLayout({
