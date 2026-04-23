@@ -1,11 +1,14 @@
+import type { Metadata } from "next";
+import { SiteHeader } from "@/components/site-header";
+
+export const metadata: Metadata = {
+  alternates: { canonical: "/" },
+};
+
 export default function Home() {
   return (
     <div className="flex min-h-full flex-1 flex-col bg-paper-warm">
-      <header className="border-b border-hairline px-5 py-6 md:px-12">
-        <span className="text-[13px] font-medium uppercase tracking-[0.08em] text-ink-500">
-          KAHA.VN
-        </span>
-      </header>
+      <SiteHeader />
 
       <main className="flex flex-1 flex-col justify-center px-5 py-16 md:px-12 md:py-[120px]">
         <div className="mx-auto max-w-[720px] text-center md:text-left">

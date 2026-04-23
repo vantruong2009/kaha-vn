@@ -3,6 +3,8 @@ services:
   kaha-vn:
     build: .
     image: kaha-vn:local
+    environment:
+      NEXT_PUBLIC_SITE_URL: https://kaha.vn
     ports:
       - "127.0.0.1:3102:3102"
     restart: unless-stopped

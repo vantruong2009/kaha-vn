@@ -4,4 +4,4 @@
 - **Stack:** Next 16 / React 19 / Tailwind 4 (`src/app`, Obsidian tokens + platinum trong `globals.css`).
 - **Build Oracle:** `node >=20.9` (tránh `/usr/bin/node` v16 — làm optional `@tailwindcss/oxide-*` fail). Cursor bundle: `/home/opc/.cursor-server/bin/linux-arm64/.../node`.
 - **Safety:** §1c master plan — không đụng site live / ERP; chỉ boundary KAHA.
-- **Next:** `git remote add origin`; merge crawl thật vào seed CSV hoặc thay bằng export Screaming Frog; GSC export; `public/images/logo.png`; WP XML khi sẵn.
+- **Next:** `git remote add origin`; đặt WP XML vào `docs/migration-inputs/`; merge crawl → CSV; GSC; `public/images/logo.png`.

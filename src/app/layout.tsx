@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Inter, Playfair_Display } from "next/font/google";
+import { JsonLdOrganization } from "@/components/json-ld-organization";
 import { getSiteUrl } from "@/lib/site-url";
 import "./globals.css";
 
@@ -40,6 +41,7 @@ export default function RootLayout({
       <body
         className="min-h-full flex flex-col [font-family:var(--font-body)]"
       >
+        <JsonLdOrganization />
         {children}
       </body>
     </html>

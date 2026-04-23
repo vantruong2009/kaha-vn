@@ -40,3 +40,7 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# Local-only migration drops (add with git add -f if needed)
+docs/migration-inputs/*
+!docs/migration-inputs/.gitkeep
