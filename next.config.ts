@@ -3,7 +3,7 @@ import fs from "node:fs";
 import path from "node:path";
 
 function mediaBaseRemotePattern(): {
-  protocol: "https" | "http";
+  protocol: "https";
   hostname: string;
   pathname: string;
 } | null {
@@ -11,12 +11,11 @@ function mediaBaseRemotePattern(): {
   if (!raw) return null;
   try {
     const u = new URL(raw);
-    const proto = u.protocol === "http:" ? "http" : "https";
     const path =
       u.pathname && u.pathname !== "/"
         ? `${u.pathname.replace(/\/+$/, "")}/**`
         : "/**";
-    return { protocol: proto, hostname: u.hostname, pathname: path };
+    return { protocol: "https", hostname: u.hostname, pathname: path };
   } catch {
     return null;
   }
