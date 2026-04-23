@@ -18,7 +18,7 @@ const argv = process.argv.slice(2);
 const dryRun = argv.includes("--dry-run");
 const applyRedirects = argv.includes("--apply-redirects");
 
-function loadEnvFile(absPath) {
+function loadEnvFile(absPath, override = false) {
   if (!fs.existsSync(absPath)) return;
   const raw = fs.readFileSync(absPath, "utf8");
   for (const line of raw.split(/\r?\n/)) {
@@ -28,13 +28,13 @@ function loadEnvFile(absPath) {
     if (i < 1) continue;
     const k = t.slice(0, i).trim();
     const v = t.slice(i + 1).trim().replace(/^['"]|['"]$/g, "");
-    if (!(k in process.env)) process.env[k] = v;
+    if (override || !(k in process.env)) process.env[k] = v;
   }
 }
 
-// Auto-load DATABASE_URL from local env files if available.
-loadEnvFile(path.join(ROOT, ".env.local"));
+// `.env` defaults; `.env.local` wins (avoids stale DATABASE_URL from shell).
 loadEnvFile(path.join(ROOT, ".env"));
+loadEnvFile(path.join(ROOT, ".env.local"), true);
 
 const dbUrl = process.env.DATABASE_URL?.trim();
 if (!dbUrl) {

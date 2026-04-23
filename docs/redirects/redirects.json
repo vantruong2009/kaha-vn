@@ -1,1 +1,1302 @@
-[]
+[
+  {
+    "source": "/blog",
+    "destination": "/journal",
+    "permanent": true
+  },
+  {
+    "source": "/tag/5-sao",
+    "destination": "/journal",
+    "permanent": true
+  },
+  {
+    "source": "/tag/an-uong",
+    "destination": "/journal",
+    "permanent": true
+  },
+  {
+    "source": "/tag/anh-sang",
+    "destination": "/journal",
+    "permanent": true
+  },
+  {
+    "source": "/tag/anh-sang-den",
+    "destination": "/journal",
+    "permanent": true
+  },
+  {
+    "source": "/tag/anh-sang-den-cho-nha-hang",
+    "destination": "/journal",
+    "permanent": true
+  },
+  {
+    "source": "/tag/ban-chao-den-ngu",
+    "destination": "/journal",
+    "permanent": true
+  },
+  {
+    "source": "/tag/ban-den-long",
+    "destination": "/journal",
+    "permanent": true
+  },
+  {
+    "source": "/tag/ban-den-long-gia-re",
+    "destination": "/journal",
+    "permanent": true
+  },
+  {
+    "source": "/tag/ban-den-long-tai-hcm",
+    "destination": "/journal",
+    "permanent": true
+  },
+  {
+    "source": "/tag/ban-den-long-tai-hn",
+    "destination": "/journal",
+    "permanent": true
+  },
+  {
+    "source": "/tag/ban-den-trai-tim",
+    "destination": "/journal",
+    "permanent": true
+  },
+  {
+    "source": "/tag/ban-si-den-nhat",
+    "destination": "/journal",
+    "permanent": true
+  },
+  {
+    "source": "/tag/ban-si-den-trang-tri",
+    "destination": "/journal",
+    "permanent": true
+  },
+  {
+    "source": "/tag/ban-si-den-trung-thu",
+    "destination": "/journal",
+    "permanent": true
+  },
+  {
+    "source": "/tag/ban-si-mua-trung-thu",
+    "destination": "/journal",
+    "permanent": true
+  },
+  {
+    "source": "/tag/banh-trung-thu",
+    "destination": "/journal",
+    "permanent": true
+  },
+  {
+    "source": "/tag/biet-thu",
+    "destination": "/journal",
+    "permanent": true
+  },
+  {
+    "source": "/tag/bo-tri-den",
+    "destination": "/journal",
+    "permanent": true
+  },
+  {
+    "source": "/tag/ca-phe",
+    "destination": "/journal",
+    "permanent": true
+  },
+  {
+    "source": "/tag/cach-bung-den",
+    "destination": "/journal",
+    "permanent": true
+  },
+  {
+    "source": "/tag/cach-lam-chup-den-vai",
+    "destination": "/journal",
+    "permanent": true
+  },
+  {
+    "source": "/tag/cach-lam-den-trung-thu",
+    "destination": "/journal",
+    "permanent": true
+  },
+  {
+    "source": "/tag/cach-mo-den-long-hoi-an",
+    "destination": "/journal",
+    "permanent": true
+  },
+  {
+    "source": "/tag/cafe",
+    "destination": "/journal",
+    "permanent": true
+  },
+  {
+    "source": "/tag/cafe-sach",
+    "destination": "/journal",
+    "permanent": true
+  },
+  {
+    "source": "/tag/cafe-san-vuon",
+    "destination": "/journal",
+    "permanent": true
+  },
+  {
+    "source": "/tag/can-phong",
+    "destination": "/journal",
+    "permanent": true
+  },
+  {
+    "source": "/tag/cao-cap",
+    "destination": "/journal",
+    "permanent": true
+  },
+  {
+    "source": "/tag/chan-go",
+    "destination": "/journal",
+    "permanent": true
+  },
+  {
+    "source": "/tag/chon-den-trang-tri",
+    "destination": "/journal",
+    "permanent": true
+  },
+  {
+    "source": "/tag/chung-cu",
+    "destination": "/journal",
+    "permanent": true
+  },
+  {
+    "source": "/tag/chung-cu-cao-cap",
+    "destination": "/journal",
+    "permanent": true
+  },
+  {
+    "source": "/tag/chung-cu-mini",
+    "destination": "/journal",
+    "permanent": true
+  },
+  {
+    "source": "/tag/chup-den",
+    "destination": "/journal",
+    "permanent": true
+  },
+  {
+    "source": "/tag/chup-den-cho-khach-san",
+    "destination": "/journal",
+    "permanent": true
+  },
+  {
+    "source": "/tag/chup-den-dep",
+    "destination": "/journal",
+    "permanent": true
+  },
+  {
+    "source": "/tag/chup-den-gia-re",
+    "destination": "/journal",
+    "permanent": true
+  },
+  {
+    "source": "/tag/chup-den-gia-si",
+    "destination": "/journal",
+    "permanent": true
+  },
+  {
+    "source": "/tag/chup-den-khach-san",
+    "destination": "/journal",
+    "permanent": true
+  },
+  {
+    "source": "/tag/chup-den-vai",
+    "destination": "/journal",
+    "permanent": true
+  },
+  {
+    "source": "/tag/chup-den-vai-ha-noi",
+    "destination": "/journal",
+    "permanent": true
+  },
+  {
+    "source": "/tag/chup-den-vai-tphcm",
+    "destination": "/journal",
+    "permanent": true
+  },
+  {
+    "source": "/tag/classic",
+    "destination": "/journal",
+    "permanent": true
+  },
+  {
+    "source": "/tag/co-dien",
+    "destination": "/journal",
+    "permanent": true
+  },
+  {
+    "source": "/tag/coffee",
+    "destination": "/journal",
+    "permanent": true
+  },
+  {
+    "source": "/tag/cua-hang-den-hoi-an",
+    "destination": "/journal",
+    "permanent": true
+  },
+  {
+    "source": "/tag/cua-hieu",
+    "destination": "/journal",
+    "permanent": true
+  },
+  {
+    "source": "/tag/decor-hotel",
+    "destination": "/journal",
+    "permanent": true
+  },
+  {
+    "source": "/tag/den",
+    "destination": "/journal",
+    "permanent": true
+  },
+  {
+    "source": "/tag/den-ap-tuong",
+    "destination": "/journal",
+    "permanent": true
+  },
+  {
+    "source": "/tag/den-ban",
+    "destination": "/journal",
+    "permanent": true
+  },
+  {
+    "source": "/tag/den-ban-lua",
+    "destination": "/journal",
+    "permanent": true
+  },
+  {
+    "source": "/tag/den-biet-thu",
+    "destination": "/journal",
+    "permanent": true
+  },
+  {
+    "source": "/tag/den-biet-thu-gia-re",
+    "destination": "/journal",
+    "permanent": true
+  },
+  {
+    "source": "/tag/den-cao-cap",
+    "destination": "/journal",
+    "permanent": true
+  },
+  {
+    "source": "/tag/den-cay",
+    "destination": "/journal",
+    "permanent": true
+  },
+  {
+    "source": "/tag/den-chan-go",
+    "destination": "/journal",
+    "permanent": true
+  },
+  {
+    "source": "/tag/den-cho-khach-san",
+    "destination": "/journal",
+    "permanent": true
+  },
+  {
+    "source": "/tag/den-cho-showroom",
+    "destination": "/journal",
+    "permanent": true
+  },
+  {
+    "source": "/tag/den-de-dau-giuong",
+    "destination": "/journal",
+    "permanent": true
+  },
+  {
+    "source": "/tag/den-de-giuong",
+    "destination": "/journal",
+    "permanent": true
+  },
+  {
+    "source": "/tag/den-dep",
+    "destination": "/journal",
+    "permanent": true
+  },
+  {
+    "source": "/tag/den-dung",
+    "destination": "/journal",
+    "permanent": true
+  },
+  {
+    "source": "/tag/den-dung-bang-go",
+    "destination": "/journal",
+    "permanent": true
+  },
+  {
+    "source": "/tag/den-dung-chan-go",
+    "destination": "/journal",
+    "permanent": true
+  },
+  {
+    "source": "/tag/den-dung-gia-re",
+    "destination": "/journal",
+    "permanent": true
+  },
+  {
+    "source": "/tag/den-gia-re",
+    "destination": "/journal",
+    "permanent": true
+  },
+  {
+    "source": "/tag/den-gia-si",
+    "destination": "/journal",
+    "permanent": true
+  },
+  {
+    "source": "/tag/den-giay-nhat",
+    "destination": "/journal",
+    "permanent": true
+  },
+  {
+    "source": "/tag/den-giay-nhat-ban",
+    "destination": "/journal",
+    "permanent": true
+  },
+  {
+    "source": "/tag/den-go",
+    "destination": "/journal",
+    "permanent": true
+  },
+  {
+    "source": "/tag/den-hien-dai",
+    "destination": "/journal",
+    "permanent": true
+  },
+  {
+    "source": "/tag/den-hoi-an",
+    "destination": "/journal",
+    "permanent": true
+  },
+  {
+    "source": "/tag/den-lam-viec",
+    "destination": "/journal",
+    "permanent": true
+  },
+  {
+    "source": "/tag/den-le-hoi",
+    "destination": "/journal",
+    "permanent": true
+  },
+  {
+    "source": "/tag/den-long",
+    "destination": "/journal",
+    "permanent": true
+  },
+  {
+    "source": "/tag/den-long-hoi-an",
+    "destination": "/journal",
+    "permanent": true
+  },
+  {
+    "source": "/tag/den-long-nhat-ban",
+    "destination": "/journal",
+    "permanent": true
+  },
+  {
+    "source": "/tag/den-long-tai-ha-noi",
+    "destination": "/journal",
+    "permanent": true
+  },
+  {
+    "source": "/tag/den-long-tet",
+    "destination": "/journal",
+    "permanent": true
+  },
+  {
+    "source": "/tag/den-long-trai-tim",
+    "destination": "/journal",
+    "permanent": true
+  },
+  {
+    "source": "/tag/den-long-trang-tri",
+    "destination": "/journal",
+    "permanent": true
+  },
+  {
+    "source": "/tag/den-lua",
+    "destination": "/journal",
+    "permanent": true
+  },
+  {
+    "source": "/tag/den-ngoai-troi",
+    "destination": "/journal",
+    "permanent": true
+  },
+  {
+    "source": "/tag/den-ngu",
+    "destination": "/journal",
+    "permanent": true
+  },
+  {
+    "source": "/tag/den-nhat-ban",
+    "destination": "/journal",
+    "permanent": true
+  },
+  {
+    "source": "/tag/den-nhat-gia-si",
+    "destination": "/journal",
+    "permanent": true
+  },
+  {
+    "source": "/tag/den-noi-that",
+    "destination": "/journal",
+    "permanent": true
+  },
+  {
+    "source": "/tag/den-op-tuong",
+    "destination": "/journal",
+    "permanent": true
+  },
+  {
+    "source": "/tag/den-phong-cach-nhat",
+    "destination": "/journal",
+    "permanent": true
+  },
+  {
+    "source": "/tag/den-san",
+    "destination": "/journal",
+    "permanent": true
+  },
+  {
+    "source": "/tag/den-spa",
+    "destination": "/journal",
+    "permanent": true
+  },
+  {
+    "source": "/tag/den-tet",
+    "destination": "/journal",
+    "permanent": true
+  },
+  {
+    "source": "/tag/den-tha",
+    "destination": "/journal",
+    "permanent": true
+  },
+  {
+    "source": "/tag/den-tha-biet-thu",
+    "destination": "/journal",
+    "permanent": true
+  },
+  {
+    "source": "/tag/den-tha-tran",
+    "destination": "/journal",
+    "permanent": true
+  },
+  {
+    "source": "/tag/den-tha-vai",
+    "destination": "/journal",
+    "permanent": true
+  },
+  {
+    "source": "/tag/den-trai-tim",
+    "destination": "/journal",
+    "permanent": true
+  },
+  {
+    "source": "/tag/den-trai-tim-do",
+    "destination": "/journal",
+    "permanent": true
+  },
+  {
+    "source": "/tag/den-tran",
+    "destination": "/journal",
+    "permanent": true
+  },
+  {
+    "source": "/tag/den-tran-cho-chung-cu",
+    "destination": "/journal",
+    "permanent": true
+  },
+  {
+    "source": "/tag/den-trang-tri",
+    "destination": "/journal",
+    "permanent": true
+  },
+  {
+    "source": "/tag/den-trang-tri-biet-thu",
+    "destination": "/journal",
+    "permanent": true
+  },
+  {
+    "source": "/tag/den-trang-tri-ca-phe",
+    "destination": "/journal",
+    "permanent": true
+  },
+  {
+    "source": "/tag/den-trang-tri-cac-loai",
+    "destination": "/journal",
+    "permanent": true
+  },
+  {
+    "source": "/tag/den-trang-tri-cafe",
+    "destination": "/journal",
+    "permanent": true
+  },
+  {
+    "source": "/tag/den-trang-tri-chung-cu",
+    "destination": "/journal",
+    "permanent": true
+  },
+  {
+    "source": "/tag/den-trang-tri-nha-hang",
+    "destination": "/journal",
+    "permanent": true
+  },
+  {
+    "source": "/tag/den-trang-tri-nha-o",
+    "destination": "/journal",
+    "permanent": true
+  },
+  {
+    "source": "/tag/den-trang-tri-noi-that",
+    "destination": "/journal",
+    "permanent": true
+  },
+  {
+    "source": "/tag/den-trang-tri-spa",
+    "destination": "/journal",
+    "permanent": true
+  },
+  {
+    "source": "/tag/den-trang-tri-su-kien",
+    "destination": "/journal",
+    "permanent": true
+  },
+  {
+    "source": "/tag/den-trang-tri-tet",
+    "destination": "/journal",
+    "permanent": true
+  },
+  {
+    "source": "/tag/den-tre",
+    "destination": "/journal",
+    "permanent": true
+  },
+  {
+    "source": "/tag/den-treo",
+    "destination": "/journal",
+    "permanent": true
+  },
+  {
+    "source": "/tag/den-treo-biet-thu",
+    "destination": "/journal",
+    "permanent": true
+  },
+  {
+    "source": "/tag/den-treo-nha-hang",
+    "destination": "/journal",
+    "permanent": true
+  },
+  {
+    "source": "/tag/den-treo-tai-duc",
+    "destination": "/journal",
+    "permanent": true
+  },
+  {
+    "source": "/tag/den-trung-thu",
+    "destination": "/journal",
+    "permanent": true
+  },
+  {
+    "source": "/tag/den-trung-thu-viet-nam",
+    "destination": "/journal",
+    "permanent": true
+  },
+  {
+    "source": "/tag/den-vai",
+    "destination": "/journal",
+    "permanent": true
+  },
+  {
+    "source": "/tag/den-vai-dui",
+    "destination": "/journal",
+    "permanent": true
+  },
+  {
+    "source": "/tag/den-vai-khach-san",
+    "destination": "/journal",
+    "permanent": true
+  },
+  {
+    "source": "/tag/den-vai-lua",
+    "destination": "/journal",
+    "permanent": true
+  },
+  {
+    "source": "/tag/den-vai-phi-bong",
+    "destination": "/journal",
+    "permanent": true
+  },
+  {
+    "source": "/tag/den-vai-trang-tri",
+    "destination": "/journal",
+    "permanent": true
+  },
+  {
+    "source": "/tag/den-vai-trang-tri-kaha",
+    "destination": "/journal",
+    "permanent": true
+  },
+  {
+    "source": "/tag/den-ve-hoa",
+    "destination": "/journal",
+    "permanent": true
+  },
+  {
+    "source": "/tag/den-ve-tranh",
+    "destination": "/journal",
+    "permanent": true
+  },
+  {
+    "source": "/tag/dinh-thu",
+    "destination": "/journal",
+    "permanent": true
+  },
+  {
+    "source": "/tag/don-gian",
+    "destination": "/journal",
+    "permanent": true
+  },
+  {
+    "source": "/tag/festival-nhat-ban",
+    "destination": "/journal",
+    "permanent": true
+  },
+  {
+    "source": "/tag/germany-festival-lanterns",
+    "destination": "/journal",
+    "permanent": true
+  },
+  {
+    "source": "/tag/gia-cong-chao-den-hcm",
+    "destination": "/journal",
+    "permanent": true
+  },
+  {
+    "source": "/tag/gia-cong-chup-den",
+    "destination": "/journal",
+    "permanent": true
+  },
+  {
+    "source": "/tag/gia-cong-chup-den-vai",
+    "destination": "/journal",
+    "permanent": true
+  },
+  {
+    "source": "/tag/gia-cong-den-theo-yeu-cau",
+    "destination": "/journal",
+    "permanent": true
+  },
+  {
+    "source": "/tag/gia-cong-den-vai",
+    "destination": "/journal",
+    "permanent": true
+  },
+  {
+    "source": "/tag/gia-long-den",
+    "destination": "/journal",
+    "permanent": true
+  },
+  {
+    "source": "/tag/gia-si-den-long",
+    "destination": "/journal",
+    "permanent": true
+  },
+  {
+    "source": "/tag/ha-noi",
+    "destination": "/journal",
+    "permanent": true
+  },
+  {
+    "source": "/tag/han-quoc",
+    "destination": "/journal",
+    "permanent": true
+  },
+  {
+    "source": "/tag/hcm",
+    "destination": "/journal",
+    "permanent": true
+  },
+  {
+    "source": "/tag/hdsd",
+    "destination": "/journal",
+    "permanent": true
+  },
+  {
+    "source": "/tag/hien-dai",
+    "destination": "/journal",
+    "permanent": true
+  },
+  {
+    "source": "/tag/hn",
+    "destination": "/journal",
+    "permanent": true
+  },
+  {
+    "source": "/tag/hoi-an",
+    "destination": "/journal",
+    "permanent": true
+  },
+  {
+    "source": "/tag/hoi-an-lantern",
+    "destination": "/journal",
+    "permanent": true
+  },
+  {
+    "source": "/tag/hotel",
+    "destination": "/journal",
+    "permanent": true
+  },
+  {
+    "source": "/tag/huong-dan-su-dung",
+    "destination": "/journal",
+    "permanent": true
+  },
+  {
+    "source": "/tag/japan-hotel",
+    "destination": "/journal",
+    "permanent": true
+  },
+  {
+    "source": "/tag/japanese",
+    "destination": "/journal",
+    "permanent": true
+  },
+  {
+    "source": "/tag/japanese-lantern",
+    "destination": "/journal",
+    "permanent": true
+  },
+  {
+    "source": "/tag/khach-san",
+    "destination": "/journal",
+    "permanent": true
+  },
+  {
+    "source": "/tag/lang-nghe-lam-den-long",
+    "destination": "/journal",
+    "permanent": true
+  },
+  {
+    "source": "/tag/lantern",
+    "destination": "/journal",
+    "permanent": true
+  },
+  {
+    "source": "/tag/lantern-japan",
+    "destination": "/journal",
+    "permanent": true
+  },
+  {
+    "source": "/tag/le-hoi-den-long",
+    "destination": "/journal",
+    "permanent": true
+  },
+  {
+    "source": "/tag/le-hoi-nhat-ban",
+    "destination": "/journal",
+    "permanent": true
+  },
+  {
+    "source": "/tag/le-tet",
+    "destination": "/journal",
+    "permanent": true
+  },
+  {
+    "source": "/tag/long-den",
+    "destination": "/journal",
+    "permanent": true
+  },
+  {
+    "source": "/tag/long-den-gia-re",
+    "destination": "/journal",
+    "permanent": true
+  },
+  {
+    "source": "/tag/long-den-gia-si",
+    "destination": "/journal",
+    "permanent": true
+  },
+  {
+    "source": "/tag/long-den-trai-tim",
+    "destination": "/journal",
+    "permanent": true
+  },
+  {
+    "source": "/tag/long-den-trung-thu",
+    "destination": "/journal",
+    "permanent": true
+  },
+  {
+    "source": "/tag/mat-na-ong-dia",
+    "destination": "/journal",
+    "permanent": true
+  },
+  {
+    "source": "/tag/mau-den-dung",
+    "destination": "/journal",
+    "permanent": true
+  },
+  {
+    "source": "/tag/mau-den-trang-tri-cho-nha-hang",
+    "destination": "/journal",
+    "permanent": true
+  },
+  {
+    "source": "/tag/mau-nha-hang",
+    "destination": "/journal",
+    "permanent": true
+  },
+  {
+    "source": "/tag/mau-nha-hang-binh-dan",
+    "destination": "/journal",
+    "permanent": true
+  },
+  {
+    "source": "/tag/mau-nha-hang-dep",
+    "destination": "/journal",
+    "permanent": true
+  },
+  {
+    "source": "/tag/mau-nha-hang-don-gian",
+    "destination": "/journal",
+    "permanent": true
+  },
+  {
+    "source": "/tag/mo-den-hoi-an",
+    "destination": "/journal",
+    "permanent": true
+  },
+  {
+    "source": "/tag/mo-hinh-nha-hang",
+    "destination": "/journal",
+    "permanent": true
+  },
+  {
+    "source": "/tag/motel",
+    "destination": "/journal",
+    "permanent": true
+  },
+  {
+    "source": "/tag/mua-si-den-long-nhat",
+    "destination": "/journal",
+    "permanent": true
+  },
+  {
+    "source": "/tag/mua-si-den-nhat-ban",
+    "destination": "/journal",
+    "permanent": true
+  },
+  {
+    "source": "/tag/nghe-thuat",
+    "destination": "/journal",
+    "permanent": true
+  },
+  {
+    "source": "/tag/nghi-duong",
+    "destination": "/journal",
+    "permanent": true
+  },
+  {
+    "source": "/tag/ngoai-o",
+    "destination": "/journal",
+    "permanent": true
+  },
+  {
+    "source": "/tag/nha-hang",
+    "destination": "/journal",
+    "permanent": true
+  },
+  {
+    "source": "/tag/nha-hang-an-uong",
+    "destination": "/journal",
+    "permanent": true
+  },
+  {
+    "source": "/tag/nha-hang-binh-dan",
+    "destination": "/journal",
+    "permanent": true
+  },
+  {
+    "source": "/tag/nha-hang-dep",
+    "destination": "/journal",
+    "permanent": true
+  },
+  {
+    "source": "/tag/nha-hang-gia-re",
+    "destination": "/journal",
+    "permanent": true
+  },
+  {
+    "source": "/tag/nha-hang-nhat-ban",
+    "destination": "/journal",
+    "permanent": true
+  },
+  {
+    "source": "/tag/nha-hang-truyen-thong",
+    "destination": "/journal",
+    "permanent": true
+  },
+  {
+    "source": "/tag/nhap-si-den-long",
+    "destination": "/journal",
+    "permanent": true
+  },
+  {
+    "source": "/tag/nhat-ban",
+    "destination": "/journal",
+    "permanent": true
+  },
+  {
+    "source": "/tag/nhat-ban-restaurant",
+    "destination": "/journal",
+    "permanent": true
+  },
+  {
+    "source": "/tag/noel",
+    "destination": "/journal",
+    "permanent": true
+  },
+  {
+    "source": "/tag/noi-that",
+    "destination": "/journal",
+    "permanent": true
+  },
+  {
+    "source": "/tag/pho-co",
+    "destination": "/journal",
+    "permanent": true
+  },
+  {
+    "source": "/tag/pho-co-hoi-an",
+    "destination": "/journal",
+    "permanent": true
+  },
+  {
+    "source": "/tag/phong-khach",
+    "destination": "/journal",
+    "permanent": true
+  },
+  {
+    "source": "/tag/phong-ngu",
+    "destination": "/journal",
+    "permanent": true
+  },
+  {
+    "source": "/tag/phu-hop",
+    "destination": "/journal",
+    "permanent": true
+  },
+  {
+    "source": "/tag/quan-ao-tre-em",
+    "destination": "/journal",
+    "permanent": true
+  },
+  {
+    "source": "/tag/quan-cafe",
+    "destination": "/journal",
+    "permanent": true
+  },
+  {
+    "source": "/tag/quan-cafe-sach",
+    "destination": "/journal",
+    "permanent": true
+  },
+  {
+    "source": "/tag/resort",
+    "destination": "/journal",
+    "permanent": true
+  },
+  {
+    "source": "/tag/resort-japan",
+    "destination": "/journal",
+    "permanent": true
+  },
+  {
+    "source": "/tag/sach",
+    "destination": "/journal",
+    "permanent": true
+  },
+  {
+    "source": "/tag/san-vuon",
+    "destination": "/journal",
+    "permanent": true
+  },
+  {
+    "source": "/tag/san-xuat-chao-den-hcm",
+    "destination": "/journal",
+    "permanent": true
+  },
+  {
+    "source": "/tag/san-xuat-chao-den-vai",
+    "destination": "/journal",
+    "permanent": true
+  },
+  {
+    "source": "/tag/san-xuat-den-vai",
+    "destination": "/journal",
+    "permanent": true
+  },
+  {
+    "source": "/tag/sang-trong",
+    "destination": "/journal",
+    "permanent": true
+  },
+  {
+    "source": "/tag/showroom",
+    "destination": "/journal",
+    "permanent": true
+  },
+  {
+    "source": "/tag/si-den-long",
+    "destination": "/journal",
+    "permanent": true
+  },
+  {
+    "source": "/tag/sofa",
+    "destination": "/journal",
+    "permanent": true
+  },
+  {
+    "source": "/tag/spa",
+    "destination": "/journal",
+    "permanent": true
+  },
+  {
+    "source": "/tag/style-2",
+    "destination": "/journal",
+    "permanent": true
+  },
+  {
+    "source": "/tag/tam-quan-trong",
+    "destination": "/journal",
+    "permanent": true
+  },
+  {
+    "source": "/tag/tet-trung-thu",
+    "destination": "/journal",
+    "permanent": true
+  },
+  {
+    "source": "/tag/thiet-ke-nha-hang",
+    "destination": "/journal",
+    "permanent": true
+  },
+  {
+    "source": "/tag/thiet-ke-nha-hang-gia-re",
+    "destination": "/journal",
+    "permanent": true
+  },
+  {
+    "source": "/tag/trai-tim-du-mau",
+    "destination": "/journal",
+    "permanent": true
+  },
+  {
+    "source": "/tag/tran-nha",
+    "destination": "/journal",
+    "permanent": true
+  },
+  {
+    "source": "/tag/trang-tri",
+    "destination": "/journal",
+    "permanent": true
+  },
+  {
+    "source": "/tag/trang-tri-anh-sang",
+    "destination": "/journal",
+    "permanent": true
+  },
+  {
+    "source": "/tag/trang-tri-biet-thu",
+    "destination": "/journal",
+    "permanent": true
+  },
+  {
+    "source": "/tag/trang-tri-dam-cuoi",
+    "destination": "/journal",
+    "permanent": true
+  },
+  {
+    "source": "/tag/trang-tri-den",
+    "destination": "/journal",
+    "permanent": true
+  },
+  {
+    "source": "/tag/trang-tri-khach-san",
+    "destination": "/journal",
+    "permanent": true
+  },
+  {
+    "source": "/tag/trang-tri-nha-hang",
+    "destination": "/journal",
+    "permanent": true
+  },
+  {
+    "source": "/tag/trang-tri-nha-hang-an-uong",
+    "destination": "/journal",
+    "permanent": true
+  },
+  {
+    "source": "/tag/trang-tri-nha-hang-cuoi",
+    "destination": "/journal",
+    "permanent": true
+  },
+  {
+    "source": "/tag/trang-tri-nha-hang-dep",
+    "destination": "/journal",
+    "permanent": true
+  },
+  {
+    "source": "/tag/trang-tri-noel",
+    "destination": "/journal",
+    "permanent": true
+  },
+  {
+    "source": "/tag/trang-tri-quan",
+    "destination": "/journal",
+    "permanent": true
+  },
+  {
+    "source": "/tag/trang-tri-quan-cafe",
+    "destination": "/journal",
+    "permanent": true
+  },
+  {
+    "source": "/tag/trang-tri-quan-coffee",
+    "destination": "/journal",
+    "permanent": true
+  },
+  {
+    "source": "/tag/trang-tri-quan-massage",
+    "destination": "/journal",
+    "permanent": true
+  },
+  {
+    "source": "/tag/trang-tri-resort",
+    "destination": "/journal",
+    "permanent": true
+  },
+  {
+    "source": "/tag/trang-tri-san-vuon",
+    "destination": "/journal",
+    "permanent": true
+  },
+  {
+    "source": "/tag/trang-tri-showroom",
+    "destination": "/journal",
+    "permanent": true
+  },
+  {
+    "source": "/tag/trang-tri-showroom-xe",
+    "destination": "/journal",
+    "permanent": true
+  },
+  {
+    "source": "/tag/trang-tri-spa",
+    "destination": "/journal",
+    "permanent": true
+  },
+  {
+    "source": "/tag/trang-tri-su-kien",
+    "destination": "/journal",
+    "permanent": true
+  },
+  {
+    "source": "/tag/trang-tri-tet",
+    "destination": "/journal",
+    "permanent": true
+  },
+  {
+    "source": "/tag/trang-tri-tiec-cuoi",
+    "destination": "/journal",
+    "permanent": true
+  },
+  {
+    "source": "/tag/trang-tri-van-phong",
+    "destination": "/journal",
+    "permanent": true
+  },
+  {
+    "source": "/tag/trong",
+    "destination": "/journal",
+    "permanent": true
+  },
+  {
+    "source": "/tag/trung-thu",
+    "destination": "/journal",
+    "permanent": true
+  },
+  {
+    "source": "/tag/trung-thu-2019",
+    "destination": "/journal",
+    "permanent": true
+  },
+  {
+    "source": "/tag/trung-thu-2020",
+    "destination": "/journal",
+    "permanent": true
+  },
+  {
+    "source": "/tag/trung-thu-2021",
+    "destination": "/journal",
+    "permanent": true
+  },
+  {
+    "source": "/tag/trung-thu-2022",
+    "destination": "/journal",
+    "permanent": true
+  },
+  {
+    "source": "/tag/trung-thu-viet-nam",
+    "destination": "/journal",
+    "permanent": true
+  },
+  {
+    "source": "/tag/truyen-thong",
+    "destination": "/journal",
+    "permanent": true
+  },
+  {
+    "source": "/tag/tuyet-tac-pho-co",
+    "destination": "/journal",
+    "permanent": true
+  },
+  {
+    "source": "/tag/van-phong",
+    "destination": "/journal",
+    "permanent": true
+  },
+  {
+    "source": "/tag/ve-dep-doc-dao",
+    "destination": "/journal",
+    "permanent": true
+  },
+  {
+    "source": "/tag/vien-tham-my",
+    "destination": "/journal",
+    "permanent": true
+  },
+  {
+    "source": "/tag/viet-nam",
+    "destination": "/journal",
+    "permanent": true
+  },
+  {
+    "source": "/tag/xuong-den-hoi-an",
+    "destination": "/journal",
+    "permanent": true
+  },
+  {
+    "source": "/tag/xuong-den-long-hoi-an",
+    "destination": "/journal",
+    "permanent": true
+  },
+  {
+    "source": "/tag/xuong-long-den",
+    "destination": "/journal",
+    "permanent": true
+  }
+]
