@@ -225,6 +225,17 @@ for (const item of items) {
     extractText(item.excerptencoded) ||
     "";
 
+  /** WooCommerce WXR: hầu hết product có `content:encoded` rỗng, mô tả nằm ở `excerpt:encoded` (HTML). */
+  let bodyHtml = stripWpCruft(rawBody) || null;
+  if (
+    postType === "product" &&
+    (!bodyHtml || !String(bodyHtml).trim()) &&
+    rawExcerpt.trim()
+  ) {
+    const fromExcerpt = stripWpCruft(rawExcerpt);
+    if (fromExcerpt) bodyHtml = fromExcerpt;
+  }
+
   const wpId = Number.parseInt(
     extractText(item["wp:post_id"]) || extractText(item.post_id) || "",
     10,
@@ -245,7 +256,7 @@ for (const item of items) {
     post_type: postType,
     slug,
     title: title || null,
-    body_html: stripWpCruft(rawBody) || null,
+    body_html: bodyHtml,
     excerpt: rawExcerpt.trim()
       ? plainTextFromHtml(rawExcerpt, { maxLength: 800 }) || null
       : null,

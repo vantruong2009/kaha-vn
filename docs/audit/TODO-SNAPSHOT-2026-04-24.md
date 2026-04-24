@@ -4,13 +4,17 @@
 
 ## `body_html` rỗng (`publish`)
 
+**Trước** (snapshot đầu): product 475/477 trống — nguyên nhân: WXR WooCommerce gần như không có `content:encoded`, mô tả nằm ở `excerpt:encoded`.
+
+**Sau** khi sửa `scripts/import_wp_xml_content.mjs` (product: fallback `body_html` từ excerpt HTML) + chạy lại `npm run migrate:import-wp-xml -- docs/migration-inputs/wordpress.xml` trên DB workspace:
+
 | post_type | empty_body | total |
 |-----------|-------------|-------|
 | page      | 4           | 26    |
 | post      | 369         | 430   |
-| product   | 475         | 477   |
+| product   | 161         | 477   |
 
-*(empty = `NULL` hoặc chỉ khoảng trắng.)*
+*(empty = `NULL` hoặc chỉ khoảng trắng.)* Còn **161** product: thường là excerpt cũng rỗng / strip hết trong XML — cần bổ sung tay trên WP hoặc nguồn khác. **Post** vẫn nhiều trống: XML post ít khi có excerpt HTML dài khi `content` trống.
 
 ## XML vs DB (`npm run migrate:audit`)
 
@@ -21,11 +25,13 @@
 
 Trên **máy workspace Cursor** lệnh `docker compose … build` **lỗi** `permission denied … /var/run/docker.sock` — không rebuild được từ agent.
 
-**Chạy trên VPS (user có quyền docker), trong thư mục repo:**
+**Chạy trên VPS (user có quyền docker), trong thư mục repo** (Oracle workspace ví dụ):
 
 ```bash
-cd /path/to/kaha-vn && git pull origin main && docker compose --env-file .env.local up -d --build
+cd /home/opc/cursor-workspace/projects/kaha-vn && git pull origin main && docker compose --env-file .env.local up -d --build
 ```
+
+*(Nếu clone ở đường dẫn khác — Mac, Vultr — thay `cd` cho đúng.)*
 
 ## Logo
 
