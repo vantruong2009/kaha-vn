@@ -211,19 +211,19 @@ export default async function LegacyPathPlaceholder({ params }: Props) {
               </div>
               {content.post_type === "product" ? (
                 <aside className="h-fit border border-hairline bg-paper p-6">
-                  <p className="text-[11px] uppercase tracking-[0.12em] text-ink-500">Thong tin nhanh</p>
+                  <p className="text-[11px] uppercase tracking-[0.12em] text-ink-500">Thông tin nhanh</p>
                   <ul className="mt-4 space-y-3 text-sm text-ink-700">
-                    <li className="border-b border-hairline pb-3">Gia cong theo kich thuoc va chat lieu</li>
-                    <li className="border-b border-hairline pb-3">Ho tro mau thu truoc khi chay loat</li>
-                    <li className="border-b border-hairline pb-3">Bao hanh theo hop dong du an</li>
-                    <li>Phan hoi RFQ trong 48h</li>
+                    <li className="border-b border-hairline pb-3">Gia công theo kích thước và chất liệu đã duyệt</li>
+                    <li className="border-b border-hairline pb-3">Hỗ trợ mẫu thử trước khi chạy lô</li>
+                    <li className="border-b border-hairline pb-3">Bảo hành theo hợp đồng dự án</li>
+                    <li>Phản hồi RFQ trong 48 giờ</li>
                   </ul>
                   <div className="mt-5 flex flex-col gap-2">
                     <Link href="/showroom" className="border border-ink-900 bg-ink-900 px-4 py-2 text-center text-xs uppercase tracking-[0.08em] text-paper hover:bg-paper hover:text-ink-900">
-                      Dat lich xuong
+                      Đặt lịch xưởng
                     </Link>
                     <Link href="/shop" className="border border-hairline px-4 py-2 text-center text-xs uppercase tracking-[0.08em] text-ink-700 hover:border-ink-300 hover:text-ink-900">
-                      Quay ve catalog
+                      Quay về catalog
                     </Link>
                   </div>
                 </aside>

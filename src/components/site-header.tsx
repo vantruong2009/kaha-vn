@@ -52,9 +52,9 @@ export async function SiteHeader() {
         <div className="hidden min-w-[280px] flex-1 border border-hairline bg-paper px-3 py-2 md:flex">
           <input
             readOnly
-            value="Tim san pham, danh muc..."
-            className="w-full bg-transparent text-sm text-ink-500 outline-none"
-            aria-label="Search placeholder"
+            placeholder="Tìm sản phẩm, danh mục…"
+            className="w-full bg-transparent text-sm text-ink-500 outline-none placeholder:text-ink-400"
+            aria-label="Ô tìm kiếm (mở Shop)"
           />
         </div>
         <div className="flex items-center gap-3">
@@ -68,14 +68,14 @@ export async function SiteHeader() {
             href={settings.primaryCtaHref || "/showroom"}
             className="border border-ink-900 bg-ink-900 px-4 py-2 text-xs uppercase tracking-[0.08em] text-paper transition-colors hover:bg-paper hover:text-ink-900"
           >
-            {settings.primaryCtaLabel || "Dat lich"}
+            {settings.primaryCtaLabel || "Đặt lịch"}
           </Link>
         </div>
       </div>
       <div className="border-t border-hairline px-5 md:px-12">
         <nav
           className="mx-auto hidden max-w-[1600px] items-center gap-7 py-3 text-[12px] font-medium uppercase tracking-[0.08em] text-ink-600 md:flex"
-          aria-label="Chinh"
+          aria-label="Điều hướng chính"
         >
           <div className="group relative">
             <Link href="/shop" className="hover:text-ink-900">
@@ -84,7 +84,7 @@ export async function SiteHeader() {
             <div className="invisible absolute left-0 top-full z-50 mt-3 w-[780px] border border-hairline bg-paper p-6 opacity-0 transition-all duration-150 group-hover:visible group-hover:opacity-100">
               <div className="grid gap-8 md:grid-cols-2">
                 <div>
-                  <p className="text-[11px] uppercase tracking-[0.12em] text-ink-500">Danh muc noi bat</p>
+                  <p className="text-[11px] uppercase tracking-[0.12em] text-ink-500">Danh mục nổi bật</p>
                   <div className="mt-4 grid grid-cols-2 gap-2">
                     {topCategories.map((c) => (
                       <Link
@@ -98,7 +98,7 @@ export async function SiteHeader() {
                   </div>
                 </div>
                 <div>
-                  <p className="text-[11px] uppercase tracking-[0.12em] text-ink-500">Tag pho bien</p>
+                  <p className="text-[11px] uppercase tracking-[0.12em] text-ink-500">Tag phổ biến</p>
                   <div className="mt-4 flex flex-wrap gap-2">
                     {topTags.map((t) => (
                       <Link
@@ -114,7 +114,7 @@ export async function SiteHeader() {
                     href="/shop"
                     className="mt-5 inline-flex border border-ink-900 bg-ink-900 px-4 py-2 text-[11px] uppercase tracking-[0.08em] text-paper transition-colors hover:bg-paper hover:text-ink-900"
                   >
-                    Xem toan bo shop
+                    Xem toàn bộ Shop
                   </Link>
                 </div>
               </div>
@@ -125,7 +125,7 @@ export async function SiteHeader() {
               Journal
             </Link>
             <div className="invisible absolute left-0 top-full z-50 mt-3 w-[620px] border border-hairline bg-paper p-6 opacity-0 transition-all duration-150 group-hover:visible group-hover:opacity-100">
-              <p className="text-[11px] uppercase tracking-[0.12em] text-ink-500">Bai viet gan day</p>
+              <p className="text-[11px] uppercase tracking-[0.12em] text-ink-500">Bài viết gần đây</p>
               <div className="mt-4 grid gap-2">
                 {posts.map((p) => (
                   <Link
@@ -141,14 +141,16 @@ export async function SiteHeader() {
                 href="/journal"
                 className="mt-5 inline-flex border border-hairline px-4 py-2 text-[11px] uppercase tracking-[0.08em] text-ink-700 transition-colors hover:border-ink-300 hover:text-ink-900"
               >
-                Vao journal
+                Vào Journal
               </Link>
             </div>
           </div>
           <SiteNavLinks includePrimary={false} />
-          <Link href="/admin/settings" className="ml-auto text-ink-500 hover:text-ink-900">
-            Admin settings
-          </Link>
+          {process.env.NEXT_PUBLIC_SHOW_ADMIN_NAV === "1" ? (
+            <Link href="/admin/settings" className="ml-auto text-ink-500 hover:text-ink-900">
+              Cài đặt
+            </Link>
+          ) : null}
         </nav>
         <nav className="mx-auto flex max-w-[1600px] items-center gap-5 overflow-x-auto py-3 text-[12px] font-medium uppercase tracking-[0.08em] text-ink-600 md:hidden">
           <Link href="/shop" className="whitespace-nowrap">Shop</Link>
@@ -160,7 +162,7 @@ export async function SiteHeader() {
             href={`tel:${settings.hotline.replace(/[^\d+]/g, "")}`}
             className="ml-auto whitespace-nowrap border border-hairline px-3 py-1.5 text-[11px]"
           >
-            Goi {settings.hotline}
+            Gọi {settings.hotline}
           </a>
         </nav>
       </div>

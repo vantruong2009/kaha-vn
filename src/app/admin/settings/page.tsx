@@ -46,25 +46,25 @@ function emptySettings(): SiteSettings {
 export default function AdminSettingsPage() {
   const [token, setToken] = useState("");
   const [settings, setSettings] = useState<SiteSettings>(emptySettings);
-  const [status, setStatus] = useState("Nhap token va bam Load.");
+  const [status, setStatus] = useState("Nhập token rồi bấm Tải.");
   const ready = useMemo(() => token.trim().length > 0, [token]);
 
   async function load() {
-    setStatus("Dang load...");
+    setStatus("Đang tải…");
     const r = await fetch("/api/admin/settings", {
       headers: { "x-admin-token": token.trim() },
     });
     const json = (await r.json()) as { ok: boolean; settings?: SiteSettings; error?: string };
     if (!json.ok || !json.settings) {
-      setStatus(`Loi: ${json.error ?? "load_failed"}`);
+      setStatus(`Lỗi: ${json.error ?? "load_failed"}`);
       return;
     }
     setSettings(json.settings);
-    setStatus("Da load settings.");
+    setStatus("Đã tải cài đặt.");
   }
 
   async function save() {
-    setStatus("Dang luu...");
+    setStatus("Đang lưu…");
     const r = await fetch("/api/admin/settings", {
       method: "PUT",
       headers: {
@@ -75,20 +75,20 @@ export default function AdminSettingsPage() {
     });
     const json = (await r.json()) as { ok: boolean; settings?: SiteSettings; error?: string };
     if (!json.ok || !json.settings) {
-      setStatus(`Loi: ${json.error ?? "save_failed"}`);
+      setStatus(`Lỗi: ${json.error ?? "save_failed"}`);
       return;
     }
     setSettings(json.settings);
-    setStatus("Da luu settings.");
+    setStatus("Đã lưu cài đặt.");
   }
 
   return (
     <main className="mx-auto max-w-5xl px-5 py-10 md:px-10">
       <h1 className="text-2xl font-semibold text-ink-900 [font-family:var(--font-display),serif]">
-        Admin Settings
+        Cài đặt giao diện
       </h1>
       <p className="mt-2 text-sm text-ink-600">
-        Quan ly khung ngoai KAHA (header, topbar, footer, contact buttons).
+        Chỉnh khung ngoài KAHA: thanh trên cùng, header, footer và nút liên hệ nổi.
       </p>
 
       <div className="mt-8 rounded border border-hairline bg-paper p-5">

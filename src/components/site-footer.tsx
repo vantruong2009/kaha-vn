@@ -14,17 +14,17 @@ export async function SiteFooter() {
         <div className="bg-paper p-6 md:p-8">
           <p className="text-[11px] uppercase tracking-[0.12em] text-ink-500">Email</p>
           <p className="mt-3 text-lg text-ink-900">{settings.email}</p>
-          <p className="mt-1 text-sm text-ink-600">Nhan RFQ va ban ve</p>
+          <p className="mt-1 text-sm text-ink-600">Nhận RFQ kèm bản vẽ</p>
         </div>
         <div className="bg-paper p-6 md:p-8">
-          <p className="text-[11px] uppercase tracking-[0.12em] text-ink-500">Dia chi</p>
+          <p className="text-[11px] uppercase tracking-[0.12em] text-ink-500">Địa chỉ</p>
           <p className="mt-3 text-sm leading-relaxed text-ink-700">{settings.address}</p>
         </div>
         <div className="bg-paper p-6 md:p-8">
-          <p className="text-[11px] uppercase tracking-[0.12em] text-ink-500">Dieu huong</p>
+          <p className="text-[11px] uppercase tracking-[0.12em] text-ink-500">Điều hướng</p>
           <nav
             className="mt-3 flex flex-wrap gap-x-5 gap-y-2 text-[12px] font-medium uppercase tracking-[0.08em] text-ink-600"
-            aria-label="Chan trang"
+            aria-label="Chân trang"
           >
             <SiteNavLinks showHome showRss />
           </nav>

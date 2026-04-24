@@ -199,24 +199,24 @@ export default async function ShopPage({ searchParams }: PageProps) {
             <aside className="h-fit space-y-6 border border-hairline bg-paper p-5 lg:sticky lg:top-24">
               <form action="/shop" className="space-y-4">
                 <label className="flex flex-col gap-2 text-sm text-ink-600">
-                  Tim san pham
+                  Tìm sản phẩm
                   <input
                     name="q"
                     defaultValue={q}
                     className="w-full border border-hairline bg-paper px-3 py-2 text-sm outline-none focus:border-ink-300"
-                    placeholder="Nhap ten / mo ta"
+                    placeholder="Nhập tên hoặc mô tả"
                   />
                 </label>
                 <label className="flex flex-col gap-2 text-sm text-ink-600">
-                  Sap xep
+                  Sắp xếp
                   <select
                     name="sort"
                     defaultValue={sort}
                     className="border border-hairline bg-paper px-3 py-2 text-sm outline-none focus:border-ink-300"
                   >
-                    <option value="newest">Moi nhat</option>
-                    <option value="title_asc">Ten A - Z</option>
-                    <option value="title_desc">Ten Z - A</option>
+                    <option value="newest">Mới nhất</option>
+                    <option value="title_asc">Tên A → Z</option>
+                    <option value="title_desc">Tên Z → A</option>
                   </select>
                 </label>
                 {category ? <input type="hidden" name="category" value={category} /> : null}
@@ -226,15 +226,15 @@ export default async function ShopPage({ searchParams }: PageProps) {
                     type="submit"
                     className="border border-ink-900 bg-ink-900 px-4 py-2 text-xs uppercase tracking-[0.08em] text-paper hover:bg-paper hover:text-ink-900"
                   >
-                    Loc
+                    Lọc
                   </button>
                   <Link href="/shop" className="text-xs uppercase tracking-[0.08em] text-ink-600 underline-offset-4 hover:underline">
-                    Xoa
+                    Xóa bộ lọc
                   </Link>
                 </div>
               </form>
               <FacetList
-                label="Danh muc"
+                label="Danh mục"
                 items={facets.categories}
                 selected={category}
                 hrefFor={(v) => facetLink("category", v, { q, category, tag, sort })}
@@ -247,7 +247,7 @@ export default async function ShopPage({ searchParams }: PageProps) {
               />
             </aside>
             <section>
-              <ProductTeaserGrid items={data.items} heading="Danh sach san pham" />
+              <ProductTeaserGrid items={data.items} heading="Danh sách sản phẩm" />
             </section>
           </div>
         </div>

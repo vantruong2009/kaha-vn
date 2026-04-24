@@ -28,14 +28,15 @@ type DbSettingRow = {
 
 export const DEFAULT_SITE_SETTINGS: SiteSettings = {
   siteName: "KAHA.VN",
-  tagline: "Xuong gia cong den vai cao cap tai Viet Nam",
-  topbarText: "Xu?ng KAHA: gia cong den vai theo thong so du an - Phan hoi RFQ trong 48h",
+  tagline: "Xưởng gia công đèn vải cao cấp tại Việt Nam",
+  topbarText:
+    "Xưởng KAHA — gia công đèn vải theo thông số dự án · phản hồi RFQ trong 48 giờ",
   topbarHref: "/showroom",
   hotline: "090 515 1701",
   email: "hi@kaha.vn",
-  address: "262/1/93 Phan Anh, P. Phu Thanh, Tan Phu, TP.HCM",
+  address: "262/1/93 Phan Anh, Phường Phú Thạnh, Tân Phú, TP. Hồ Chí Minh",
   logoText: "KAHA.VN",
-  primaryCtaLabel: "Dat lich xuong",
+  primaryCtaLabel: "Đặt lịch xưởng",
   primaryCtaHref: "/showroom",
   secondaryCtaLabel: "Xem catalog",
   secondaryCtaHref: "/shop",
@@ -76,6 +77,10 @@ function pickSettings(input: Partial<SiteSettings>): SiteSettings {
   for (const key of SITE_SETTING_KEYS) {
     const next = clamp(input[key], 500);
     if (next) merged[key] = next;
+  }
+  // Chuỗi cũ lưu sai encoding (vd. "Xu?ng") — thay bằng default đúng UTF-8.
+  if (merged.topbarText.includes("Xu?ng") || merged.topbarText.includes("Xu\uFFFDng")) {
+    merged.topbarText = DEFAULT_SITE_SETTINGS.topbarText;
   }
   return merged;
 }

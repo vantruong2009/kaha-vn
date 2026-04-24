@@ -131,12 +131,12 @@ export default async function JournalPage({ searchParams }: PageProps) {
                 })}
                 </ul>
                 <aside className="h-fit space-y-5 border border-hairline bg-paper p-6 lg:sticky lg:top-24">
-                  <p className="text-[12px] uppercase tracking-[0.12em] text-ink-500">Chu de noi bat</p>
+                  <p className="text-[12px] uppercase tracking-[0.12em] text-ink-500">Chủ đề nổi bật</p>
                   {[
-                    ["Vat lieu den vai", "/journal"],
-                    ["Case khach san", "/journal"],
-                    ["Huong dan RFQ", "/journal"],
-                    ["Bao tri va bao hanh", "/journal"],
+                    ["Vật liệu đèn vải", "/journal"],
+                    ["Case khách sạn", "/journal"],
+                    ["Hướng dẫn RFQ", "/journal"],
+                    ["Bảo trì và bảo hành", "/journal"],
                   ].map(([label, href]) => (
                     <Link key={label} href={href} className="block border-b border-hairline pb-3 text-sm text-ink-700 hover:text-ink-900">
                       {label}
@@ -146,7 +146,7 @@ export default async function JournalPage({ searchParams }: PageProps) {
                     href="/showroom"
                     className="mt-4 inline-flex border border-ink-900 bg-ink-900 px-4 py-2 text-xs uppercase tracking-[0.08em] text-paper hover:bg-paper hover:text-ink-900"
                   >
-                    Dat lich tu van
+                    Đặt lịch tư vấn
                   </Link>
                 </aside>
               </div>
