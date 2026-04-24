@@ -12,6 +12,8 @@ const targets = [
   "/sitemap.xml",
   "/robots.txt",
   "/api/health",
+  // Slug archive Woo (product_cat) → /shop?category=… (308 + follow)
+  "/gia-cong-den-trang-tri",
 ];
 
 let failed = 0;

@@ -50,6 +50,26 @@ function heuristicRedirectFor(pathname) {
   return null;
 }
 
+/** Khớp `source` trong redirects.json (gồm pattern kiểu Next `/prefix/:path*`). */
+function pathMatchedByRedirectSource(sourcePattern, pathname) {
+  const p = pathname;
+  const m = sourcePattern.match(/\/:([\w]+)\*$/);
+  if (m) {
+    const prefixRaw = sourcePattern.slice(0, m.index);
+    const prefix = normalizePath(prefixRaw);
+    if (!prefix || prefix === "/") return false;
+    return p === prefix || p.startsWith(`${prefix}/`);
+  }
+  return normalizePath(sourcePattern) === p;
+}
+
+function pathCoveredByRedirects(redirects, pathname) {
+  for (const r of redirects) {
+    if (pathMatchedByRedirectSource(r.source, pathname)) return true;
+  }
+  return false;
+}
+
 const baselineAbs = path.join(ROOT, BASELINE_FILE);
 if (!fs.existsSync(baselineAbs)) {
   console.error(`Missing baseline file: ${baselineAbs}`);
@@ -62,9 +82,6 @@ const redirectsAbs = path.join(ROOT, REDIRECT_FILE);
 const redirects = fs.existsSync(redirectsAbs)
   ? ensureRedirectShape(JSON.parse(fs.readFileSync(redirectsAbs, "utf8")))
   : [];
-const redirectSources = new Set(
-  redirects.map((r) => normalizePath(r.source.replace(/:\w+\*/g, ""))),
-);
 
 const appRoutes = new Set([
   "/",
@@ -108,7 +125,7 @@ const suggestedRedirects = [];
 for (const p of baselinePaths) {
   const hasDb = dbPaths.has(p);
   const hasApp = appRoutes.has(p);
-  const hasRedirect = redirectSources.has(p);
+  const hasRedirect = pathCoveredByRedirects(redirects, p);
   if (hasDb || hasApp || hasRedirect) {
     covered.push({ path: p, reason: hasDb ? "db_slug" : hasApp ? "app_route" : "redirect" });
     continue;
@@ -126,6 +143,7 @@ const report = {
   baseline_total: baselinePaths.length,
   covered_total: covered.length,
   missing_total: missing.length,
+  missing_paths: missing,
   missing_sample: missing.slice(0, 120),
   suggested_redirects: suggestedRedirects,
   generated_at: new Date().toISOString(),

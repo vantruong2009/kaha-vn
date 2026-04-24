@@ -5,6 +5,26 @@
     "permanent": true
   },
   {
+    "source": "/danh-muc-san-pham/:path*",
+    "destination": "/shop",
+    "permanent": true
+  },
+  {
+    "source": "/key/:path*",
+    "destination": "/shop",
+    "permanent": true
+  },
+  {
+    "source": "/locations.kml",
+    "destination": "/showroom",
+    "permanent": true
+  },
+  {
+    "source": "/p/:path*",
+    "destination": "/:path*",
+    "permanent": true
+  },
+  {
     "source": "/tag/5-sao",
     "destination": "/journal",
     "permanent": true

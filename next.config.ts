@@ -1,14 +1,16 @@
 import type { NextConfig } from "next";
 import fs from "node:fs";
 import path from "node:path";
+import { normalizeMediaBase } from "./src/lib/rewrite-kaha-media-url";
 
 function mediaBaseRemotePattern(): {
   protocol: "https";
   hostname: string;
   pathname: string;
 } | null {
-  const raw = process.env.NEXT_PUBLIC_MEDIA_BASE?.trim();
-  if (!raw) return null;
+  const rawIn = process.env.NEXT_PUBLIC_MEDIA_BASE?.trim();
+  if (!rawIn) return null;
+  const raw = normalizeMediaBase(rawIn);
   try {
     const u = new URL(raw);
     const path =

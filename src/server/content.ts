@@ -1,4 +1,5 @@
 import "server-only";
+import { cache } from "react";
 import { getPool } from "@/server/db";
 
 export type ContentNode = {
@@ -192,6 +193,47 @@ export async function getShopFacets(): Promise<{
     return { categories: [], tags: [] };
   }
 }
+
+/**
+ * Slug một đoạn không phải `content_nodes` nhưng trùng `product_cat` / `product_tag`
+ * (archive Woo) → đường dẫn `/shop?…` để khớp hành vi site cũ.
+ */
+export const getShopArchiveRedirectPath = cache(
+  async (singleSlug: string): Promise<string | null> => {
+    if (!process.env.DATABASE_URL?.trim()) return null;
+    const slug = singleSlug.trim();
+    if (!slug) return null;
+
+    try {
+      const pool = getPool();
+      const r = await pool.query<{ cat: boolean; tag: boolean }>(
+        `SELECT
+           EXISTS (
+             SELECT 1 FROM content_nodes
+             WHERE post_type = 'product' AND status = 'publish'
+               AND $1 = ANY (categories)
+           ) AS cat,
+           EXISTS (
+             SELECT 1 FROM content_nodes
+             WHERE post_type = 'product' AND status = 'publish'
+               AND $1 = ANY (tags)
+           ) AS tag`,
+        [slug],
+      );
+      const row = r.rows[0];
+      if (!row) return null;
+      if (row.cat) {
+        return `/shop?category=${encodeURIComponent(slug)}`;
+      }
+      if (row.tag) {
+        return `/shop?tag=${encodeURIComponent(slug)}`;
+      }
+      return null;
+    } catch {
+      return null;
+    }
+  },
+);
 
 export async function getContentBySlugPath(
   segments: string[],

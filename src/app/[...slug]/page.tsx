@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
+import { permanentRedirect } from "next/navigation";
 import { ContentBreadcrumb } from "@/components/content-breadcrumb";
 import { JsonLdArticle } from "@/components/json-ld-article";
 import { JsonLdBreadcrumbList } from "@/components/json-ld-breadcrumb";
@@ -14,7 +15,10 @@ import { plainTextFromHtml } from "@/lib/plain-text-from-html";
 import { rewriteKahaMediaUrls } from "@/lib/rewrite-kaha-media-url";
 import { getSiteUrl } from "@/lib/site-url";
 import { isNextImageRemoteSrc } from "@/lib/remote-image-host";
-import { getContentBySlugPath } from "@/server/content";
+import {
+  getContentBySlugPath,
+  getShopArchiveRedirectPath,
+} from "@/server/content";
 
 function featuredSrcForDisplay(url: string): string {
   return rewriteKahaMediaUrls(url).trim();
@@ -30,6 +34,11 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const canonical = `${base}${path === "//" ? "/" : path}`;
 
   const content = await getContentBySlugPath(segs);
+  const singleSeg = segs.filter(Boolean);
+  if (!content && singleSeg.length === 1) {
+    const shopPath = await getShopArchiveRedirectPath(singleSeg[0]);
+    if (shopPath) permanentRedirect(shopPath);
+  }
   if (content) {
     const title = (content.seo_title || content.title || path).trim();
     const description =
@@ -84,6 +93,11 @@ export default async function LegacyPathPlaceholder({ params }: Props) {
   const path = "/" + segs.join("/");
 
   const content = await getContentBySlugPath(segs);
+  const singleSeg = segs.filter(Boolean);
+  if (!content && singleSeg.length === 1) {
+    const shopPath = await getShopArchiveRedirectPath(singleSeg[0]);
+    if (shopPath) permanentRedirect(shopPath);
+  }
 
   if (content) {
     const html = content.body_html

@@ -1,3 +1,5 @@
+import { normalizeMediaBase } from "@/lib/rewrite-kaha-media-url";
+
 /** Host khớp `next.config` `images.remotePatterns` — dùng cho `next/image`. */
 export function isNextImageRemoteSrc(src: string): boolean {
   try {
@@ -5,7 +7,7 @@ export function isNextImageRemoteSrc(src: string): boolean {
     const mediaBase = process.env.NEXT_PUBLIC_MEDIA_BASE?.trim();
     if (mediaBase) {
       try {
-        if (h === new URL(mediaBase).hostname) return true;
+        if (h === new URL(normalizeMediaBase(mediaBase)).hostname) return true;
       } catch {
         /* ignore */
       }
