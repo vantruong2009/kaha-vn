@@ -457,14 +457,14 @@ export const SETTINGS_DEFAULTS: SiteSettings = {
   medium_url: '',
   zalo_phone: '0936876679',
   topbar_enabled: 'true',
-  topbar_msg_1: 'Miễn phí vận chuyển đơn từ 500k',
-  topbar_url_1: '/chinh-sach-van-chuyen',
-  topbar_msg_2: 'Flash sale hôm nay — giảm đến 43%',
-  topbar_url_2: '/san-pham',
-  topbar_msg_3: 'Gia công chụp đèn vải, đèn thả trần theo yêu cầu — từ 20 chiếc',
-  topbar_url_3: '/lien-he',
-  topbar_msg_4: 'Giao toàn quốc 63 tỉnh · nhận trong 2–5 ngày',
-  topbar_url_4: '/chinh-sach-van-chuyen',
+  topbar_msg_1: 'KAHA · Xưởng gia công đèn vải cao cấp theo bản vẽ dự án',
+  topbar_url_1: '/showroom',
+  topbar_msg_2: 'Phản hồi RFQ trong 48h · Mẫu thử 7–10 ngày làm việc',
+  topbar_url_2: '/showroom',
+  topbar_msg_3: 'Nhận gia công từ 20 chiếc trở lên · Giao theo tiến độ công trình',
+  topbar_url_3: '/shop',
+  topbar_msg_4: 'Bảo hành khung 12 tháng · Hỗ trợ kỹ thuật lắp đặt',
+  topbar_url_4: '/showroom',
   // Global SEO
   seo_site_name: 'KAHA® — Đèn Vải Trang Trí & Chụp Đèn Khách Sạn Cao Cấp',
   seo_title_separator: ' | ',
@@ -505,13 +505,11 @@ export const SETTINGS_DEFAULTS: SiteSettings = {
   editorial_img_3: '/images/editorial/img3.jpg',
   // Navigation
   nav_items: JSON.stringify([
-    {"label":"Đèn Lồng Hội An","href":"/c/hoi-an-lantern"},
-    {"label":"Đèn Nhật Bản","href":"/c/den-kieu-nhat"},
-    {"label":"Chụp Đèn Vải","href":"/c/den-vai-cao-cap"},
-    {"label":"Đèn Mây Tre","href":"/c/den-may-tre"},
-    {"label":"Đèn lồng gỗ","href":"/c/den-long-go"},
-    {"label":"Blog","href":"/blog"},
-    {"label":"Liên hệ","href":"/lien-he"}
+    {"label":"Shop","href":"/shop"},
+    {"label":"Journal","href":"/journal"},
+    {"label":"Showroom","href":"/showroom"},
+    {"label":"Lookbook","href":"/lookbook"},
+    {"label":"Moodboard","href":"/moodboard"}
   ]),
   // Footer
   footer_col2_links: JSON.stringify([
@@ -809,24 +807,22 @@ export const SETTINGS_DEFAULTS: SiteSettings = {
   ]),
   search_total_label: '800+',
   footer_nav_rows: JSON.stringify([
-    { cat: 'Sản phẩm', links: [['Đèn Lồng Hội An','/c/hoi-an-lantern'],['Đèn Tre & Mây','/c/den-may-tre'],['Đèn Vải Lụa','/c/den-vai-cao-cap'],['Lồng Đèn Gỗ','/c/den-long-go'],['Đèn Kiểu Nhật','/c/den-kieu-nhat'],['Đèn Tết','/c/den-long-tet'],['Tất cả →','/san-pham']] },
-    { cat: 'Không gian', links: [['Quán Cafe & Trà','/c/den-quan-cafe'],['Nhà Hàng','/c/den-nha-hang'],['Phòng Khách','/c/phong-khach'],['Ngoài Trời','/c/ngoai-troi'],['Resort & Khách Sạn','/c/den-khach-san'],['Quà Tặng','/c/qua-tang'],['Đặt Sỉ / B2B','/lien-he']] },
-    { cat: 'Thương hiệu', links: [['Câu chuyện','/ve-chung-toi'],['Xưởng Hội An','/cn-hoi-an'],['Blog','/blog'],['Liên hệ','/lien-he'],['Theo dõi đơn','/theo-doi-don-hang'],['Đổi trả 7 ngày','/chinh-sach-doi-tra'],['FAQ','/hoi-dap']] },
+    { cat: 'Sản phẩm', links: [['Đèn Vải Treo Trần','/shop'],['Đèn Khung Kim Loại','/shop'],['Lồng Đèn Dân Gian','/shop'],['Gia Công Theo Yêu Cầu','/showroom'],['Tất cả →','/shop']] },
+    { cat: 'Dự án', links: [['Khách Sạn & Resort','/shop'],['Nhà Hàng & F&B','/shop'],['Spa & Wellness','/shop'],['Retail & Showroom','/shop'],['Gửi Brief →','/showroom']] },
+    { cat: 'KAHA', links: [['Về xưởng','/showroom'],['Journal kỹ thuật','/journal'],['Lookbook','/lookbook'],['Moodboard','/moodboard'],['Liên hệ','/showroom']] },
   ]),
-  footer_ticker: JSON.stringify(['LỒNG ĐÈN VIỆT®','ĐÈN THỦ CÔNG HỘI AN','VẢI LỤA & TRE MÂY','MADE IN VIETNAM','GIAO 63 TỈNH','ARTISAN CRAFTED','EST. 2016','XƯỞNG TP.HCM']),
+  footer_ticker: JSON.stringify(['KAHA · XƯỞNG TP.HCM','GIA CÔNG ĐÈN VẢI CAO CẤP','THEO BẢN VẼ DỰ ÁN','B2B · KHÁCH SẠN · F&B','PHẢN HỒI RFQ 48H','BẢO HÀNH KHUNG 12T','MADE IN VIETNAM','EST. 2016']),
   footer_maps_url: 'https://maps.app.goo.gl/5htfAhQgfXvCFmhK9',
   home_showcase: JSON.stringify([
-    {"href":"/c/hoi-an-lantern","img":"/images/menu/hoian.webp","label":"Đèn Lồng Hội An","sub":"Tinh hoa nghề truyền thống · làm thủ công 100%","tag":"Bestseller"},
-    {"href":"/c/den-may-tre","img":"/images/menu/tre.webp","label":"Đèn Tre & Mây","sub":"Nguyên liệu bản địa · phong thái Á Đông","tag":""},
-    {"href":"/c/den-vai-cao-cap","img":"/images/menu/vai.webp","label":"Đèn Vải Lụa","sub":"Ánh sáng mềm mại · không gian sang trọng","tag":"Mới"},
-    {"href":"/c/den-long-tet","img":"/images/menu/tet.webp","label":"Đèn Trang Trí Tết","sub":"Không khí Tết · ấm áp mọi không gian","tag":"Hot"},
-    {"href":"/c/den-quan-cafe","img":"/images/menu/cafe.webp","label":"Đèn Quán Cafe","sub":"200+ mẫu trang trí quán cafe, trà sữa","tag":"HOT"},
-    {"href":"/c/den-nha-hang","img":"/images/menu/nha-hang.webp","label":"Đèn Nhà Hàng","sub":"Đèn trang trí nhà hàng, quán BBQ, sushi","tag":""}
+    {"href":"/shop","img":"","label":"Đèn Vải Treo Trần","sub":"Chụp vải, khung kim loại, nhiều kích thước","tag":""},
+    {"href":"/shop","img":"","label":"Đèn Lồng Dân Gian","sub":"Lồng tre, mây đan, vải thủ công","tag":""},
+    {"href":"/shop","img":"","label":"Đèn Khung Sắt","sub":"Sơn tĩnh điện, bề mặt matte & brass","tag":""},
+    {"href":"/showroom","img":"","label":"Gia Công Theo Yêu Cầu","sub":"Theo bản vẽ kiến trúc, số lượng lớn","tag":"B2B"}
   ]),
   home_artisan_values: JSON.stringify([
-    {"icon":"handcraft","title":"Thủ công 100% — không dây chuyền","desc":"Hợp tác trực tiếp với 15+ nghệ nhân làng nghề Hội An, Huế, Bà Rịa. Mỗi chiếc đèn có dấu ấn riêng của người tạo ra nó."},
-    {"icon":"leaf","title":"Nguyên liệu bản địa, xuất xứ rõ ràng","desc":"Tre già từ rừng Quảng Nam, lụa tơ tằm từ Vạn Phúc, giấy dó từ làng Đông Hồ — 100% Made in Vietnam."},
-    {"icon":"truck","title":"Giao toàn quốc · Đổi trả 7 ngày","desc":"Miễn phí vận chuyển đơn từ 500k. Đóng gói tỉ mỉ từng lớp. Không hài lòng — hoàn tiền, không hỏi."}
+    {"icon":"handcraft","title":"Từ brief đến sản phẩm — một đầu mối","desc":"Nhận bản vẽ kiến trúc, tư vấn spec, làm mẫu thử và giao hàng loạt trong một quy trình xuyên suốt."},
+    {"icon":"leaf","title":"Vật liệu chất lượng cao — nguồn gốc rõ ràng","desc":"Vải cao cấp, khung kim loại sơn tĩnh điện, phụ kiện đèn tiêu chuẩn xuất khẩu — không dùng vật liệu kém chất lượng."},
+    {"icon":"truck","title":"Giao theo tiến độ công trình","desc":"Đóng gói chuyên nghiệp từng kiện, giao đúng hạn theo lịch thi công của dự án."}
   ]),
   // Flash Sale widget
   home_flash_heading: 'Flash Sale hôm nay',

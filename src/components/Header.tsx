@@ -52,14 +52,14 @@ function LanguageSwitcher() {
         padding: '6px 10px 6px 8px',
         borderRadius: '20px',
         background: 'rgba(255,255,255,0.92)',
-        border: '1px solid rgba(16,78,46,0.12)',
+        border: '1px solid rgba(0,0,0,0.10)',
         boxShadow: 'inset 0 1px 0 rgba(255,255,255,0.75)',
       }}
-      onMouseEnter={e => { e.currentTarget.style.borderColor = 'rgba(16,78,46,0.22)'; e.currentTarget.style.background = 'rgba(243,238,229,0.95)'; }}
-      onMouseLeave={e => { e.currentTarget.style.borderColor = 'rgba(16,78,46,0.12)'; e.currentTarget.style.background = 'rgba(255,255,255,0.92)'; }}
+      onMouseEnter={e => { e.currentTarget.style.borderColor = 'rgba(0,0,0,0.18)'; e.currentTarget.style.background = 'rgba(243,238,229,0.95)'; }}
+      onMouseLeave={e => { e.currentTarget.style.borderColor = 'rgba(0,0,0,0.10)'; e.currentTarget.style.background = 'rgba(255,255,255,0.92)'; }}
     >
       {targetFlag}
-      <span style={{ fontSize: '11px', fontWeight: 700, color: '#104e2e', letterSpacing: '0.045em' }}>
+      <span style={{ fontSize: '11px', fontWeight: 700, color: '#111111', letterSpacing: '0.045em' }}>
         {targetCode}
       </span>
     </Link>
@@ -136,7 +136,7 @@ function subImg(href: string): string {
 }
 
 const iconBtnClass =
-  'w-10 h-10 flex items-center justify-center text-[#4a4a4a] hover:text-[#1a6b3c] transition-colors focus-visible:outline-2 focus-visible:outline-[#1a6b3c] rounded-sm relative';
+  'w-10 h-10 flex items-center justify-center text-[#4a4a4a] hover:text-[#333333] transition-colors focus-visible:outline-2 focus-visible:outline-[#333333] rounded-sm relative';
 
 
 export default function Header({ topbarMessages, announcementBg, announcementInterval, announcementEffect, announcementShimmer, navItems = [], megaProducts: megaProductsProp, megaRooms: megaRoomsProp, searchPlaceholder, searchQuickCats, searchTotalLabel, storePhone, storeEmail, storeAddress, mapsUrl, menuImages, logoSrc, logoAlt }: {
@@ -309,7 +309,7 @@ export default function Header({ topbarMessages, announcementBg, announcementInt
     if (e.key === 'Enter' && deskQuery.trim()) {
       setDeskOpen(false);
       deskInputRef.current?.blur();
-      window.location.href = `/san-pham?q=${encodeURIComponent(deskQuery)}`;
+      window.location.href = `/shop?q=${encodeURIComponent(deskQuery)}`;
     }
   }, [deskQuery]);
 
@@ -353,7 +353,7 @@ export default function Header({ topbarMessages, announcementBg, announcementInt
               border: '1px solid rgba(255,255,255,0.85)',
               borderRadius: '14px',
               boxShadow: 'inset 0 1.5px 0 rgba(255,255,255,0.98), 0 2px 10px rgba(0,0,0,0.06)',
-              color: '#104e2e',
+              color: '#111111',
             }}
             onClick={() => setMobileMenuOpen(true)}
             aria-label="Mở menu"
@@ -367,10 +367,10 @@ export default function Header({ topbarMessages, announcementBg, announcementInt
 
           {/* Logo — absolute center */}
           <div className="absolute left-1/2 -translate-x-1/2">
-            <Link href="/" aria-label="Trang chủ LongDenViet">
+            <Link href="/" aria-label="Trang chủ KAHA">
               <Image
                 src={logoSrc || '/logo.webp'}
-                alt={logoAlt || 'LongDenViet'}
+                alt={logoAlt || 'KAHA'}
                 width={168}
                 height={63}
                 className="h-[52px] w-auto transition-transform duration-200 active:scale-95"
@@ -389,7 +389,7 @@ export default function Header({ topbarMessages, announcementBg, announcementInt
             <Link
               href="/gio-hang"
               className="relative w-9 h-9 flex items-center justify-center rounded-full transition-all active:scale-95"
-              style={{ background: '#104e2e', color: '#fff' }}
+              style={{ background: '#111111', color: '#fff' }}
               aria-label={`Giỏ hàng${totalItems > 0 ? ` (${totalItems})` : ''}`}
             >
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
@@ -397,7 +397,7 @@ export default function Header({ topbarMessages, announcementBg, announcementInt
                 <path d="M1 1h4l2.68 13.39a2 2 0 001.99 1.61h9.72a2 2 0 001.99-1.61L23 6H6"/>
               </svg>
               {totalItems > 0 && (
-                <span className="absolute -top-1 -right-1 bg-[#c9822a] text-white text-[11px] font-bold min-w-[18px] h-[18px] rounded-full flex items-center justify-center px-[4px]" style={{ border: '1.5px solid white' }}>{totalItems}</span>
+                <span className="absolute -top-1 -right-1 bg-[#555555] text-white text-[11px] font-bold min-w-[18px] h-[18px] rounded-full flex items-center justify-center px-[4px]" style={{ border: '1.5px solid white' }}>{totalItems}</span>
               )}
             </Link>
           </div>
@@ -413,12 +413,12 @@ export default function Header({ topbarMessages, announcementBg, announcementInt
           >
             <Image
               src={logoSrc || '/logo.webp'}
-              alt={logoAlt || 'LongDenViet'}
+              alt={logoAlt || 'KAHA'}
               width={224}
               height={84}
               className="h-[70px] w-auto transition-all duration-300 ease-out group-hover:scale-[1.04]"
               style={{
-                filter: 'drop-shadow(0 2px 10px rgba(16,78,46,0.22)) drop-shadow(0 1px 3px rgba(16,78,46,0.12))',
+                filter: 'drop-shadow(0 2px 10px rgba(0,0,0,0.18)) drop-shadow(0 1px 3px rgba(0,0,0,0.10))',
               }}
               priority
             />
@@ -430,13 +430,13 @@ export default function Header({ topbarMessages, announcementBg, announcementInt
               className="flex items-center gap-2.5 rounded-full px-5 py-2.5 transition-all duration-200"
               style={{
                 background: '#ffffff',
-                border: deskOpen ? '1.5px solid rgba(16,78,46,0.48)' : '1.5px solid rgba(16,78,46,0.12)',
+                border: deskOpen ? '1.5px solid rgba(0,0,0,0.35)' : '1.5px solid rgba(0,0,0,0.10)',
                 boxShadow: deskOpen
-                  ? '0 0 0 3px rgba(16,78,46,0.08)'
+                  ? '0 0 0 3px rgba(0,0,0,0.06)'
                   : '0 1px 2px rgba(0,0,0,0.03)',
               }}
             >
-              <span className="shrink-0 relative w-6 h-6" style={{ color: '#104e2e' }}>
+              <span className="shrink-0 relative w-6 h-6" style={{ color: '#111111' }}>
                 <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round" className="absolute top-[2px] left-[2px]">
                   <circle cx="11" cy="11" r="7.5"/><line x1="17" y1="17" x2="21" y2="21"/>
                 </svg>
@@ -450,7 +450,7 @@ export default function Header({ topbarMessages, announcementBg, announcementInt
                 onKeyDown={handleDeskKeyDown}
                 placeholder={searchPlaceholder || 'Tìm sản phẩm, danh mục, bài viết...'}
                 className="flex-1 bg-transparent outline-none text-sm min-w-0"
-                style={{ color: '#2a1f14' }}
+                style={{ color: '#111111' }}
                 autoComplete="off"
               />
               {deskQuery && (
@@ -482,13 +482,13 @@ export default function Header({ topbarMessages, announcementBg, announcementInt
                         { label: 'Quà Tặng & B2B', href: '/san-pham', badge: null },
                       ]).map(c => (
                         <Link key={c.href} href={c.href} onClick={() => setDeskOpen(false)}
-                          className="flex items-center gap-2 px-3 py-2.5 rounded-xl text-sm font-medium transition-colors hover:bg-[#f7f2e9]"
-                          style={{ color: '#3a3026', border: '1px solid #eee7d8', background: 'rgba(255,255,255,0.82)' }}>
+                          className="flex items-center gap-2 px-3 py-2.5 rounded-xl text-sm font-medium transition-colors hover:bg-stone-50"
+                          style={{ color: '#111111', border: '1px solid #e5e5e5', background: 'rgba(255,255,255,0.92)' }}>
                           {c.label}
                           {c.badge && (
                             <span
                               className="ml-auto text-[9px] font-semibold px-1.5 py-0.5 rounded-full"
-                              style={{ background: 'rgba(16,78,46,0.08)', color: '#104e2e', border: '1px solid rgba(16,78,46,0.2)' }}
+                              style={{ background: 'rgba(0,0,0,0.06)', color: '#111111', border: '1px solid rgba(0,0,0,0.15)' }}
                             >
                               {c.badge}
                             </span>
@@ -496,9 +496,9 @@ export default function Header({ topbarMessages, announcementBg, announcementInt
                         </Link>
                       ))}
                     </div>
-                    <Link href="/san-pham" onClick={() => setDeskOpen(false)}
+                    <Link href="/shop" onClick={() => setDeskOpen(false)}
                       className="flex items-center justify-between mt-4 px-4 py-2.5 rounded-xl text-sm font-semibold transition-colors hover:bg-[#f3f8f5]"
-                      style={{ background: '#ffffff', border: '1.5px solid rgba(16,78,46,0.2)', color: '#104e2e', boxShadow: '0 1px 3px rgba(16,78,46,0.08)' }}>
+                      style={{ background: '#ffffff', border: '1.5px solid rgba(0,0,0,0.15)', color: '#111111', boxShadow: '0 1px 3px rgba(0,0,0,0.06)' }}>
                       Xem tất cả {searchTotalLabel || '800+'} sản phẩm
                       <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.1" strokeLinecap="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
                     </Link>
@@ -515,12 +515,12 @@ export default function Header({ topbarMessages, announcementBg, announcementInt
                         <div className="space-y-1">
                           {deskResults.products.slice(0, 5).map((p: { id: string; slug: string; name: string; image: string; price: number; contactForPrice?: boolean }) => (
                             <Link key={p.id} href={`/p/${p.slug}`} onClick={() => { setDeskOpen(false); setDeskQuery(''); }}
-                              className="flex items-center gap-3 px-3 py-2 rounded-xl transition-colors hover:bg-[#F5EFE4] group">
+                              className="flex items-center gap-3 px-3 py-2 rounded-xl transition-colors hover:bg-stone-100 group">
                               <div className="w-10 h-10 rounded-lg overflow-hidden shrink-0" style={{ background: '#EDE5D8' }}>
                                 {p.image && <img src={p.image} alt={p.name} className="w-full h-full object-cover" />}
                               </div>
-                              <span className="flex-1 text-sm font-medium truncate" style={{ color: '#2a1f14' }}>{p.name}</span>
-                              <span className="text-xs font-bold shrink-0" style={{ color: '#104e2e' }}>
+                              <span className="flex-1 text-sm font-medium truncate" style={{ color: '#111111' }}>{p.name}</span>
+                              <span className="text-xs font-bold shrink-0" style={{ color: '#111111' }}>
                                 {p.contactForPrice ? 'Liên hệ' : new Intl.NumberFormat('vi-VN', { style: 'currency', currency: 'VND' }).format(p.price)}
                               </span>
                             </Link>
@@ -534,12 +534,12 @@ export default function Header({ topbarMessages, announcementBg, announcementInt
                         <p className="text-[10px] font-bold uppercase tracking-[0.15em] mb-3" style={{ color: '#B0A080' }}>Bài viết</p>
                         <div className="space-y-1">
                           {deskResults.posts.slice(0, 3).map((p: { slug: string; title: string; thumbnail: string | null }) => (
-                            <Link key={p.slug} href={`/blog/${p.slug}`} onClick={() => { setDeskOpen(false); setDeskQuery(''); }}
-                              className="flex items-center gap-3 px-3 py-2 rounded-xl transition-colors hover:bg-[#F5EFE4]">
+                            <Link key={p.slug} href={`/journal/${p.slug}`} onClick={() => { setDeskOpen(false); setDeskQuery(''); }}
+                              className="flex items-center gap-3 px-3 py-2 rounded-xl transition-colors hover:bg-stone-100">
                               <div className="w-10 h-10 rounded-lg overflow-hidden shrink-0" style={{ background: '#EDE5D8' }}>
                                 {p.thumbnail && <img src={p.thumbnail} alt={p.title} className="w-full h-full object-cover" />}
                               </div>
-                              <span className="flex-1 text-sm font-medium line-clamp-2 leading-snug" style={{ color: '#2a1f14' }}>{p.title}</span>
+                              <span className="flex-1 text-sm font-medium line-clamp-2 leading-snug" style={{ color: '#111111' }}>{p.title}</span>
                             </Link>
                           ))}
                         </div>
@@ -551,9 +551,9 @@ export default function Header({ topbarMessages, announcementBg, announcementInt
                     )}
                     {/* View all */}
                     <div className="p-3">
-                      <Link href={`/san-pham?q=${encodeURIComponent(deskQuery)}`} onClick={() => { setDeskOpen(false); setDeskQuery(''); }}
-                        className="flex items-center justify-center gap-2 py-2.5 rounded-xl text-sm font-semibold transition-colors hover:bg-[#F5EFE4]"
-                        style={{ color: '#104e2e' }}>
+                      <Link href={`/shop?q=${encodeURIComponent(deskQuery)}`} onClick={() => { setDeskOpen(false); setDeskQuery(''); }}
+                        className="flex items-center justify-center gap-2 py-2.5 rounded-xl text-sm font-semibold transition-colors hover:bg-stone-100"
+                        style={{ color: '#111111' }}>
                         Xem tất cả kết quả cho "{deskQuery}"
                         <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
                       </Link>
@@ -581,10 +581,10 @@ export default function Header({ topbarMessages, announcementBg, announcementInt
                 letterSpacing: '0.01em',
                 padding: '6px 10px',
                 borderRadius: 999,
-                border: '1px solid rgba(16,78,46,0.14)',
+                border: '1px solid rgba(0,0,0,0.10)',
                 background: 'rgba(255,255,255,0.92)',
               }}
-              onMouseEnter={e => (e.currentTarget.style.color = '#1a6b3c')}
+              onMouseEnter={e => (e.currentTarget.style.color = '#333333')}
               onMouseLeave={e => (e.currentTarget.style.color = '#2f5a45')}
             >
               <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -601,8 +601,8 @@ export default function Header({ topbarMessages, announcementBg, announcementInt
             <Link
               href="/tai-khoan/dang-nhap"
               aria-label="Đăng nhập"
-              className="w-[34px] h-[34px] flex items-center justify-center rounded-full transition-colors duration-200 hover:bg-[#f3eee5] active:scale-95"
-              style={{ color: '#104e2e', border: '1px solid rgba(16,78,46,0.12)', background: 'rgba(255,255,255,0.92)' }}
+              className="w-[34px] h-[34px] flex items-center justify-center rounded-full transition-colors duration-200 hover:bg-stone-100 active:scale-95"
+              style={{ color: '#111111', border: '1px solid rgba(0,0,0,0.10)', background: 'rgba(255,255,255,0.92)' }}
             >
               <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
                 <path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/>
@@ -613,14 +613,14 @@ export default function Header({ topbarMessages, announcementBg, announcementInt
             <button
               onClick={() => setWishlistOpen(true)}
               aria-label="Yêu thích"
-              className="relative w-[34px] h-[34px] flex items-center justify-center rounded-full transition-colors duration-200 hover:bg-[#f3eee5] active:scale-95"
-              style={{ color: '#104e2e', border: '1px solid rgba(16,78,46,0.12)', background: 'rgba(255,255,255,0.92)' }}
+              className="relative w-[34px] h-[34px] flex items-center justify-center rounded-full transition-colors duration-200 hover:bg-stone-100 active:scale-95"
+              style={{ color: '#111111', border: '1px solid rgba(0,0,0,0.10)', background: 'rgba(255,255,255,0.92)' }}
             >
               <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
                 <path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/>
               </svg>
               {totalWishlist > 0 && (
-                <span className="absolute top-0.5 right-0.5 bg-[#c9822a] text-white text-[8px] font-bold min-w-[14px] h-[14px] rounded-full flex items-center justify-center px-[3px]" style={{ border: '1.5px solid white' }}>{totalWishlist}</span>
+                <span className="absolute top-0.5 right-0.5 bg-[#555555] text-white text-[8px] font-bold min-w-[14px] h-[14px] rounded-full flex items-center justify-center px-[3px]" style={{ border: '1.5px solid white' }}>{totalWishlist}</span>
               )}
             </button>
 
@@ -633,15 +633,15 @@ export default function Header({ topbarMessages, announcementBg, announcementInt
             {/* Giỏ hàng — pill CTA (opens mini-cart drawer) */}
             <button
               onClick={() => setMiniCartOpen(true)}
-              className="relative inline-flex items-center justify-center font-semibold rounded-full transition-all duration-200 active:scale-[0.97] hover:bg-[#145530]"
+              className="relative inline-flex items-center justify-center font-semibold rounded-full transition-all duration-200 active:scale-[0.97] hover:bg-[#222222]"
               style={{
-                background: 'linear-gradient(145deg,#0f4b2c,#0a3320)',
+                background: 'linear-gradient(145deg,#111111,#000000)',
                 color: '#fff',
                 width: 36,
                 height: 36,
                 padding: 0,
                 border: '1px solid rgba(255,255,255,0.16)',
-                boxShadow: 'inset 0 1px 0 rgba(255,255,255,0.24), 0 6px 14px rgba(16,78,46,0.28)',
+                boxShadow: 'inset 0 1px 0 rgba(255,255,255,0.24), 0 6px 14px rgba(0,0,0,0.20)',
                 cursor: 'pointer',
               }}
               aria-label="Mở giỏ hàng"
@@ -651,7 +651,7 @@ export default function Header({ topbarMessages, announcementBg, announcementInt
                 <path d="M1 1h4l2.68 13.39a2 2 0 001.99 1.61h9.72a2 2 0 001.99-1.61L23 6H6"/>
               </svg>
               {totalItems > 0 && (
-                <span className="absolute -top-1.5 -right-1.5 bg-[#c9822a] text-white text-[8px] font-bold min-w-[16px] h-4 rounded-full flex items-center justify-center px-[3px]" style={{ border: '1.5px solid white' }}>{totalItems}</span>
+                <span className="absolute -top-1.5 -right-1.5 bg-[#555555] text-white text-[8px] font-bold min-w-[16px] h-4 rounded-full flex items-center justify-center px-[3px]" style={{ border: '1.5px solid white' }}>{totalItems}</span>
               )}
             </button>
 
@@ -674,8 +674,8 @@ export default function Header({ topbarMessages, announcementBg, announcementInt
               >
                 <button
                   className={[
-                    'relative px-5 py-3 text-sm font-medium whitespace-nowrap flex items-center gap-1 transition-colors duration-200 text-[#2f2f2f] hover:text-brand-green',
-                    'after:absolute after:bottom-0 after:left-5 after:right-5 after:h-[1.5px] after:rounded-full after:bg-brand-green/90',
+                    'relative px-5 py-3 text-sm font-medium whitespace-nowrap flex items-center gap-1 transition-colors duration-200 text-[#2f2f2f] hover:text-brand-ink',
+                    'after:absolute after:bottom-0 after:left-5 after:right-5 after:h-[1.5px] after:rounded-full after:bg-brand-ink/90',
                     megaOpen === id ? 'after:scale-x-100 text-[#1f2a24]' : 'after:scale-x-0 after:origin-left hover:after:scale-x-100',
                     'after:transition-transform after:duration-300',
                   ].join(' ')}
@@ -702,12 +702,12 @@ export default function Header({ topbarMessages, announcementBg, announcementInt
                   href={item.href}
                   className={[
                     'relative px-5 py-3 text-sm font-medium whitespace-nowrap flex items-center gap-1 transition-colors duration-200',
-                    'after:absolute after:bottom-0 after:left-5 after:right-5 after:h-[1.5px] after:rounded-full after:bg-brand-green/90 after:scale-x-0 after:origin-left hover:after:scale-x-100 after:transition-transform after:duration-300',
+                    'after:absolute after:bottom-0 after:left-5 after:right-5 after:h-[1.5px] after:rounded-full after:bg-brand-ink/90 after:scale-x-0 after:origin-left hover:after:scale-x-100 after:transition-transform after:duration-300',
                     item.accent
-                      ? 'text-brand-red hover:text-brand-red/80 after:bg-brand-red'
+                      ? 'text-brand-ink hover:text-brand-ink/80 after:bg-brand-ink'
                       : (item.label === 'Blog' || item.label === 'Liên hệ'
-                        ? 'text-[#4a4a4a] hover:text-brand-green'
-                        : 'text-[#2f2f2f] hover:text-brand-green'),
+                        ? 'text-[#4a4a4a] hover:text-brand-ink'
+                        : 'text-[#2f2f2f] hover:text-brand-ink'),
                   ].join(' ')}
                 >
                   {item.label}
@@ -735,7 +735,7 @@ export default function Header({ topbarMessages, announcementBg, announcementInt
                         <p className="text-[10px] font-bold uppercase tracking-[0.2em] text-[#8a7a6a]">{item.label}</p>
                         <Link
                           href={item.href}
-                          className="text-[11px] font-bold text-[#104e2e] hover:underline underline-offset-4"
+                          className="text-[11px] font-bold text-[#111111] hover:underline underline-offset-4"
                         >
                           Xem tất cả →
                         </Link>
@@ -777,7 +777,7 @@ export default function Header({ topbarMessages, announcementBg, announcementInt
                           <Link
                             href={item.href}
                             className="relative rounded-xl overflow-hidden flex flex-col items-center justify-center gap-2.5"
-                            style={{ background: 'linear-gradient(135deg, #104e2e 0%, #0a3320 100%)' }}
+                            style={{ background: 'linear-gradient(135deg, #1a1a1a 0%, #000000 100%)' }}
                           >
                             <div className="w-9 h-9 rounded-full bg-white/10 flex items-center justify-center">
                               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.9)" strokeWidth="2.5" strokeLinecap="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>

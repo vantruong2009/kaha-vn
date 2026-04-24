@@ -72,31 +72,31 @@ const IconMail = () => (
 
 const MAPS_URL_DEFAULT = 'https://www.google.com/maps/place/LongDenViet%C2%AE+-+X%C6%B0%E1%BB%9Fng+%C4%90%C3%A8n+L%E1%BB%93ng+Trang+Tr%C3%AD+(Vietnam+Lanterns)/@10.7711243,106.6220421,911m/data=!3m2!1e3!4b1!4m6!3m5!1s0x31752f2d324f4659:0xe6b0024a73e13b8f!8m2!3d10.771119!4d106.624617!16s%2Fg%2F11c1p6nxwm';
 
-const DEFAULT_TICKER = ['LỒNG ĐÈN VIỆT®','ĐÈN THỦ CÔNG HỘI AN','VẢI LỤA & TRE MÂY','MADE IN VIETNAM','GIAO 63 TỈNH','ARTISAN CRAFTED','EST. 2016','XƯỞNG TP.HCM'];
+const DEFAULT_TICKER = ['KAHA · XƯỞNG TP.HCM','GIA CÔNG ĐÈN VẢI CAO CẤP','THEO BẢN VẼ DỰ ÁN','B2B · KHÁCH SẠN · F&B','PHẢN HỒI RFQ 48H','BẢO HÀNH KHUNG 12T','MADE IN VIETNAM','EST. 2016'];
 
 const DEFAULT_NAV_ROWS: FooterNavRow[] = [
   {
     cat: 'Sản phẩm',
-    links: [['Đèn Lồng Hội An','/c/hoi-an-lantern'],['Đèn Trung Thu','/c/den-trung-thu'],['Đèn Tết','/c/den-long-tet'],['Đèn Kiểu Nhật','/c/den-kieu-nhat'],['Đèn Tre & Mây','/c/den-may-tre'],['Lồng Đèn Gỗ','/c/den-long-go'],['Gia Công Đèn','/gia-cong-den-trang-tri'],['Bảng Màu Vải','/bang-mau-vai'],['Tất cả →','/san-pham']],
+    links: [['Đèn Vải Treo Trần','/shop'],['Đèn Khung Kim Loại','/shop'],['Lồng Đèn Dân Gian','/shop'],['Gia Công Theo Yêu Cầu','/showroom'],['Tất cả →','/shop']],
   },
   {
-    cat: 'Không gian',
-    links: [['Quán Cafe & Trà','/c/den-quan-cafe'],['Đèn Nhà Hàng & Cafe','/den-trang-tri-nha-hang-quan-cafe'],['Nhà Hàng','/c/den-nha-hang'],['Phòng Khách','/c/phong-khach'],['Ngoài Trời','/c/ngoai-troi'],['Resort & Khách Sạn','/c/den-khach-san'],['Đèn Khách Sạn Resort','/den-trang-tri-khach-san-resort'],['Quà Tặng','/c/qua-tang'],['Đại Lý & Sỉ','/dai-ly'],['Bảng Giá','/bang-gia']],
+    cat: 'Dự án',
+    links: [['Khách Sạn & Resort','/shop'],['Nhà Hàng & F&B','/shop'],['Spa & Wellness','/shop'],['Retail & Showroom','/shop'],['Gửi Brief →','/showroom']],
   },
   {
-    cat: 'Thương hiệu',
-    links: [['Câu chuyện','/ve-chung-toi'],['Xưởng Hội An','/cn-hoi-an'],['Blog','/blog'],['Theo dõi đơn','/theo-doi-don-hang'],['Đổi trả 7 ngày','/chinh-sach-doi-tra'],['FAQ','/hoi-dap'],['Liên hệ','/lien-he'],['English (Intl) ↗','/en'],['Kaha Home ↗','https://kaha.vn']],
+    cat: 'KAHA',
+    links: [['Về xưởng','/showroom'],['Journal kỹ thuật','/journal'],['Lookbook','/lookbook'],['Moodboard','/moodboard'],['Liên hệ','/showroom']],
   },
 ];
 
-const CREAM = '#FBF0D0';
-const CREAM_DARK = '#F0E0A0';  /* ticker + legal bar — slightly deeper */
+const CREAM = '#FFFFFF';
+const CREAM_DARK = '#F5F5F5';  /* ticker + legal bar — slightly deeper */
 
 export default function Footer({ settings }: { settings?: FooterSettings }) {
-  const phone  = settings?.phone    || '0989.778.247';
-  const email  = settings?.email    || 'sales@longdenviet.com';
+  const phone  = settings?.phone    || '090 515 1701';
+  const email  = settings?.email    || 'hi@kaha.vn';
   const addr   = settings?.address  || '262/1/93 Phan Anh, Phường Phú Thạnh, Thành Phố Hồ Chí Minh, Việt Nam';
-  const copy   = settings?.copyright    || '© 2026 LongDenViet®. Bảo lưu mọi quyền.';
+  const copy   = settings?.copyright    || '© 2026 KAHA®. Bảo lưu mọi quyền.';
   const navRows = settings?.navRows?.length ? settings.navRows : DEFAULT_NAV_ROWS;
   const ticker = settings?.ticker?.length ? settings.ticker : DEFAULT_TICKER;
   const mapsUrl = settings?.mapsUrl || MAPS_URL_DEFAULT;
@@ -104,9 +104,9 @@ export default function Footer({ settings }: { settings?: FooterSettings }) {
   const legalCompanyName = settings?.legalCompanyName || 'HỘ KINH DOANH KAHA HOME';
   const legalTaxId = settings?.legalTaxId || 'MST: 079192026914';
   const legalAddress = settings?.legalRegisteredAddress || '262/1/93 Phan Anh, Phường Phú Thạnh, Thành Phố Hồ Chí Minh, Việt Nam';
-  const newsletterTitle    = settings?.newsletterTitle    || 'Nhận ưu đãi';
-  const newsletterSubtitle = settings?.newsletterSubtitle || 'Voucher 50K cho đơn đầu tiên';
-  const newsletterDesc     = settings?.newsletterDesc     || 'Bộ sưu tập mới · ưu đãi thành viên';
+  const newsletterTitle    = settings?.newsletterTitle    || 'Nhận cập nhật';
+  const newsletterSubtitle = settings?.newsletterSubtitle || 'Catalog & bảng giá mới nhất';
+  const newsletterDesc     = settings?.newsletterDesc     || 'Sản phẩm mới · case B2B · tài liệu kỹ thuật';
   const DEFAULT_LEGAL_LINKS: [string, string][] = [
     ['Vận chuyển', '/chinh-sach-van-chuyen'],
     ['Đổi trả', '/chinh-sach-doi-tra'],
@@ -143,7 +143,7 @@ export default function Footer({ settings }: { settings?: FooterSettings }) {
 
             {/* Logo */}
             <Link href="/" className="shrink-0">
-              <Image src="/logo.webp" alt="LongDenViet — Đèn Lồng Thủ Công Việt Nam" width={160} height={60} className="h-[60px] w-auto" />
+              <Image src="/logo.webp" alt="KAHA — Xưởng Gia Công Đèn Vải Cao Cấp" width={160} height={60} className="h-[60px] w-auto" />
             </Link>
 
             {/* Divider */}
@@ -152,26 +152,26 @@ export default function Footer({ settings }: { settings?: FooterSettings }) {
             {/* 3 contact cards */}
             <div className="flex-1 grid grid-cols-1 sm:grid-cols-3 gap-3 w-full">
 
-              <a href="tel:+84989778247"
+              <a href="tel:+840905151701"
                 className="flex items-center gap-3 rounded-xl px-4 py-3.5 transition-all"
                 style={{ background: 'rgba(0,0,0,0.04)', border: '1px solid rgba(0,0,0,0.08)' }}
-                onMouseEnter={e => (e.currentTarget.style.borderColor = '#c9822a')}
+                onMouseEnter={e => (e.currentTarget.style.borderColor = '#111111')}
                 onMouseLeave={e => (e.currentTarget.style.borderColor = 'rgba(0,0,0,0.08)')}
               >
-                <span className="shrink-0" style={{ color: '#c9822a' }}><IconPhone /></span>
+                <span className="shrink-0" style={{ color: '#111111' }}><IconPhone /></span>
                 <div>
                   <p style={{ fontSize: '11px', fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.1em', color: 'rgba(0,0,0,0.4)' }}>Gọi ngay</p>
-                  <p style={{ color: '#c9822a', fontSize: '15px', fontWeight: 800 }}>0989.778.247</p>
+                  <p style={{ color: '#111111', fontSize: '15px', fontWeight: 800 }}>0989.778.247</p>
                 </div>
               </a>
 
               <a href={mapsUrl} target="_blank" rel="noopener noreferrer"
                 className="flex items-center gap-3 rounded-xl px-4 py-3.5 transition-all"
                 style={{ background: 'rgba(0,0,0,0.04)', border: '1px solid rgba(0,0,0,0.08)' }}
-                onMouseEnter={e => (e.currentTarget.style.borderColor = '#c9822a')}
+                onMouseEnter={e => (e.currentTarget.style.borderColor = '#111111')}
                 onMouseLeave={e => (e.currentTarget.style.borderColor = 'rgba(0,0,0,0.08)')}
               >
-                <span className="shrink-0" style={{ color: '#c9822a' }}><IconPin /></span>
+                <span className="shrink-0" style={{ color: '#111111' }}><IconPin /></span>
                 <div>
                   <p style={{ fontSize: '11px', fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.1em', color: 'rgba(0,0,0,0.4)' }}>Xem bản đồ</p>
                   <p style={{ fontSize: '14px', fontWeight: 700, color: '#1a1a1a' }}>{locationLabel}</p>
@@ -181,10 +181,10 @@ export default function Footer({ settings }: { settings?: FooterSettings }) {
               <a href={`mailto:${email}`}
                 className="flex items-center gap-3 rounded-xl px-4 py-3.5 transition-all"
                 style={{ background: 'rgba(0,0,0,0.04)', border: '1px solid rgba(0,0,0,0.08)' }}
-                onMouseEnter={e => (e.currentTarget.style.borderColor = '#c9822a')}
+                onMouseEnter={e => (e.currentTarget.style.borderColor = '#111111')}
                 onMouseLeave={e => (e.currentTarget.style.borderColor = 'rgba(0,0,0,0.08)')}
               >
-                <span className="shrink-0" style={{ color: '#c9822a' }}><IconMail /></span>
+                <span className="shrink-0" style={{ color: '#111111' }}><IconMail /></span>
                 <div>
                   <p style={{ fontSize: '11px', fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.1em', color: 'rgba(0,0,0,0.4)' }}>Email</p>
                   <p style={{ fontSize: '13px', fontWeight: 700, color: '#1a1a1a' }}>{email}</p>
@@ -210,7 +210,7 @@ export default function Footer({ settings }: { settings?: FooterSettings }) {
                 <div key={cat} className="flex flex-wrap items-baseline gap-y-2">
                   <span
                     className="shrink-0 w-20 md:w-28 font-black uppercase"
-                    style={{ fontSize: '11px', letterSpacing: '0.18em', color: '#c9822a' }}
+                    style={{ fontSize: '11px', letterSpacing: '0.18em', color: '#111111' }}
                   >
                     {cat}
                   </span>
@@ -223,12 +223,12 @@ export default function Footer({ settings }: { settings?: FooterSettings }) {
                         <span key={href} className="flex items-center">
                           {isExternal ? (
                             <a href={href} target="_blank" rel="noopener" className={cls} style={linkStyle}
-                              onMouseEnter={e => (e.currentTarget.style.color = '#c9822a')}
+                              onMouseEnter={e => (e.currentTarget.style.color = '#111111')}
                               onMouseLeave={e => (e.currentTarget.style.color = 'rgba(0,0,0,0.55)')}
                             >{label}</a>
                           ) : (
                             <Link href={href} className={cls} style={linkStyle}
-                              onMouseEnter={e => (e.currentTarget.style.color = '#c9822a')}
+                              onMouseEnter={e => (e.currentTarget.style.color = '#111111')}
                               onMouseLeave={e => (e.currentTarget.style.color = 'rgba(0,0,0,0.55)')}
                             >{label}</Link>
                           )}
@@ -245,7 +245,7 @@ export default function Footer({ settings }: { settings?: FooterSettings }) {
 
             {/* Newsletter — editorial style */}
             <div className="lg:w-[280px] shrink-0">
-              <p style={{ fontSize: '11px', fontWeight: 900, letterSpacing: '0.18em', textTransform: 'uppercase', color: '#c9822a', marginBottom: '10px' }}>
+              <p style={{ fontSize: '11px', fontWeight: 900, letterSpacing: '0.18em', textTransform: 'uppercase', color: '#111111', marginBottom: '10px' }}>
                 {newsletterTitle}
               </p>
               <p style={{ fontSize: '13px', fontWeight: 600, color: '#1a1a1a', marginBottom: '4px', lineHeight: 1.4 }}>
@@ -255,7 +255,7 @@ export default function Footer({ settings }: { settings?: FooterSettings }) {
                 {newsletterDesc}
               </p>
               {sent ? (
-                <p style={{ color: '#c9822a', fontWeight: 600, fontSize: '13px' }}>Đã đăng ký ✓</p>
+                <p style={{ color: '#111111', fontWeight: 600, fontSize: '13px' }}>Đã đăng ký ✓</p>
               ) : (
                 <form onSubmit={e => { e.preventDefault(); if (val) { setSent(true); setVal(''); } }}>
                   <div className="flex items-center" style={{ borderBottom: '1.5px solid rgba(0,0,0,0.18)' }}>
@@ -268,7 +268,7 @@ export default function Footer({ settings }: { settings?: FooterSettings }) {
                     <button type="submit"
                       className="shrink-0 pb-2 transition-colors"
                       style={{ color: 'rgba(0,0,0,0.5)', fontWeight: 700, fontSize: '12px', letterSpacing: '0.06em', textTransform: 'uppercase' }}
-                      onMouseEnter={e => (e.currentTarget.style.color = '#c9822a')}
+                      onMouseEnter={e => (e.currentTarget.style.color = '#111111')}
                       onMouseLeave={e => (e.currentTarget.style.color = 'rgba(0,0,0,0.5)')}
                     >Đăng ký →</button>
                   </div>
@@ -287,7 +287,7 @@ export default function Footer({ settings }: { settings?: FooterSettings }) {
                       aria-label={label}
                       className="flex items-center justify-center rounded-lg transition-all"
                       style={{ width: 34, height: 34, background: 'rgba(0,0,0,0.06)', color: 'rgba(0,0,0,0.45)', border: '1px solid rgba(0,0,0,0.08)' }}
-                      onMouseEnter={e => { e.currentTarget.style.color = '#c9822a'; e.currentTarget.style.borderColor = '#c9822a'; e.currentTarget.style.background = 'rgba(201,130,42,0.08)'; }}
+                      onMouseEnter={e => { e.currentTarget.style.color = '#111111'; e.currentTarget.style.borderColor = '#111111'; e.currentTarget.style.background = 'rgba(0,0,0,0.05)'; }}
                       onMouseLeave={e => { e.currentTarget.style.color = 'rgba(0,0,0,0.45)'; e.currentTarget.style.borderColor = 'rgba(0,0,0,0.08)'; e.currentTarget.style.background = 'rgba(0,0,0,0.06)'; }}
                     >
                       <Icon />
@@ -313,7 +313,7 @@ export default function Footer({ settings }: { settings?: FooterSettings }) {
         >
           {[...ticker,...ticker,...ticker].map((t,i) => (
             <span key={i} className="flex items-center gap-10">
-              <span style={{ fontSize:'10px', fontWeight:800, letterSpacing:'0.26em', color:'rgba(20,85,48,0.65)', textTransform:'uppercase' }}>{t}</span>
+              <span style={{ fontSize:'10px', fontWeight:800, letterSpacing:'0.26em', color:'rgba(0,0,0,0.5)', textTransform:'uppercase' }}>{t}</span>
               <svg width="5" height="5" viewBox="0 0 6 6" fill="rgba(201,130,42,0.4)" aria-hidden="true"><circle cx="3" cy="3" r="3"/></svg>
             </span>
           ))}
@@ -364,7 +364,7 @@ export default function Footer({ settings }: { settings?: FooterSettings }) {
           <div className="flex flex-wrap items-center gap-x-3 gap-y-1.5 text-left">
             <a href="https://kaha.vn" target="_blank" rel="noopener"
               style={{ fontSize:'11px', fontWeight:800, letterSpacing:'0.04em', color:'rgba(0,0,0,0.5)', textDecoration:'none' }}
-              onMouseEnter={e=>(e.currentTarget.style.color='#c9822a')}
+              onMouseEnter={e=>(e.currentTarget.style.color='#111111')}
               onMouseLeave={e=>(e.currentTarget.style.color='rgba(0,0,0,0.5)')}
             >{legalCompanyName}</a>
             <span style={{ color:'rgba(0,0,0,0.15)' }}>·</span>
@@ -375,7 +375,7 @@ export default function Footer({ settings }: { settings?: FooterSettings }) {
           <div className="flex flex-wrap items-center justify-start gap-x-3 gap-y-1.5 text-left">
             {legalLinks.map(([l,h])=>(
               <Link key={h} href={h} style={{ fontSize:'11px', color:'rgba(0,0,0,0.4)' }}
-                onMouseEnter={e=>(e.currentTarget.style.color='#1a6b3c')}
+                onMouseEnter={e=>(e.currentTarget.style.color='#333333')}
                 onMouseLeave={e=>(e.currentTarget.style.color='rgba(0,0,0,0.4)')}
               >{l}</Link>
             ))}
@@ -388,7 +388,7 @@ export default function Footer({ settings }: { settings?: FooterSettings }) {
                     target="_blank"
                     rel="noopener"
                     style={{ color: 'rgba(0,0,0,0.45)', textDecoration: 'none', fontWeight: 700 }}
-                    onMouseEnter={e => (e.currentTarget.style.color = '#c9822a')}
+                    onMouseEnter={e => (e.currentTarget.style.color = '#111111')}
                     onMouseLeave={e => (e.currentTarget.style.color = 'rgba(0,0,0,0.45)')}
                   >
                     KAHA
