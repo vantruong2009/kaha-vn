@@ -1,9 +1,11 @@
 import type { Metadata, Viewport } from "next";
 import { Inter, Playfair_Display } from "next/font/google";
+import { FloatingContactButtons } from "@/components/floating-contact-buttons";
 import { JsonLdOrganization } from "@/components/json-ld-organization";
 import { SkipLink } from "@/components/skip-link";
 import { JsonLdWebSite } from "@/components/json-ld-website";
 import { getSiteUrl } from "@/lib/site-url";
+import { getSiteSettings } from "@/server/site-settings";
 import "./globals.css";
 
 const fontDisplay = Playfair_Display({
@@ -56,11 +58,12 @@ export const metadata: Metadata = {
   },
 };
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const settings = await getSiteSettings();
   return (
     <html
       lang="vi"
@@ -73,6 +76,7 @@ export default function RootLayout({
         <JsonLdOrganization />
         <JsonLdWebSite />
         {children}
+        <FloatingContactButtons settings={settings} />
       </body>
     </html>
   );
