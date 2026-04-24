@@ -1,0 +1,113 @@
+{
+  "21513": [
+    {
+      "sku": "MTX-8490018",
+      "price": 170000.0,
+      "attributes": {
+        "size": "d300-x-h400-mm"
+      },
+      "inStock": true,
+      "image": null
+    },
+    {
+      "sku": "MTX-8490018-01",
+      "price": 230000.0,
+      "attributes": {
+        "size": "d370-x-h500-mm"
+      },
+      "inStock": true,
+      "image": null
+    }
+  ],
+  "21517": [
+    {
+      "sku": "MTX-8490023-01",
+      "price": 200000.0,
+      "attributes": {
+        "size": "d400-x-h450-mm"
+      },
+      "inStock": true,
+      "image": null
+    },
+    {
+      "sku": "Đèn nơm MTX-8490023",
+      "price": 160000.0,
+      "attributes": {
+        "size": "d300-x-h450-mm"
+      },
+      "inStock": true,
+      "image": null
+    }
+  ],
+  "21519": [
+    {
+      "sku": "MTX-8490026-3",
+      "price": 150000.0,
+      "attributes": {
+        "size": "d250-x-h400-mm"
+      },
+      "inStock": true,
+      "image": null
+    },
+    {
+      "sku": "MTX-8490026",
+      "price": 110000.0,
+      "attributes": {
+        "size": "d150-x-h150-mm"
+      },
+      "inStock": true,
+      "image": null
+    },
+    {
+      "sku": "MTX-8490026-2",
+      "price": 130000.0,
+      "attributes": {
+        "size": "d200-x-h250-mm"
+      },
+      "inStock": true,
+      "image": null
+    }
+  ],
+  "22145": [
+    {
+      "sku": "MTX-849009-02",
+      "price": 180000.0,
+      "attributes": {
+        "color": "Trắng",
+        "size": "d350-x-h200-mm"
+      },
+      "inStock": true,
+      "image": null
+    },
+    {
+      "sku": "MTX-849009-01",
+      "price": 170000.0,
+      "attributes": {
+        "color": "Trắng",
+        "size": "d300-x-h250-mm"
+      },
+      "inStock": true,
+      "image": null
+    }
+  ],
+  "22147": [
+    {
+      "sku": "MTX-8490011-01",
+      "price": 300000.0,
+      "attributes": {
+        "color": "Trắng"
+      },
+      "inStock": true,
+      "image": null
+    },
+    {
+      "sku": "MTX-8490011",
+      "price": 300000.0,
+      "attributes": {
+        "color": "Nâu"
+      },
+      "inStock": true,
+      "image": null
+    }
+  ]
+}
