@@ -125,12 +125,36 @@ Sau Phase 1-2 build pass + luxury OK:
 | Design token conflict (green vs ink) | globals.css override sau copy, không sửa từng file |
 | Translation effort lớn (longdenviet → kaha content) | Giữ kỹ thuật longdenviet, chỉ thay brand/text surface |
 
-## Ghi chú quan trọng
+## Brand info KAHA.VN (user confirm 2026-04-24)
 
-- Cùng hộ kinh doanh (Kaha Home, 262/1/93 Phan Anh, Phú Thạnh, Tân Phú, TP.HCM, MST 079192026914)
-- Hotline: 0989.778.247 / Zalo 0905.151.701 / Email sales@longdenviet.com — KAHA cần hotline + email riêng hay dùng chung? (chờ user confirm)
-- Domain: kaha.vn — cần sub-domain staging? staging.kaha.vn hay kaha-staging.local?
-- Font direction ngược nhau: longdenviet = Be Vietnam Pro no-italic; KAHA Obsidian = Playfair + Inter có italic. GIỮ Obsidian direction cho KAHA.
+| Field | Value |
+|---|---|
+| Tên thương hiệu | KAHA (logo: `Kaha®`) |
+| Tagline | Đèn Vải Trang Trí & Chụp Đèn Khách Sạn |
+| Email | `hi@kaha.vn` |
+| Hotline | `09368.766.79` |
+| Địa chỉ | 262/1/93 Phan Anh, Phường Phú Thạnh, TP.HCM |
+| Google Maps | https://maps.app.goo.gl/5htfAhQgfXvCFmhK9 |
+| Hộ kinh doanh | Kaha Home (MST 079192026914 — cùng với longdenviet) |
+| Domain prod | kaha.vn |
+| Subdomain staging | KHÔNG CẦN — dev trên `localhost:3102` Oracle VPS qua SSH tunnel cho đến khi launch |
+
+**Typography direction** (khác longdenviet):
+- Longdenviet: Be Vietnam Pro only, no-italic, `--color-brand-green #104e2e`
+- KAHA Obsidian: Playfair Display (display) + Inter (body), có italic cho pull-quote, paper/ink/platinum palette
+- GIỮ Obsidian direction — không downgrade về Be Vietnam Pro khi copy longdenviet code
+
+## Cutover strategy (user confirm)
+
+- KHÔNG setup subdomain staging trước (không `preview.kaha.vn`)
+- Dev liên tục trên Oracle VPS Docker port 3102, truy cập qua `localhost:3102` (SSH tunnel từ Mac)
+- Khi **toàn bộ** Phase 1-4 xong + user review OK → **1 lần cutover duy nhất**:
+  1. Off site WordPress kaha.vn hiện tại
+  2. Trỏ DNS kaha.vn → Oracle VPS IP
+  3. Renew SSL cert
+  4. Test end-to-end
+
+→ Risk: cutover "big-bang" không có staging sanity-check trước. Mitigation: smoke test exhaustive ở localhost trước khi cutover, có sẵn runbook rollback (trong `docs/ROLLBACK.md` + `docs/STAGING-RUNBOOK.md`).
 
 ## Current deliverable Phase 0
 
