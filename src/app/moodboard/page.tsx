@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
-import { SiteFooter } from "@/components/site-footer";
-import { SiteHeader } from "@/components/site-header";
+import { PageShell } from "@/components/page-shell";
 import { MoodboardClient } from "./ui-client";
 
 export const metadata: Metadata = {
@@ -10,11 +9,9 @@ export const metadata: Metadata = {
   robots: { index: true, follow: true },
 };
 
-export default function MoodboardPage() {
+export default async function MoodboardPage() {
   return (
-    <div className="flex min-h-full flex-col bg-paper-warm">
-      <SiteHeader />
-      <main id="main-content" tabIndex={-1} className="flex-1 px-5 py-16 md:px-12">
+    <PageShell mainClassName="flex-1 px-5 py-16 md:px-12">
         <div className="mx-auto max-w-5xl">
           <p className="text-[13px] font-medium uppercase tracking-[0.08em] text-ink-500">
             KAHA.VN
@@ -27,8 +24,6 @@ export default function MoodboardPage() {
           </p>
           <MoodboardClient />
         </div>
-      </main>
-      <SiteFooter />
-    </div>
+    </PageShell>
   );
 }

@@ -1,16 +1,9 @@
 import Link from "next/link";
-import { SiteFooter } from "@/components/site-footer";
-import { SiteHeader } from "@/components/site-header";
+import { PageShell } from "@/components/page-shell";
 
-export default function NotFound() {
+export default async function NotFound() {
   return (
-    <div className="flex min-h-full flex-col bg-paper-warm">
-      <SiteHeader />
-      <main
-        id="main-content"
-        tabIndex={-1}
-        className="flex flex-1 flex-col items-center justify-center px-6 py-24 text-center"
-      >
+    <PageShell mainClassName="flex flex-1 flex-col items-center justify-center px-6 py-24 text-center">
         <p className="text-[13px] font-medium uppercase tracking-[0.08em] text-ink-500">
           404
         </p>
@@ -23,8 +16,6 @@ export default function NotFound() {
         >
           Về trang chủ
         </Link>
-      </main>
-      <SiteFooter />
-    </div>
+    </PageShell>
   );
 }

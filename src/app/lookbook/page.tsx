@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
-import { SiteFooter } from "@/components/site-footer";
-import { SiteHeader } from "@/components/site-header";
+import { PageShell } from "@/components/page-shell";
 import { ShopTheLook } from "@/components/shop-the-look";
 import { getSiteUrl } from "@/lib/site-url";
 
@@ -20,15 +19,9 @@ export const metadata: Metadata = {
   },
 };
 
-export default function LookbookPage() {
+export default async function LookbookPage() {
   return (
-    <div className="flex min-h-full flex-col bg-paper-warm">
-      <SiteHeader />
-      <main
-        id="main-content"
-        tabIndex={-1}
-        className="flex-1 px-5 py-16 md:px-12 md:py-20"
-      >
+    <PageShell mainClassName="flex-1 px-5 py-16 md:px-12 md:py-20">
         <div className="mx-auto max-w-6xl">
           <p className="text-[13px] font-medium uppercase tracking-[0.08em] text-ink-500">
             KAHA.VN
@@ -66,8 +59,6 @@ export default function LookbookPage() {
             />
           </div>
         </div>
-      </main>
-      <SiteFooter />
-    </div>
+    </PageShell>
   );
 }

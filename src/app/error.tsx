@@ -11,27 +11,37 @@ export default function Error({
 }) {
   return (
     <div className="flex min-h-full flex-col bg-paper-warm">
-      <header className="flex flex-row flex-wrap items-center justify-between gap-4 border-b border-hairline px-5 py-6 md:px-12">
-        <Link
-          href="/"
-          className="text-[13px] font-medium uppercase tracking-[0.08em] text-ink-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-platinum-deep"
-        >
-          KAHA.VN
-        </Link>
-        <nav
-          className="flex items-center gap-8 text-[13px] font-medium uppercase tracking-[0.08em] text-ink-600"
-          aria-label="Chính"
-        >
-          <Link href="/shop" className="transition-colors hover:text-ink-900">
-            Shop
+      <header className="border-b border-hairline">
+        <div className="border-b border-hairline bg-ink-900 px-5 py-2 text-center md:px-12">
+          <Link
+            href="/showroom"
+            className="text-[11px] uppercase tracking-[0.1em] text-paper/85 transition-colors hover:text-paper"
+          >
+            Xưởng KAHA — gia công đèn vải theo thông số dự án
           </Link>
-          <Link href="/journal" className="transition-colors hover:text-ink-900">
-            Journal
+        </div>
+        <div className="mx-auto flex max-w-[1600px] flex-wrap items-center justify-between gap-4 px-5 py-4 md:px-12">
+          <Link
+            href="/"
+            className="text-[13px] font-semibold uppercase tracking-[0.1em] text-ink-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-platinum-deep"
+          >
+            KAHA.VN
           </Link>
-          <Link href="/lookbook" className="transition-colors hover:text-ink-900">
-            Lookbook
-          </Link>
-        </nav>
+          <nav
+            className="flex flex-wrap items-center gap-6 text-[12px] font-medium uppercase tracking-[0.08em] text-ink-600"
+            aria-label="Điều hướng"
+          >
+            <Link href="/shop" className="transition-colors hover:text-ink-900">
+              Shop
+            </Link>
+            <Link href="/journal" className="transition-colors hover:text-ink-900">
+              Journal
+            </Link>
+            <Link href="/showroom" className="transition-colors hover:text-ink-900">
+              Showroom
+            </Link>
+          </nav>
+        </div>
       </header>
       <main
         id="main-content"
@@ -50,15 +60,13 @@ export default function Error({
         <button
           type="button"
           onClick={() => reset()}
-          className="mt-10 border border-ink-900 px-6 py-3 text-sm font-medium text-ink-900 transition-colors hover:bg-ink-900 hover:text-paper"
+          className="mt-10 border border-ink-900 bg-ink-900 px-6 py-3 text-sm font-medium text-paper transition-colors hover:bg-paper hover:text-ink-900"
         >
           Thử lại
         </button>
       </main>
       <footer className="border-t border-hairline px-5 py-10 md:px-12">
-        <p className="text-[13px] uppercase tracking-[0.08em] text-ink-500">
-          © KAHA.VN
-        </p>
+        <p className="text-[12px] uppercase tracking-[0.08em] text-ink-500">© KAHA.VN</p>
       </footer>
     </div>
   );

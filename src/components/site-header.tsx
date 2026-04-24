@@ -49,14 +49,13 @@ export async function SiteHeader() {
             </span>
           )}
         </Link>
-        <div className="hidden min-w-[280px] flex-1 border border-hairline bg-paper px-3 py-2 md:flex">
-          <input
-            readOnly
-            placeholder="Tìm sản phẩm, danh mục…"
-            className="w-full bg-transparent text-sm text-ink-500 outline-none placeholder:text-ink-400"
-            aria-label="Ô tìm kiếm (mở Shop)"
-          />
-        </div>
+        <Link
+          href="/shop"
+          className="hidden min-w-[280px] flex-1 items-center border border-hairline bg-paper px-3 py-2 text-sm text-ink-400 transition-colors hover:border-ink-300 hover:text-ink-600 md:flex"
+          aria-label="Mở Shop để tìm sản phẩm và danh mục"
+        >
+          Tìm sản phẩm, danh mục…
+        </Link>
         <div className="flex items-center gap-3">
           <a
             href={`tel:${settings.hotline.replace(/[^\d+]/g, "")}`}
@@ -64,6 +63,14 @@ export async function SiteHeader() {
           >
             {settings.hotline}
           </a>
+          {settings.secondaryCtaLabel.trim() && settings.secondaryCtaHref.trim() ? (
+            <Link
+              href={settings.secondaryCtaHref}
+              className="hidden border border-hairline px-4 py-2 text-xs uppercase tracking-[0.08em] text-ink-700 transition-colors hover:border-ink-300 hover:text-ink-900 md:inline-flex"
+            >
+              {settings.secondaryCtaLabel}
+            </Link>
+          ) : null}
           <Link
             href={settings.primaryCtaHref || "/showroom"}
             className="border border-ink-900 bg-ink-900 px-4 py-2 text-xs uppercase tracking-[0.08em] text-paper transition-colors hover:bg-paper hover:text-ink-900"

@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
+import { PageShell } from "@/components/page-shell";
 import { SpecPrintButton } from "@/components/spec-print-button";
 import { plainTextFromHtml } from "@/lib/plain-text-from-html";
 import { getSiteUrl } from "@/lib/site-url";
@@ -37,7 +38,7 @@ export default async function SpecSheetPage({ params }: Props) {
   const seoDesc = plainTextFromHtml(content.seo_description, { maxLength: 400 });
 
   return (
-    <main id="main-content" tabIndex={-1} className="min-h-full bg-paper px-5 py-10 text-ink-900 md:px-12">
+    <PageShell mainClassName="min-h-full flex-1 bg-paper px-5 py-10 text-ink-900 md:px-12">
       <div className="mx-auto max-w-3xl">
         <div className="mb-8 flex items-center justify-between gap-3 border-b border-hairline pb-5">
           <div>
@@ -90,6 +91,6 @@ export default async function SpecSheetPage({ params }: Props) {
           </div>
         </section>
       </div>
-    </main>
+    </PageShell>
   );
 }

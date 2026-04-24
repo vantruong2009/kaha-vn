@@ -1,8 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { PageShell } from "@/components/page-shell";
 import { ProductTeaserGrid } from "@/components/product-teaser-grid";
-import { SiteFooter } from "@/components/site-footer";
-import { SiteHeader } from "@/components/site-header";
 import { getSiteUrl } from "@/lib/site-url";
 import {
   getShopFacets,
@@ -177,9 +176,7 @@ export default async function ShopPage({ searchParams }: PageProps) {
       : `/shop${qs({ q, category, tag, sort, page: page + 1 })}`;
 
   return (
-    <div className="flex min-h-full flex-col bg-paper-warm">
-      <SiteHeader />
-      <main id="main-content" tabIndex={-1} className="flex-1 px-5 py-10 md:px-12 md:py-14">
+    <PageShell mainClassName="flex-1 px-5 py-10 md:px-12 md:py-14">
         <div className="mx-auto max-w-[1600px]">
           <p className="text-[13px] font-medium uppercase tracking-[0.08em] text-ink-500">
             KAHA.VN
@@ -273,8 +270,6 @@ export default async function ShopPage({ searchParams }: PageProps) {
             )}
           </div>
         ) : null}
-      </main>
-      <SiteFooter />
-    </div>
+    </PageShell>
   );
 }

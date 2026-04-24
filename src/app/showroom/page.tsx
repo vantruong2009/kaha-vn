@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
-import { SiteFooter } from "@/components/site-footer";
-import { SiteHeader } from "@/components/site-header";
+import { PageShell } from "@/components/page-shell";
 
 export const metadata: Metadata = {
   title: "Đặt lịch showroom",
@@ -16,13 +15,7 @@ type Props = {
 export default async function ShowroomPage({ searchParams }: Props) {
   const status = (await searchParams)?.status ?? "";
   return (
-    <div className="flex min-h-full flex-col bg-paper-warm">
-      <SiteHeader />
-      <main
-        id="main-content"
-        tabIndex={-1}
-        className="flex-1 px-5 py-16 md:px-12 md:py-24"
-      >
+    <PageShell mainClassName="flex-1 px-5 py-16 md:px-12 md:py-24">
         <section className="mx-auto max-w-3xl">
           <p className="text-[13px] font-medium uppercase tracking-[0.08em] text-ink-500">
             KAHA.VN
@@ -130,8 +123,6 @@ export default async function ShowroomPage({ searchParams }: Props) {
             </div>
           </form>
         </section>
-      </main>
-      <SiteFooter />
-    </div>
+    </PageShell>
   );
 }

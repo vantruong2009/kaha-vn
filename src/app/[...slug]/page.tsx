@@ -8,9 +8,8 @@ import { JsonLdBreadcrumbList } from "@/components/json-ld-breadcrumb";
 import { JsonLdProduct } from "@/components/json-ld-product";
 import { JsonLdWebPage } from "@/components/json-ld-webpage";
 import { MoodboardToggle } from "@/components/moodboard-toggle";
+import { PageShell } from "@/components/page-shell";
 import { QuoteRequestForm } from "@/components/quote-request-form";
-import { SiteFooter } from "@/components/site-footer";
-import { SiteHeader } from "@/components/site-header";
 import { plainTextFromHtml } from "@/lib/plain-text-from-html";
 import { rewriteKahaMediaUrls } from "@/lib/rewrite-kaha-media-url";
 import { getSiteUrl } from "@/lib/site-url";
@@ -123,13 +122,8 @@ export default async function LegacyPathPlaceholder({ params }: Props) {
     });
 
     return (
-      <div className="flex min-h-full flex-col bg-paper-warm">
-        <SiteHeader />
-        <article
-          id="main-content"
-          tabIndex={-1}
-          className="flex-1 px-5 py-16 md:px-12"
-        >
+      <PageShell mainClassName="flex-1 p-0">
+        <article className="flex-1 px-5 py-16 md:px-12">
           {content.post_type === "post" ? (
             <JsonLdArticle
               url={articleUrl}
@@ -247,19 +241,12 @@ export default async function LegacyPathPlaceholder({ params }: Props) {
             />
           ) : null}
         </article>
-        <SiteFooter />
-      </div>
+      </PageShell>
     );
   }
 
   return (
-    <div className="flex min-h-full flex-col bg-paper-warm">
-      <SiteHeader />
-      <main
-        id="main-content"
-        tabIndex={-1}
-        className="flex flex-1 flex-col px-5 py-16 md:px-12"
-      >
+    <PageShell mainClassName="flex flex-1 flex-col px-5 py-16 md:px-12">
         <p className="text-[13px] font-medium uppercase tracking-[0.08em] text-ink-500">
           Migration
         </p>
@@ -267,8 +254,6 @@ export default async function LegacyPathPlaceholder({ params }: Props) {
         <p className="mt-8 max-w-lg text-base leading-relaxed text-ink-700">
           Slug giữ nguyên so với WordPress; nội dung render sau import DB / R2.
         </p>
-      </main>
-      <SiteFooter />
-    </div>
+    </PageShell>
   );
 }

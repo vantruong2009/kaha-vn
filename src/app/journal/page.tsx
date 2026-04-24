@@ -1,8 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { JsonLdJournalItemList } from "@/components/json-ld-journal-item-list";
-import { SiteFooter } from "@/components/site-footer";
-import { SiteHeader } from "@/components/site-header";
+import { PageShell } from "@/components/page-shell";
 import { plainTextFromHtml } from "@/lib/plain-text-from-html";
 import { getSiteUrl } from "@/lib/site-url";
 import { countPublishedPosts, getLatestPosts } from "@/server/content";
@@ -67,9 +66,7 @@ export default async function JournalPage({ searchParams }: PageProps) {
     page >= totalPages ? null : `/journal?page=${page + 1}`;
 
   return (
-    <div className="flex min-h-full flex-col bg-paper-warm">
-      <SiteHeader />
-      <main id="main-content" tabIndex={-1} className="flex-1 px-5 py-12 md:px-12 md:py-18">
+    <PageShell mainClassName="flex-1 px-5 py-12 md:px-12 md:py-16">
         <div className="mx-auto max-w-[1600px]">
           {posts.length > 0 ? (
             <JsonLdJournalItemList
@@ -183,8 +180,6 @@ export default async function JournalPage({ searchParams }: PageProps) {
             </>
           )}
         </div>
-      </main>
-      <SiteFooter />
-    </div>
+    </PageShell>
   );
 }

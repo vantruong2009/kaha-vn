@@ -1,8 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { PageShell } from "@/components/page-shell";
 import { ProductTeaserGrid } from "@/components/product-teaser-grid";
-import { SiteFooter } from "@/components/site-footer";
-import { SiteHeader } from "@/components/site-header";
 import { getSiteUrl } from "@/lib/site-url";
 import { getFeaturedProducts } from "@/server/content";
 
@@ -26,10 +25,7 @@ export default async function Home() {
   const products = await getFeaturedProducts(9);
 
   return (
-    <div className="flex min-h-full flex-1 flex-col bg-paper-warm">
-      <SiteHeader />
-
-      <div id="main-content" tabIndex={-1} className="flex min-h-0 flex-1 flex-col">
+    <PageShell mainClassName="flex min-h-0 flex-1 flex-col p-0">
         <section className="border-b border-hairline">
           <div className="mx-auto grid max-w-[1600px] lg:grid-cols-[56%_44%]">
             <div className="border-b border-hairline px-5 py-16 md:border-b-0 md:border-r md:px-12 md:py-24">
@@ -102,9 +98,6 @@ export default async function Home() {
             ))}
           </div>
         </section>
-      </div>
-
-      <SiteFooter />
-    </div>
+    </PageShell>
   );
 }
