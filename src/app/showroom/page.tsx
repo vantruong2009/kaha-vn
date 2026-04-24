@@ -2,8 +2,8 @@ import type { Metadata } from "next";
 import { PageShell } from "@/components/page-shell";
 
 export const metadata: Metadata = {
-  title: "Đặt lịch showroom",
-  description: "Đặt lịch tư vấn chiếu sáng tại showroom KAHA.VN",
+  title: "Gửi RFQ & Đặt lịch xưởng",
+  description: "Gửi brief và yêu cầu báo giá cho KAHA — phản hồi trong 48h. Đặt lịch tham quan xưởng và xem mẫu trực tiếp tại TP.HCM.",
   alternates: { canonical: "/showroom" },
   robots: { index: true, follow: true },
 };
@@ -21,11 +21,10 @@ export default async function ShowroomPage({ searchParams }: Props) {
             KAHA.VN
           </p>
           <h1 className="mt-3 text-[clamp(2rem,4vw,2.6rem)] [font-family:var(--font-display),serif] text-ink-900">
-            Đặt lịch showroom
+            Gửi RFQ & Đặt lịch xưởng
           </h1>
           <p className="mt-4 max-w-xl text-base leading-relaxed text-ink-700">
-            Đặt lịch xem mẫu trực tiếp, nhận tư vấn bố trí ánh sáng theo không
-            gian và ngân sách.
+            Gửi brief dự án — kích thước, số lượng, timeline. KAHA phản hồi báo giá sơ bộ trong 48h và sắp xếp lịch tham quan xưởng, xem mẫu trực tiếp tại TP.HCM.
           </p>
           {status === "ok" ? (
             <p className="mt-4 text-sm text-ink-700">
@@ -99,10 +98,11 @@ export default async function ShowroomPage({ searchParams }: Props) {
               </select>
             </label>
             <label className="flex flex-col gap-2 text-sm text-ink-600 md:col-span-2">
-              Nhu cầu / loại công trình
+              Brief dự án (loại công trình, số lượng, kích thước, timeline...)
               <textarea
                 rows={4}
                 name="note"
+                placeholder="Ví dụ: 50 đèn thả trần cho khách sạn boutique, ø40cm, vải linen, giao Q3/2026..."
                 className="border border-hairline bg-paper px-3 py-2 text-sm outline-none focus:border-ink-300"
               />
             </label>
@@ -116,9 +116,9 @@ export default async function ShowroomPage({ searchParams }: Props) {
             <div className="md:col-span-2">
               <button
                 type="submit"
-                className="border border-ink-900 px-6 py-2 text-sm uppercase tracking-[0.06em] text-ink-900 transition-colors hover:bg-ink-900 hover:text-paper"
+                className="border border-ink-900 bg-ink-900 px-6 py-2 text-sm uppercase tracking-[0.06em] text-paper transition-colors hover:bg-paper hover:text-ink-900"
               >
-                Gửi đặt lịch
+                Gửi yêu cầu báo giá
               </button>
             </div>
           </form>

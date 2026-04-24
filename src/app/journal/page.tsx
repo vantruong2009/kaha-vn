@@ -81,8 +81,7 @@ export default async function JournalPage({ searchParams }: PageProps) {
             Journal
           </h1>
           <p className="mt-4 max-w-xl text-base leading-relaxed text-ink-700">
-            Bài viết sau khi import từ WordPress; mỗi mục mở tại permalink tương
-            ứng trên site.{" "}
+            Tài liệu kỹ thuật, case B2B và hướng dẫn từ xưởng KAHA — giúp kiến trúc sư và chủ dự án ra quyết định đúng trước khi đặt hàng.{" "}
             <Link
               href="/feed.xml"
               className="text-platinum-deep underline underline-offset-4 hover:text-ink-900"
