@@ -18,131 +18,76 @@ export const metadata: Metadata = {
 /* ─── Data ─────────────────────────────────────────────── */
 
 const PROOF = [
-  { v: "10+", l: "Năm kinh nghiệm", d: "Xưởng gia công đèn vải tại TP.HCM" },
-  { v: "477+", l: "Mã sản phẩm", d: "Đèn treo, chụp vải, đèn chùm" },
-  { v: "48h", l: "Phản hồi RFQ", d: "Kể từ khi nhận đủ bản vẽ & số lượng" },
-  { v: "12T", l: "Bảo hành khung", d: "Theo hợp đồng; vải in theo mẫu duyệt" },
+  { v: "10", suffix: "năm", l: "Kinh nghiệm xưởng", d: "Thành lập 2015 · TP. Hồ Chí Minh" },
+  { v: "477", suffix: "+", l: "Mã sản phẩm", d: "Đèn treo · chụp vải · đèn chùm" },
+  { v: "48", suffix: "h", l: "Phản hồi RFQ", d: "Từ khi nhận bản vẽ & số lượng" },
+  { v: "12", suffix: "tháng", l: "Bảo hành khung", d: "Theo hợp đồng; vải in theo mẫu duyệt" },
 ];
 
-const MATERIALS = [
-  {
-    cat: "Vải bọc",
-    items: [
-      "Linen tự nhiên — texture mịn, giữ màu tốt dưới UV đèn trong nhà",
-      "Polyester phủ lớp — chống ẩm, phù hợp không gian F&B và SPA",
-      "Lưới organza & vải dệt thoi — tạo hiệu ứng khuếch tán mềm",
-      "In kỹ thuật số trực tiếp trên vải (DTF) — Pantone matching theo mẫu",
-    ],
-  },
-  {
-    cat: "Khung & kết cấu",
-    items: [
-      "Sắt ống & thép hộp sơn tĩnh điện — RAL theo bảng màu dự án",
-      "Inox 304 đánh bóng hoặc hairline — khu vực ẩm, coastal resort",
-      "Nhôm định hình đúc — giảm tải cho hệ treo trần thạch cao",
-      "Tre định hình + khung thép ẩn — phong cách Đông Á, Japandi",
-    ],
-  },
-  {
-    cat: "Nguồn sáng",
-    items: [
-      "LED COB & SMD CRI ≥ 90 — màu sắc trung thực, tiết kiệm điện",
-      "Driver DALI / 0–10V — tích hợp hệ BMS khách sạn & showroom",
-      "CCT 2700K – 4000K theo từng vùng chức năng không gian",
-      "IES file cung cấp khi dự án yêu cầu tính toán AGI32 / DIALux",
-    ],
-  },
+const CAPABILITIES: Array<[string, string]> = [
+  ["Vải bọc", "Linen · Polyester phủ · Organza · In DTF Pantone matching"],
+  ["Khung & kết cấu", "Sắt RAL · Inox 304 hairline · Nhôm đúc · Tre định hình"],
+  ["Nguồn sáng", "LED COB & SMD · CRI ≥ 90 · CCT 2700–4000K"],
+  ["Driver & điều khiển", "DALI / 0–10V · DMX · tích hợp BMS khách sạn"],
+  ["Hoàn thiện", "Sơn tĩnh điện RAL · mạ điện · hairline brushed"],
+  ["QC & tài liệu", "Serial · IES · PDF song ngữ · mẫu vải lưu 24 tháng"],
 ];
 
-const SCOPE = [
-  {
-    t: "Khách sạn & Resort",
-    d: "Lobby, hành lang, phòng tiệc. Dim theo master lighting DALI. Bản vẽ shop drawing LOD 300 phối hợp QS và MEP.",
-    tag: "Contract lighting",
-  },
-  {
-    t: "Nhà hàng & F&B",
-    d: "Chochin, andon, bonbori đồng bộ nhận diện chuỗi. MOQ linh hoạt cho chuỗi 5–100 mặt bằng.",
-    tag: "F&B chain",
-  },
-  {
-    t: "Showroom & Retail cao cấp",
-    d: "Đèn trưng bày theo storyboard. Packshot + catalogue in song ngữ Việt/English khi cần xuất khẩu mẫu.",
-    tag: "Visual merchandising",
-  },
-  {
-    t: "Sự kiện & không gian tạm",
-    d: "Lắp dựng nhanh, kiểm định an toàn treo, thu hồi và cất kho theo batch cho tour roadshow toàn quốc.",
-    tag: "Event & pop-up",
-  },
+const PLATES = [
+  { n: "01", cap: "CHOCHIN · LINEN TỰ NHIÊN", aspect: "3/4" },
+  { n: "02", cap: "IN DTF · PANTONE MATCHING", aspect: "3/4" },
+  { n: "03", cap: "KHUNG THÉP · SƠN TĨNH ĐIỆN RAL", aspect: "4/3" },
+  { n: "04", cap: "ANDON · BONBORI CHO F&B", aspect: "3/4" },
+  { n: "05", cap: "HAIRLINE BRUSHED · INOX 304", aspect: "4/3" },
 ];
 
-const STEPS = [
-  {
-    n: "01",
-    t: "Brief & khảo sát",
-    d: "Nhận moodboard, lux level, bản vẽ kiến trúc hoặc ảnh 360. Xác định CA/CE nếu xuất khẩu. Họp kỹ thuật online/offline.",
-  },
-  {
-    n: "02",
-    t: "Thuyết minh & shop drawing",
-    d: "Chốt vật liệu vải, khung, nguồn sáng, driver. Bản vẽ nội bộ có kích thước gia công, điểm đấu nối điện.",
-  },
-  {
-    n: "03",
-    t: "Mẫu & duyệt QC",
-    d: "Mẫu đơn hoặc mini-batch trước khi chạy loạt. Checklist QC ký nhận. Chụp packshot lưu hồ sơ dự án.",
-  },
-  {
-    n: "04",
-    t: "Sản xuất & bàn giao",
-    d: "Đóng kiện gỗ + PE foam. Chứng từ CO/CQ nếu xuất. Hỗ trợ hiệu chỉnh tại công trình TP.HCM theo SLA.",
-  },
-];
+/* ─── Museum plate placeholder ─────────────────────────── */
 
-const WHY = [
-  {
-    t: "Tất cả dưới một mái xưởng",
-    d: "Cắt vải, may, in DTF, hàn khung, sơn tĩnh điện, lắp nguồn sáng — không thuê ngoài công đoạn cốt lõi. Kiểm soát chất lượng từ nguyên liệu đến thành phẩm.",
-  },
-  {
-    t: "MOQ thực tế, timeline rõ ràng",
-    d: "Đặt hàng từ 10 chiếc / mã màu cho mẫu thử. Lịch sản xuất cập nhật tuần. Không báo giao 'khoảng' — có ngày cụ thể trong hợp đồng.",
-  },
-  {
-    t: "Hồ sơ kỹ thuật đầy đủ",
-    d: "Mỗi lô hàng kèm phiếu QC, serial gắn sản phẩm, lưu mẫu vải tại kho 24 tháng. IES file, PDF hướng dẫn lắp song ngữ khi cần.",
-  },
-];
+function Plate({
+  n,
+  caption,
+  aspect = "4/5",
+  tone = "paper",
+  className = "",
+}: {
+  n: string;
+  caption: string;
+  aspect?: string;
+  tone?: "paper" | "ink";
+  className?: string;
+}) {
+  const bg = tone === "ink" ? "bg-ink-900" : "bg-paper";
+  const labelColor = tone === "ink" ? "text-ink-300" : "text-ink-400";
+  const captionColor = tone === "ink" ? "text-ink-300/80" : "text-ink-500";
+  const lineColor = tone === "ink" ? "bg-platinum" : "bg-platinum-deep";
+  const borderColor = tone === "ink" ? "border-ink-700" : "border-hairline";
 
-const FAQ = [
-  {
-    q: "MOQ gia công in logo / Pantone riêng?",
-    a: "Từ 20 chiếc / mã màu cho vải in DTF. Số chính xác tùy dòng đèn và độ phức tạp file. Gửi logo vector + Pantone để nhận báo giá lô nhỏ.",
-  },
-  {
-    q: "Thời gian giao hàng trung bình?",
-    a: "Mẫu duyệt: 5–10 ngày làm việc. Đơn hàng loạt: 15–35 ngày tùy số lượng và công đoạn in/thêu. Giao GHN, GHTK hoặc xe chuyên dụng theo hợp đồng.",
-  },
-  {
-    q: "Có hỗ trợ thiết kế ánh sáng không?",
-    a: "KAHA tập trung sản xuất và hoàn thiện đèn theo bản vẽ chủ đầu tư hoặc đơn vị lighting design. Có thể phối hợp workshop với LD partner bạn chỉ định.",
-  },
-  {
-    q: "Hợp đồng B2B, bảo mật mẫu?",
-    a: "Đặt cọc theo tiến độ cố định. Hóa đơn VAT đầy đủ. Điều khoản bảo mật bản vẽ và mẫu độc quyền có thể ký NDA riêng khi cần.",
-  },
-  {
-    q: "Xuất khẩu sang thị trường nước ngoài?",
-    a: "Có chứng từ CO/CQ, đóng gói xuất khẩu tiêu chuẩn. Đã cung cấp cho dự án tại Singapore, Nhật và châu Âu qua đối tác B2B.",
-  },
-];
+  return (
+    <div
+      className={`relative w-full overflow-hidden border ${borderColor} ${bg} ${className}`}
+      style={{ aspectRatio: aspect }}
+      aria-label={`Placeholder ảnh ${n} — ${caption}`}
+    >
+      <div className="absolute inset-0 flex flex-col items-center justify-center gap-5 p-6 text-center">
+        <span className={`font-mono text-[10px] font-medium uppercase tracking-[0.28em] ${labelColor}`}>
+          Plate {n}
+        </span>
+        <div className={`h-px w-10 ${lineColor}`} aria-hidden />
+        <span
+          className={`max-w-[20ch] text-[10.5px] font-medium uppercase leading-[1.6] tracking-[0.12em] ${captionColor}`}
+        >
+          {caption}
+        </span>
+      </div>
+    </div>
+  );
+}
 
 /* ─── Page ──────────────────────────────────────────────── */
 
 /**
- * Homepage mockup — "gia công đèn vải cao cấp" B2B
- * Bố cục logic 10 section, Obsidian design system, noindex.
+ * Homepage mockup v2 — premium editorial redesign.
+ * 6 sections, Obsidian design system, noindex.
  */
 export default async function HomeMockupPage() {
   const products = await getFeaturedProducts(9);
@@ -150,366 +95,272 @@ export default async function HomeMockupPage() {
   return (
     <PageShell mainClassName="flex flex-1 flex-col p-0">
 
-        {/* ① HERO — Editorial split, identity statement */}
-        <section className="border-b border-hairline">
-          <div className="mx-auto grid max-w-[1600px] lg:grid-cols-[52%_48%]">
-            {/* Text column */}
-            <div className="flex flex-col justify-between border-b border-hairline px-5 py-16 md:border-b-0 md:border-r md:px-12 md:py-24 lg:px-16 lg:py-28">
-              <div>
-                <p className="text-[12px] font-medium uppercase tracking-[0.16em] text-ink-500">
-                  KAHA · Xưởng sản xuất · Hồ Chí Minh, Việt Nam
-                </p>
-                <h1 className="mt-6 text-[clamp(2.5rem,5.5vw,4.25rem)] font-normal leading-[1.04] tracking-[-0.01em] text-ink-900 [font-family:var(--font-display),serif]">
-                  Gia công đèn vải
-                  <br />
-                  cao cấp theo bản vẽ
-                  <br />
-                  — không theo template.
-                </h1>
-                <div className="mt-8 h-px w-16 bg-platinum-deep" aria-hidden />
-                <p className="mt-8 max-w-lg text-[16px] leading-[1.8] text-ink-600">
-                  Chúng tôi sản xuất đèn vải, đèn treo và hệ khung kim loại theo đúng thông số dự án —
-                  kích thước, màu vải Pantone, nguồn sáng, driver dim. Từ 1 mẫu thử đến cả nghìn chiếc
-                  cho chuỗi khách sạn và F&B.
-                </p>
-              </div>
-              <div className="mt-12 flex flex-wrap gap-3 md:mt-16">
+      {/* ─── ① HERO — Editorial split ─────────────────── */}
+      <section className="border-b border-hairline">
+        <div className="mx-auto grid max-w-[1600px] lg:grid-cols-[1fr_1fr]">
+          {/* Text */}
+          <div className="flex flex-col justify-between border-b border-hairline px-6 pb-16 pt-20 md:border-b-0 md:border-r md:px-14 md:pb-28 md:pt-32 lg:px-20 lg:pb-36 lg:pt-40">
+            <div>
+              <p className="u-eyebrow-lg">
+                KAHA · Xưởng gia công đèn vải · Est. 2015
+              </p>
+              <h1 className="mt-10 font-display text-[clamp(2.75rem,7.2vw,6rem)] leading-[0.98] text-ink-900">
+                Đèn vải.
+                <br />
+                Gia công
+                <br />
+                <span className="font-display-italic">theo bản vẽ.</span>
+              </h1>
+              <div className="mt-10 h-px w-14 bg-platinum-deep" aria-hidden />
+              <p className="mt-10 max-w-[46ch] text-[15px] leading-[1.85] text-ink-700">
+                KAHA sản xuất đèn vải, đèn treo và hệ khung kim loại theo đúng thông số
+                dự án — kích thước, Pantone, nguồn sáng, driver dim. Một đầu mối, một
+                timeline, từ mẫu thử đến giao hàng loạt cho khách sạn và F&B.
+              </p>
+            </div>
+            <div className="mt-14 flex flex-col gap-8">
+              <div className="flex flex-wrap gap-3">
                 <Link
                   href="/showroom"
-                  className="border border-ink-900 bg-ink-900 px-8 py-3 text-[13px] font-medium uppercase tracking-[0.1em] text-paper transition-colors duration-200 hover:bg-transparent hover:text-ink-900"
+                  className="border border-ink-900 bg-ink-900 px-10 py-3.5 text-[12px] font-medium uppercase tracking-[0.14em] text-paper transition-colors duration-200 hover:bg-transparent hover:text-ink-900"
                 >
                   Đặt lịch xưởng
                 </Link>
                 <Link
                   href="/shop"
-                  className="border border-hairline bg-paper px-8 py-3 text-[13px] font-medium uppercase tracking-[0.1em] text-ink-700 transition-colors duration-200 hover:border-ink-400 hover:text-ink-900"
+                  className="border border-ink-900 bg-transparent px-10 py-3.5 text-[12px] font-medium uppercase tracking-[0.14em] text-ink-900 transition-colors duration-200 hover:bg-ink-900 hover:text-paper"
                 >
                   Xem catalog
                 </Link>
-                <Link
-                  href="/journal"
-                  className="border border-hairline bg-paper px-8 py-3 text-[13px] font-medium uppercase tracking-[0.1em] text-ink-700 transition-colors duration-200 hover:border-ink-400 hover:text-ink-900"
-                >
-                  Kỹ thuật &amp; vật liệu
-                </Link>
               </div>
-            </div>
-            {/* Image column */}
-            <div className="relative min-h-[360px] bg-paper md:min-h-[520px]">
-              <div className="absolute inset-0 flex flex-col justify-between p-8 md:p-12">
-                <div className="flex-1 border border-hairline bg-hairline/20">
-                  <div className="flex h-full items-center justify-center p-10 text-center">
-                    <p className="max-w-[22ch] text-[13px] leading-relaxed text-ink-400">
-                      Ảnh editorial 4:5 — đèn vải chụp trên nền studio trắng hoặc in-situ tại công trình.
-                      Nguồn R2, chưa import.
-                    </p>
-                  </div>
-                </div>
-                <p className="mt-6 text-[12px] leading-relaxed text-ink-500">
-                  Ví dụ: Chochin D40cm · Linen thiên nhiên · LED 2700K · Driver DALI
-                </p>
-              </div>
+              <p className="u-caption">
+                Phản hồi RFQ 48h · MOQ từ 10 chiếc · Hợp đồng B2B / xuất khẩu
+              </p>
             </div>
           </div>
-        </section>
 
-        {/* ② PROOF BAR — 4 chỉ số tin cậy */}
-        <section className="border-b border-hairline bg-paper">
-          <div className="mx-auto grid max-w-[1600px] divide-y divide-hairline sm:grid-cols-2 sm:divide-y-0 md:grid-cols-4 md:divide-x">
-            {PROOF.map((p) => (
-              <div key={p.l} className="px-8 py-8 md:px-10 md:py-10">
-                <p className="font-mono text-[clamp(1.75rem,2.8vw,2.5rem)] font-medium leading-none text-ink-900">
-                  {p.v}
-                </p>
-                <p className="mt-2 text-[12px] font-medium uppercase tracking-[0.12em] text-ink-500">
-                  {p.l}
-                </p>
-                <p className="mt-2 text-[13px] leading-snug text-ink-600">{p.d}</p>
+          {/* Plate */}
+          <div className="relative bg-paper">
+            <div className="h-full min-h-[520px] p-6 md:p-12 lg:p-16">
+              <Plate n="01" caption="Chochin · Linen tự nhiên · D40 · LED 2700K" aspect="3/4" className="h-full" />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ─── ② PROOF STRIP — dark ──────────────────────── */}
+      <section className="bg-ink-900">
+        <div className="mx-auto grid max-w-[1600px] grid-cols-2 md:grid-cols-4">
+          {PROOF.map((p, i) => (
+            <div
+              key={p.l}
+              className={`flex flex-col items-start gap-3 px-8 py-14 md:px-12 md:py-20 ${
+                i < PROOF.length - 1 ? "md:border-r md:border-ink-700" : ""
+              } ${i < 2 ? "border-b border-ink-700 md:border-b-0" : ""}`}
+            >
+              <p className="u-tnum font-mono text-[clamp(2.5rem,4.5vw,3.75rem)] font-normal leading-none text-paper">
+                {p.v}
+                <span className="ml-1 text-[0.4em] font-medium uppercase tracking-[0.12em] text-ink-300">
+                  {p.suffix}
+                </span>
+              </p>
+              <p className="text-[11px] font-medium uppercase tracking-[0.22em] text-paper/70">
+                {p.l}
+              </p>
+              <p className="text-[13px] leading-[1.6] text-ink-300">{p.d}</p>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* ─── ③ MOODWALL — material study ───────────────── */}
+      <section className="border-b border-hairline bg-paper-warm px-6 py-24 md:px-12 md:py-32 lg:py-40">
+        <div className="mx-auto max-w-[1600px]">
+          <div className="grid gap-12 lg:grid-cols-[minmax(0,1fr)_minmax(0,1fr)] lg:gap-20">
+            <div>
+              <p className="u-eyebrow">Section 03 — Material study</p>
+              <h2 className="mt-8 font-display text-[clamp(2rem,4.8vw,3.75rem)] leading-[1.04] text-ink-900">
+                Xưởng gia công
+                <br />
+                <span className="font-display-italic">đèn vải cao cấp.</span>
+              </h2>
+            </div>
+            <div className="flex items-end">
+              <p className="max-w-[52ch] text-[15px] leading-[1.85] text-ink-700">
+                Chúng tôi kiểm soát cả ba lớp cấu thành một chiếc đèn — vải, khung kim
+                loại và nguồn sáng — trong cùng một xưởng tại Tân Phú, TP.HCM. Không thuê
+                ngoài công đoạn cốt lõi, không báo giá ước chừng. Mỗi lô hàng đi kèm
+                serial, phiếu QC và mẫu vải lưu 24 tháng.
+              </p>
+            </div>
+          </div>
+
+          {/* Mosaic */}
+          <div className="mt-20 grid gap-4 md:gap-6 lg:grid-cols-12">
+            <div className="lg:col-span-4 lg:row-span-2">
+              <Plate n={PLATES[0].n} caption={PLATES[0].cap} aspect="3/4" className="h-full min-h-[420px]" />
+            </div>
+            <div className="lg:col-span-8">
+              <Plate n={PLATES[2].n} caption={PLATES[2].cap} aspect="16/9" />
+            </div>
+            <div className="lg:col-span-4">
+              <Plate n={PLATES[1].n} caption={PLATES[1].cap} aspect="4/3" />
+            </div>
+            <div className="lg:col-span-4">
+              <Plate n={PLATES[3].n} caption={PLATES[3].cap} aspect="4/3" />
+            </div>
+          </div>
+
+          {/* Caption strip */}
+          <div className="mt-10 border-t border-hairline pt-6">
+            <div className="flex flex-wrap items-center gap-x-10 gap-y-3">
+              {PLATES.slice(0, 4).map((p) => (
+                <div key={p.n} className="flex items-center gap-3">
+                  <span className="font-mono text-[10px] font-medium uppercase tracking-[0.24em] text-platinum-deep">
+                    {p.n}
+                  </span>
+                  <span className="text-[11.5px] font-medium uppercase tracking-[0.14em] text-ink-500">
+                    {p.cap}
+                  </span>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ─── ④ CAPABILITIES — precision table ──────────── */}
+      <section className="border-b border-hairline bg-paper px-6 py-24 md:px-12 md:py-32">
+        <div className="mx-auto grid max-w-[1400px] gap-16 lg:grid-cols-[minmax(0,5fr)_minmax(0,7fr)] lg:gap-24">
+          <div className="lg:sticky lg:top-24 lg:self-start">
+            <p className="u-eyebrow">Section 04 — Capabilities</p>
+            <h2 className="mt-8 font-display text-[clamp(1.875rem,3.6vw,3rem)] leading-[1.05] text-ink-900">
+              Năng lực sản xuất
+              <br />
+              <span className="font-display-italic">khép kín.</span>
+            </h2>
+            <div className="mt-8 h-px w-12 bg-platinum-deep" aria-hidden />
+            <p className="mt-8 max-w-[38ch] text-[15px] leading-[1.8] text-ink-700">
+              Bạn liên hệ một đầu mối, nhận một bộ hồ sơ, kiểm soát một timeline. Không
+              trung gian, không đẩy trách nhiệm qua các bên phụ.
+            </p>
+            <div className="mt-10 flex flex-wrap gap-3">
+              <Link
+                href="/journal"
+                className="border border-ink-900 bg-transparent px-7 py-3 text-[11px] font-medium uppercase tracking-[0.14em] text-ink-900 transition-colors duration-200 hover:bg-ink-900 hover:text-paper"
+              >
+                Đọc spec kỹ thuật
+              </Link>
+            </div>
+          </div>
+          <dl className="divide-y divide-hairline border-y border-hairline">
+            {CAPABILITIES.map(([k, v]) => (
+              <div
+                key={k}
+                className="grid grid-cols-[minmax(120px,180px)_1fr] gap-6 py-7 md:gap-10 md:py-8"
+              >
+                <dt className="font-mono text-[11px] font-medium uppercase tracking-[0.18em] text-ink-500">
+                  {k}
+                </dt>
+                <dd className="text-[15px] leading-[1.65] text-ink-800">{v}</dd>
               </div>
             ))}
-          </div>
-        </section>
+          </dl>
+        </div>
+      </section>
 
-        {/* ③ NĂNG LỰC CỐT LÕI — editorial 2-col, dark background */}
-        <section className="border-b border-hairline bg-ink-900 px-5 py-20 md:px-12 md:py-28">
-          <div className="mx-auto grid max-w-6xl gap-12 lg:grid-cols-[1fr_1fr] lg:gap-20">
+      {/* ─── ⑤ CATALOG ─────────────────────────────────── */}
+      <section className="border-b border-hairline bg-paper-warm px-6 pt-24 md:px-12 md:pt-32">
+        <div className="mx-auto max-w-[1600px]">
+          <div className="flex flex-col gap-8 md:flex-row md:items-end md:justify-between">
             <div>
-              <p className="text-[12px] font-medium uppercase tracking-[0.16em] text-ink-300/60">
-                Năng lực sản xuất
-              </p>
-              <h2 className="mt-5 text-[clamp(1.75rem,3.2vw,2.75rem)] font-normal leading-[1.15] text-paper [font-family:var(--font-display),serif]">
-                Xưởng khép kín — từ vải thô đến đèn hoàn thiện.
+              <p className="u-eyebrow">Section 05 — In stock</p>
+              <h2 className="mt-8 font-display text-[clamp(1.875rem,3.6vw,3rem)] leading-[1.05] text-ink-900">
+                Catalog mẫu — <span className="font-display-italic">gia công theo thông số.</span>
               </h2>
-              <div className="mt-6 h-px w-12 bg-platinum" aria-hidden />
-              <p className="mt-7 text-[15px] leading-[1.85] text-ink-300">
-                KAHA không thuê ngoài công đoạn cốt lõi. Cắt vải, may, in DTF kỹ thuật số, hàn khung,
-                sơn tĩnh điện, lắp driver và nguồn sáng — tất cả trong cùng một xưởng tại Tân Phú, TP.HCM.
-                Điều đó có nghĩa là bạn liên hệ một đầu mối, nhận một bộ hồ sơ, kiểm soát một timeline.
-              </p>
             </div>
-            <div className="flex flex-col justify-center">
-              <ul className="space-y-0 border border-ink-700">
-                {[
-                  ["Vải", "Linen, polyester, organza — in DTF Pantone matching"],
-                  ["Khung", "Sắt / inox 304 / nhôm đúc / tre định hình"],
-                  ["Nguồn sáng", "LED COB & SMD CRI ≥ 90 · DALI / 0–10V driver"],
-                  ["Hoàn thiện", "Sơn tĩnh điện RAL · mạ điện · hairline brushed"],
-                  ["QC & tài liệu", "Serial gắn sản phẩm · IES · PDF song ngữ"],
-                  ["Xuất khẩu", "CO/CQ · Incoterms theo thỏa thuận · kiện gỗ PE"],
-                ].map(([k, v]) => (
-                  <li
-                    key={k}
-                    className="grid grid-cols-[120px_1fr] border-b border-ink-700 last:border-b-0"
-                  >
-                    <span className="border-r border-ink-700 px-5 py-4 text-[13px] font-medium uppercase tracking-[0.1em] text-ink-300/70">
-                      {k}
-                    </span>
-                    <span className="px-5 py-4 text-[14px] leading-snug text-ink-300">
-                      {v}
-                    </span>
-                  </li>
-                ))}
-              </ul>
-            </div>
+            <Link
+              href="/shop"
+              className="self-start border-b border-ink-900 pb-1 text-[12px] font-medium uppercase tracking-[0.14em] text-ink-900 transition-opacity hover:opacity-60 md:self-end"
+            >
+              Xem toàn bộ catalog →
+            </Link>
           </div>
-        </section>
-
-        {/* ④ CATALOG — Sản phẩm từ DB */}
+        </div>
         {products.length > 0 ? (
-          <ProductTeaserGrid items={products} heading="Catalog mẫu — gia công theo thông số" />
+          <div className="-mx-6 md:-mx-12">
+            <ProductTeaserGrid items={products} heading="" />
+          </div>
         ) : (
-          <section className="border-b border-hairline px-5 py-20 text-center md:px-12">
-            <p className="text-[13px] font-medium uppercase tracking-[0.14em] text-ink-500">Catalog</p>
+          <div className="mt-16 border border-hairline px-8 py-20 text-center">
+            <p className="u-eyebrow">Empty state</p>
             <p className="mt-4 text-sm text-ink-600">
-              Chưa có sản phẩm trong DB — chạy import XML để lấp lưới ảnh thật tại đây.
+              Chưa có sản phẩm trong DB — chạy import XML để lấp lưới ảnh thật.
             </p>
-          </section>
+          </div>
         )}
+      </section>
 
-        {/* ⑤ VẬT LIỆU — 3 cột: Vải / Khung / Nguồn sáng */}
-        <section className="border-b border-hairline px-5 py-20 md:px-12 md:py-28">
-          <div className="mx-auto max-w-6xl">
-            <p className="text-[12px] font-medium uppercase tracking-[0.16em] text-ink-500">
-              Nguyên liệu & vật liệu sản xuất
-            </p>
-            <h2 className="mt-4 max-w-2xl text-[clamp(1.5rem,2.8vw,2.25rem)] font-normal leading-snug text-ink-900 [font-family:var(--font-display),serif]">
-              Ba lớp cấu thành chất lượng — vải, khung và ánh sáng.
-            </h2>
-            <div className="mt-14 grid gap-px bg-hairline md:grid-cols-3">
-              {MATERIALS.map((m) => (
-                <article key={m.cat} className="bg-paper px-8 py-10 md:px-10">
-                  <h3 className="text-[13px] font-medium uppercase tracking-[0.14em] text-platinum-deep">
-                    {m.cat}
-                  </h3>
-                  <ul className="mt-6 space-y-4">
-                    {m.items.map((item) => (
-                      <li key={item} className="flex gap-3 text-[14px] leading-snug text-ink-700">
-                        <span className="mt-1.5 h-1 w-1 shrink-0 rounded-full bg-platinum-deep" aria-hidden />
-                        {item}
-                      </li>
-                    ))}
-                  </ul>
-                </article>
-              ))}
-            </div>
+      {/* ─── ⑥ FINAL — Editorial closing ────────────────── */}
+      <section className="bg-ink-900 px-6 py-24 md:px-12 md:py-32">
+        <div className="mx-auto max-w-[1400px]">
+          <p className="u-eyebrow text-paper/60">Bắt đầu dự án</p>
+          <h2 className="mt-10 max-w-[22ch] font-display text-[clamp(2.25rem,5.2vw,4.5rem)] leading-[1.05] text-paper">
+            Gửi brief — báo giá
+            <br />
+            <span className="font-display-italic">trong 48 giờ.</span>
+          </h2>
+          <div className="mt-12 h-px w-14 bg-platinum" aria-hidden />
+          <p className="mt-10 max-w-[48ch] text-[15px] leading-[1.85] text-ink-300">
+            Chỉ cần moodboard, bản vẽ sơ bộ hoặc tên đèn tham chiếu. Không cần hồ sơ
+            hoàn chỉnh để nhận tư vấn đầu tiên.
+          </p>
+          <div className="mt-12 flex flex-wrap gap-4">
+            <Link
+              href="/showroom"
+              className="border border-paper bg-paper px-10 py-3.5 text-[12px] font-medium uppercase tracking-[0.14em] text-ink-900 transition-colors duration-200 hover:bg-transparent hover:text-paper"
+            >
+              Đặt lịch xưởng
+            </Link>
+            <Link
+              href="/shop"
+              className="border border-paper/30 bg-transparent px-10 py-3.5 text-[12px] font-medium uppercase tracking-[0.14em] text-paper transition-colors duration-200 hover:border-paper"
+            >
+              Xem catalog
+            </Link>
           </div>
-        </section>
 
-        {/* ⑥ PHẠM VI DỰ ÁN — 4 loại không gian */}
-        <section className="border-b border-hairline bg-paper px-5 py-20 md:px-12 md:py-28">
-          <div className="mx-auto max-w-6xl">
-            <p className="text-[12px] font-medium uppercase tracking-[0.16em] text-ink-500">
-              Phạm vi dự án
-            </p>
-            <h2 className="mt-4 max-w-2xl text-[clamp(1.5rem,2.8vw,2.25rem)] font-normal leading-snug text-ink-900 [font-family:var(--font-display),serif]">
-              Một đối tác sản xuất — nhiều loại hình không gian.
-            </h2>
-            <div className="mt-14 grid gap-px bg-hairline sm:grid-cols-2">
-              {SCOPE.map((x) => (
-                <article key={x.t} className="group bg-paper-warm p-8 md:p-10">
-                  <p className="text-[11px] font-medium uppercase tracking-[0.14em] text-platinum-deep">
-                    {x.tag}
-                  </p>
-                  <h3 className="mt-3 text-[18px] font-semibold text-ink-900 [font-family:var(--font-display),serif]">
-                    {x.t}
-                  </h3>
-                  <p className="mt-4 text-[14px] leading-relaxed text-ink-600">{x.d}</p>
-                </article>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        {/* ⑦ QUY TRÌNH — 4 bước */}
-        <section className="border-b border-hairline px-5 py-20 md:px-12 md:py-28">
-          <div className="mx-auto max-w-6xl">
-            <p className="text-[12px] font-medium uppercase tracking-[0.16em] text-ink-500">
-              Quy trình làm việc
-            </p>
-            <h2 className="mt-4 text-[clamp(1.5rem,2.6vw,2rem)] font-normal text-ink-900 [font-family:var(--font-display),serif]">
-              Bốn bước — từ brief đến bàn giao.
-            </h2>
-            <ol className="mt-14 grid gap-0 border border-hairline md:grid-cols-4 md:divide-x md:divide-hairline">
-              {STEPS.map((s, i) => (
-                <li key={s.n} className={`px-8 py-10 ${i < STEPS.length - 1 ? "border-b border-hairline md:border-b-0" : ""}`}>
-                  <span className="font-mono text-[13px] font-medium text-platinum-deep">{s.n}</span>
-                  <h3 className="mt-4 text-[16px] font-semibold text-ink-900">{s.t}</h3>
-                  <p className="mt-3 text-[14px] leading-relaxed text-ink-600">{s.d}</p>
-                </li>
-              ))}
-            </ol>
-          </div>
-        </section>
-
-        {/* ⑧ TẠI SAO KAHA — 3 lý do, editorial strip */}
-        <section className="border-b border-hairline bg-paper px-5 py-20 md:px-12 md:py-28">
-          <div className="mx-auto max-w-6xl">
-            <p className="text-[12px] font-medium uppercase tracking-[0.16em] text-ink-500">
-              Tại sao KAHA
-            </p>
-            <h2 className="mt-4 max-w-xl text-[clamp(1.5rem,2.6vw,2rem)] font-normal text-ink-900 [font-family:var(--font-display),serif]">
-              Ba điểm khác biệt của xưởng gia công đèn vải chuyên nghiệp.
-            </h2>
-            <div className="mt-14 grid gap-0 border-t border-hairline md:grid-cols-3 md:border-t-0">
-              {WHY.map((w, i) => (
-                <article
-                  key={w.t}
-                  className={`py-10 md:py-0 ${i < WHY.length - 1 ? "border-b border-hairline md:border-b-0 md:border-r" : ""} md:px-10 md:py-12 lg:px-12`}
-                >
-                  <div className="h-px w-8 bg-platinum-deep" aria-hidden />
-                  <h3 className="mt-6 text-[17px] font-semibold text-ink-900 [font-family:var(--font-display),serif]">
-                    {w.t}
-                  </h3>
-                  <p className="mt-4 text-[14px] leading-relaxed text-ink-600">{w.d}</p>
-                </article>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        {/* ⑨ QUOTE — Inverted strip */}
-        <section className="border-b border-hairline bg-ink-900 px-5 py-20 md:px-12 md:py-24">
-          <div className="mx-auto max-w-4xl text-center">
-            <blockquote className="text-[clamp(1.5rem,3vw,2.25rem)] font-normal leading-snug text-paper [font-family:var(--font-display),serif]">
-              "Chúng tôi không bán mẫu có sẵn như retail thuần — chúng tôi bán khả năng lặp lại
-              cùng một chất lượng trên hàng trăm chiếc cho cùng một thương hiệu."
-            </blockquote>
-            <p className="mt-8 text-[12px] uppercase tracking-[0.14em] text-ink-300/60">
-              KAHA · Xưởng gia công đèn vải · TP. Hồ Chí Minh
-            </p>
-            <div className="mt-10 flex flex-wrap justify-center gap-4">
-              <Link
-                href="/showroom"
-                className="border border-paper/30 px-8 py-3 text-[13px] font-medium uppercase tracking-[0.1em] text-paper transition-colors duration-200 hover:border-paper hover:bg-paper hover:text-ink-900"
-              >
-                Đặt lịch xưởng
-              </Link>
-              <Link
-                href="/shop"
-                className="border border-paper/30 bg-paper/10 px-8 py-3 text-[13px] font-medium uppercase tracking-[0.1em] text-paper/80 transition-colors duration-200 hover:bg-paper/20 hover:text-paper"
-              >
-                Xem catalog
-              </Link>
-            </div>
-          </div>
-        </section>
-
-        {/* ⑩ FAQ — Accordion */}
-        <section className="border-b border-hairline px-5 py-20 md:px-12 md:py-24">
-          <div className="mx-auto max-w-3xl">
-            <p className="text-[12px] font-medium uppercase tracking-[0.16em] text-ink-500">
-              Câu hỏi thường gặp
-            </p>
-            <h2 className="mt-4 text-[22px] font-semibold text-ink-900 [font-family:var(--font-display),serif]">
-              Trước khi gửi RFQ — đọc nhanh 5 ý.
-            </h2>
-            <div className="mt-10 border border-hairline">
-              {FAQ.map((f) => (
-                <details
-                  key={f.q}
-                  className="group border-b border-hairline last:border-b-0 [&_summary::-webkit-details-marker]:hidden"
-                >
-                  <summary className="flex cursor-pointer list-none items-start justify-between gap-6 px-6 py-5 text-left text-[14px] font-medium text-ink-900 transition-colors duration-150 hover:bg-paper-warm md:text-[15px]">
-                    <span>{f.q}</span>
-                    <span className="mt-px shrink-0 text-platinum-deep transition-transform duration-200 group-open:rotate-45">
-                      +
-                    </span>
-                  </summary>
-                  <div className="border-t border-hairline bg-paper px-6 py-5 text-[14px] leading-relaxed text-ink-600 md:text-[15px]">
-                    {f.a}
-                  </div>
-                </details>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        {/* LIÊN HỆ — Strip ngang */}
-        <section className="border-b border-hairline bg-paper px-5 py-14 md:px-12">
-          <div className="mx-auto grid max-w-6xl gap-8 md:grid-cols-4 md:gap-10">
+          {/* Contact grid */}
+          <div className="mt-24 grid gap-10 border-t border-ink-700 pt-14 md:grid-cols-4 md:gap-8">
             <div>
-              <p className="text-[11px] font-medium uppercase tracking-[0.14em] text-ink-500">
-                Hotline / Zalo
-              </p>
-              <p className="mt-3 text-[18px] font-medium text-ink-900">090 515 1701</p>
-              <p className="mt-1 text-[13px] text-ink-600">8:00 – 21:00 mỗi ngày</p>
+              <p className="u-eyebrow text-paper/50">Hotline / Zalo</p>
+              <p className="mt-4 font-display text-[22px] text-paper">090 515 1701</p>
+              <p className="mt-2 text-[12.5px] text-ink-300">8:00 – 21:00 mỗi ngày</p>
             </div>
             <div>
-              <p className="text-[11px] font-medium uppercase tracking-[0.14em] text-ink-500">Email RFQ</p>
-              <p className="mt-3 text-[18px] font-medium text-ink-900">hi@kaha.vn</p>
-              <p className="mt-1 text-[13px] text-ink-600">Gửi kèm bản vẽ &amp; số lượng</p>
+              <p className="u-eyebrow text-paper/50">Email RFQ</p>
+              <p className="mt-4 font-display text-[22px] text-paper">hi@kaha.vn</p>
+              <p className="mt-2 text-[12.5px] text-ink-300">Kèm bản vẽ &amp; số lượng</p>
             </div>
             <div>
-              <p className="text-[11px] font-medium uppercase tracking-[0.14em] text-ink-500">
-                Xưởng &amp; Showroom
-              </p>
-              <p className="mt-3 text-[14px] leading-relaxed text-ink-700">
+              <p className="u-eyebrow text-paper/50">Xưởng &amp; Showroom</p>
+              <p className="mt-4 text-[14px] leading-[1.65] text-paper">
                 262/1/93 Phan Anh, P. Phú Thạnh
                 <br />
-                Tân Phú, TP.HCM
+                Tân Phú, TP. Hồ Chí Minh
               </p>
             </div>
-            <div className="flex items-center md:justify-end">
-              <Link
-                href="/showroom"
-                className="inline-block border border-ink-900 bg-ink-900 px-8 py-3 text-[13px] font-medium uppercase tracking-[0.1em] text-paper transition-colors duration-200 hover:bg-transparent hover:text-ink-900"
-              >
-                Đặt lịch tham quan
-              </Link>
+            <div>
+              <p className="u-eyebrow text-paper/50">Xuất khẩu</p>
+              <p className="mt-4 text-[14px] leading-[1.65] text-paper">
+                CO/CQ · Incoterms theo hợp đồng
+                <br />
+                Kiện gỗ + PE foam
+              </p>
             </div>
           </div>
-        </section>
-
-        {/* CTA cuối trang */}
-        <section className="px-5 py-20 md:px-12 md:py-24">
-          <div className="mx-auto max-w-4xl border border-hairline bg-paper px-8 py-14 text-center md:px-16 md:py-20">
-            <p className="text-[12px] font-medium uppercase tracking-[0.16em] text-ink-500">
-              Bắt đầu dự án
-            </p>
-            <h2 className="mt-4 text-[clamp(1.5rem,2.8vw,2.25rem)] font-normal text-ink-900 [font-family:var(--font-display),serif]">
-              Gửi brief — nhận báo giá sơ bộ trong 48 giờ.
-            </h2>
-            <p className="mt-4 max-w-lg mx-auto text-[14px] leading-relaxed text-ink-600">
-              Chỉ cần moodboard, bản vẽ sơ bộ hoặc tên đèn tham chiếu. Không cần hồ sơ hoàn chỉnh
-              để nhận tư vấn đầu tiên.
-            </p>
-            <div className="mt-10 flex flex-wrap justify-center gap-4">
-              <Link
-                href="/showroom"
-                className="border border-ink-900 bg-ink-900 px-10 py-3.5 text-[13px] font-medium uppercase tracking-[0.1em] text-paper transition-colors duration-200 hover:bg-transparent hover:text-ink-900"
-              >
-                Đặt lịch xưởng
-              </Link>
-              <Link
-                href="/shop"
-                className="border border-hairline px-10 py-3.5 text-[13px] font-medium uppercase tracking-[0.1em] text-ink-700 transition-colors duration-200 hover:border-ink-400 hover:text-ink-900"
-              >
-                Xem catalog
-              </Link>
-            </div>
-          </div>
-        </section>
-
+        </div>
+      </section>
     </PageShell>
   );
 }
