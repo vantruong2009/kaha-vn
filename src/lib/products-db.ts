@@ -1,65 +1,52 @@
 /**
  * Fetch products từ Postgres (VPS) — server / API.
+ * Đọc từ content_nodes (post_type='product') — bảng products chưa tồn tại.
  */
 import type { Product } from '@/data/products';
 import { getPostgresPool, hasPostgresConfigured } from '@/lib/postgres/server';
 
-interface ProductRow {
+interface ContentNodeRow {
   id: string;
   slug: string;
   title: string;
-  short_description: string | null;
-  regular_price: number | null;
-  sale_price: number | null;
-  contact_for_price: boolean;
-  in_stock: boolean;
-  stock_quantity: number | null;
-  image: string;
-  gallery: string[] | null;
-  badge: string | null;
-  badge_label: string | null;
-  categories: string[];
-  published: boolean;
+  excerpt: string | null;
+  featured_image_source_url: string | null;
+  categories: string[] | null;
+  tags: string[] | null;
+  published_at: string | null;
 }
 
-function mapToProduct(p: ProductRow): Product {
-  const price = p.sale_price ?? p.regular_price ?? 0;
-  const priceOriginal = p.sale_price && p.regular_price ? p.regular_price : undefined;
-
-  let badge: Product['badge'] = undefined;
-  const badgeLower = (p.badge || '').toLowerCase();
-  if (badgeLower.includes('sale') || badgeLower.includes('giảm')) badge = 'sale';
-  else if (badgeLower.includes('new') || badgeLower.includes('mới')) badge = 'new';
-  else if (badgeLower.includes('best') || badgeLower.includes('bán chạy')) badge = 'bestseller';
-  else if (badgeLower.includes('tết') || badgeLower.includes('tet')) badge = 'tet';
-
-  const firstCategory = p.categories?.[0] ?? '';
+function mapToProduct(p: ContentNodeRow): Product {
+  const image = p.featured_image_source_url ?? '';
+  const cats = p.categories ?? [];
+  const allTags = [...cats, ...(p.tags ?? [])];
+  const firstCategory = cats[0] ?? '';
 
   return {
-    id: p.id,
+    id: String(p.id),
     slug: p.slug,
-    name: p.title,
-    nameShort: p.title.split('—')[0].trim().replace(/\s+(Khung|Vải|Tre|Gỗ|Size|Bộ).*$/i, '').trim().substring(0, 40),
-    maker: 'LongDenViet',
-    makerRegion: 'Hội An',
-    story: p.short_description ?? '',
-    description: p.short_description ?? '',
-    price,
-    priceOriginal,
-    image: p.image,
-    images: p.gallery ?? [p.image],
+    name: p.title ?? p.slug,
+    nameShort: (p.title ?? p.slug).split('—')[0].trim().substring(0, 40),
+    maker: 'KAHA',
+    makerRegion: 'TP.HCM',
+    story: p.excerpt ?? '',
+    description: p.excerpt ?? '',
+    price: 0,
+    priceOriginal: undefined,
+    image,
+    images: image ? [image] : [],
     category: firstCategory,
     space: [],
     rating: 4.8,
-    reviewCount: 12,
-    badge,
-    badgeLabel: p.badge_label ?? undefined,
-    contactForPrice: p.contact_for_price || (!p.in_stock && (p.stock_quantity === 0 || p.stock_quantity === null)),
+    reviewCount: 0,
+    badge: undefined,
+    badgeLabel: undefined,
+    contactForPrice: true,
     origin: 'Việt Nam',
-    tags: p.categories ?? [],
-    isNew: badge === 'new',
-    isBestseller: badge === 'bestseller',
-    stock: p.in_stock ? (p.stock_quantity || 99) : (p.stock_quantity === 0 ? 99 : 0),
+    tags: allTags,
+    isNew: false,
+    isBestseller: false,
+    stock: 99,
   };
 }
 
@@ -101,12 +88,11 @@ export async function getCatalogProducts(): Promise<Product[]> {
   try {
     if (hasPostgresConfigured()) {
       const pool = getPostgresPool();
-      const { rows } = await pool.query<ProductRow>(
-        `select id, slug, title, short_description, regular_price, sale_price, contact_for_price,
-                in_stock, stock_quantity, image, gallery, badge, badge_label, categories, published
-         from public.products
-         where published = true
-         order by created_at desc`
+      const { rows } = await pool.query<ContentNodeRow>(
+        `select id, slug, title, excerpt, featured_image_source_url, categories, tags, published_at
+         from public.content_nodes
+         where post_type = 'product' and status = 'publish'
+         order by published_at desc nulls last`
       );
 
       if (rows.length > 0) {
@@ -144,11 +130,10 @@ export async function fetchProductsBySlugsFromCatalog(slugs: string[]): Promise<
   try {
     if (hasPostgresConfigured()) {
       const pool = getPostgresPool();
-      const { rows } = await pool.query<ProductRow>(
-        `select id, slug, title, short_description, regular_price, sale_price, contact_for_price,
-                in_stock, stock_quantity, image, gallery, badge, badge_label, categories, published
-         from public.products
-         where slug = any($1::text[])`,
+      const { rows } = await pool.query<ContentNodeRow>(
+        `select id, slug, title, excerpt, featured_image_source_url, categories, tags, published_at
+         from public.content_nodes
+         where post_type = 'product' and slug = any($1::text[])`,
         [uniq]
       );
       return rows.map(mapToProduct);

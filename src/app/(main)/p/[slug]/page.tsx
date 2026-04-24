@@ -50,8 +50,8 @@ function mapProductRow(p: any) {
     contactForPrice: p.contact_for_price ?? false,
     description:    description,
     story:          p.short_description ?? '',
-    maker:          'LongDenViet',
-    makerRegion:    'Tân Phú, TP.HCM',
+    maker:          'KAHA',
+    makerRegion:    'TP.HCM',
     material:       undefined,
     badge:          p.badge ?? null,
     badgeLabel:     p.badge_label ?? null,
@@ -74,7 +74,10 @@ const getProduct = unstable_cache(
       try {
         const pool = getPostgresPool();
         const { rows } = await pool.query(
-          `select * from products where lower(slug) = $1 and coalesce(published, true) = true limit 1`,
+          `select id, slug, title, excerpt as short_description, body_html as description,
+                  featured_image_source_url as image, categories, tags, published_at
+           from public.content_nodes
+           where post_type = 'product' and lower(slug) = $1 and status = 'publish' limit 1`,
           [s]
         );
         if (rows[0]) return mapProductRow(rows[0]);
@@ -94,7 +97,10 @@ async function getRelated(product: any) {
     try {
       const pool = getPostgresPool();
       const { rows } = await pool.query(
-        `select * from products where coalesce(published, true) = true
+        `select id, slug, title, excerpt as short_description, body_html as description,
+                featured_image_source_url as image, categories, tags, published_at
+         from public.content_nodes
+         where post_type = 'product' and status = 'publish'
          and lower(slug) <> lower($1) and categories && $2::text[] limit 4`,
         [product.slug, [product.category]]
       );
