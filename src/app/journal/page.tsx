@@ -69,12 +69,8 @@ export default async function JournalPage({ searchParams }: PageProps) {
   return (
     <div className="flex min-h-full flex-col bg-paper-warm">
       <SiteHeader />
-      <main
-        id="main-content"
-        tabIndex={-1}
-        className="flex-1 px-5 py-16 md:px-12 md:py-24"
-      >
-        <div className="mx-auto max-w-3xl">
+      <main id="main-content" tabIndex={-1} className="flex-1 px-5 py-12 md:px-12 md:py-18">
+        <div className="mx-auto max-w-[1600px]">
           {posts.length > 0 ? (
             <JsonLdJournalItemList
               siteUrl={site}
@@ -104,16 +100,14 @@ export default async function JournalPage({ searchParams }: PageProps) {
             </p>
           ) : (
             <>
-              <ul className="mt-16 space-y-0">
+              <div className="mt-10 grid gap-10 lg:grid-cols-[1fr_300px]">
+                <ul className="space-y-0 border border-hairline bg-paper px-6 md:px-10">
                 {posts.map((p) => {
                   const excerptPlain = plainTextFromHtml(p.excerpt, {
                     maxLength: 280,
                   });
                   return (
-                    <li
-                      key={p.slug}
-                      className="border-b border-hairline py-10 first:pt-4"
-                    >
+                    <li key={p.slug} className="border-b border-hairline py-10 first:pt-8">
                       <Link href={`/${p.slug}`} className="group block">
                         {p.published_at ? (
                           <time
@@ -135,10 +129,30 @@ export default async function JournalPage({ searchParams }: PageProps) {
                     </li>
                   );
                 })}
-              </ul>
+                </ul>
+                <aside className="h-fit space-y-5 border border-hairline bg-paper p-6 lg:sticky lg:top-24">
+                  <p className="text-[12px] uppercase tracking-[0.12em] text-ink-500">Chu de noi bat</p>
+                  {[
+                    ["Vat lieu den vai", "/journal"],
+                    ["Case khach san", "/journal"],
+                    ["Huong dan RFQ", "/journal"],
+                    ["Bao tri va bao hanh", "/journal"],
+                  ].map(([label, href]) => (
+                    <Link key={label} href={href} className="block border-b border-hairline pb-3 text-sm text-ink-700 hover:text-ink-900">
+                      {label}
+                    </Link>
+                  ))}
+                  <Link
+                    href="/showroom"
+                    className="mt-4 inline-flex border border-ink-900 bg-ink-900 px-4 py-2 text-xs uppercase tracking-[0.08em] text-paper hover:bg-paper hover:text-ink-900"
+                  >
+                    Dat lich tu van
+                  </Link>
+                </aside>
+              </div>
               {totalPages > 1 ? (
                 <nav
-                  className="mt-14 flex flex-wrap items-center justify-between gap-4 border-t border-hairline pt-10 text-[13px] font-medium uppercase tracking-[0.08em] text-ink-600"
+                  className="mt-12 flex flex-wrap items-center justify-between gap-4 border-t border-hairline pt-10 text-[13px] font-medium uppercase tracking-[0.08em] text-ink-600"
                   aria-label="Phân trang Journal"
                 >
                   {prevHref ? (

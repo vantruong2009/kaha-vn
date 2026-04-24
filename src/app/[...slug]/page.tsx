@@ -154,7 +154,7 @@ export default async function LegacyPathPlaceholder({ params }: Props) {
             />
           ) : null}
           <JsonLdBreadcrumbList base={base} segments={pathSegments} />
-          <header className="mx-auto max-w-3xl">
+          <header className="mx-auto max-w-5xl">
             <ContentBreadcrumb segments={pathSegments} />
             <p className="mt-6 text-[13px] font-medium uppercase tracking-[0.08em] text-ink-500">
               {content.post_type}
@@ -164,11 +164,7 @@ export default async function LegacyPathPlaceholder({ params }: Props) {
                 {content.title}
               </h1>
             ) : null}
-            {excerptLead ? (
-              <p className="mt-5 text-lg leading-relaxed text-ink-600">
-                {excerptLead}
-              </p>
-            ) : null}
+            {excerptLead ? <p className="mt-5 text-lg leading-relaxed text-ink-600">{excerptLead}</p> : null}
             {content.post_type === "product" ? (
               <MoodboardToggle
                 item={{
@@ -197,24 +193,41 @@ export default async function LegacyPathPlaceholder({ params }: Props) {
             ) : null}
           </header>
           {hero ? (
-            <div className="relative mx-auto mt-10 aspect-[4/5] w-full max-w-xl overflow-hidden bg-hairline">
-              {isNextImageRemoteSrc(hero) ? (
-                <Image
-                  src={hero}
-                  alt={heroAlt}
-                  fill
-                  className="object-cover"
-                  sizes="(max-width: 768px) 100vw, 576px"
-                  priority
-                />
-              ) : (
-                // eslint-disable-next-line @next/next/no-img-element -- host ngoài chưa khai báo remotePatterns
-                <img
-                  src={hero}
-                  alt={heroAlt}
-                  className="h-full w-full object-cover"
-                />
-              )}
+            <div className="mx-auto mt-10 grid max-w-5xl gap-8 lg:grid-cols-[minmax(0,1fr)_340px]">
+              <div className="relative aspect-[4/5] w-full overflow-hidden bg-hairline">
+                {isNextImageRemoteSrc(hero) ? (
+                  <Image
+                    src={hero}
+                    alt={heroAlt}
+                    fill
+                    className="object-cover"
+                    sizes="(max-width: 768px) 100vw, 900px"
+                    priority
+                  />
+                ) : (
+                  // eslint-disable-next-line @next/next/no-img-element -- host ngoài chưa khai báo remotePatterns
+                  <img src={hero} alt={heroAlt} className="h-full w-full object-cover" />
+                )}
+              </div>
+              {content.post_type === "product" ? (
+                <aside className="h-fit border border-hairline bg-paper p-6">
+                  <p className="text-[11px] uppercase tracking-[0.12em] text-ink-500">Thong tin nhanh</p>
+                  <ul className="mt-4 space-y-3 text-sm text-ink-700">
+                    <li className="border-b border-hairline pb-3">Gia cong theo kich thuoc va chat lieu</li>
+                    <li className="border-b border-hairline pb-3">Ho tro mau thu truoc khi chay loat</li>
+                    <li className="border-b border-hairline pb-3">Bao hanh theo hop dong du an</li>
+                    <li>Phan hoi RFQ trong 48h</li>
+                  </ul>
+                  <div className="mt-5 flex flex-col gap-2">
+                    <Link href="/showroom" className="border border-ink-900 bg-ink-900 px-4 py-2 text-center text-xs uppercase tracking-[0.08em] text-paper hover:bg-paper hover:text-ink-900">
+                      Dat lich xuong
+                    </Link>
+                    <Link href="/shop" className="border border-hairline px-4 py-2 text-center text-xs uppercase tracking-[0.08em] text-ink-700 hover:border-ink-300 hover:text-ink-900">
+                      Quay ve catalog
+                    </Link>
+                  </div>
+                </aside>
+              ) : null}
             </div>
           ) : null}
           {html ? (

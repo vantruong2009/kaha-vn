@@ -179,12 +179,8 @@ export default async function ShopPage({ searchParams }: PageProps) {
   return (
     <div className="flex min-h-full flex-col bg-paper-warm">
       <SiteHeader />
-      <main
-        id="main-content"
-        tabIndex={-1}
-        className="flex-1 px-5 py-12 md:px-12 md:py-16"
-      >
-        <div className="mx-auto max-w-6xl">
+      <main id="main-content" tabIndex={-1} className="flex-1 px-5 py-10 md:px-12 md:py-14">
+        <div className="mx-auto max-w-[1600px]">
           <p className="text-[13px] font-medium uppercase tracking-[0.08em] text-ink-500">
             KAHA.VN
           </p>
@@ -199,64 +195,65 @@ export default async function ShopPage({ searchParams }: PageProps) {
             {sort !== "newest" ? ` · sort ${sort}` : ""}
           </p>
 
-          <div className="mt-8 space-y-6 border-y border-hairline py-6">
-            <form action="/shop" className="flex flex-wrap items-end gap-4">
-              <label className="flex min-w-[220px] flex-1 flex-col gap-2 text-sm text-ink-600">
-                Tìm sản phẩm
-                <input
-                  name="q"
-                  defaultValue={q}
-                  className="w-full border border-hairline bg-paper px-3 py-2 text-sm outline-none focus:border-ink-300"
-                  placeholder="Nhập tên / mô tả"
-                />
-              </label>
-              <label className="flex min-w-[200px] flex-col gap-2 text-sm text-ink-600">
-                Sắp xếp
-                <select
-                  name="sort"
-                  defaultValue={sort}
-                  className="border border-hairline bg-paper px-3 py-2 text-sm outline-none focus:border-ink-300"
-                >
-                  <option value="newest">Mới nhất</option>
-                  <option value="title_asc">Tên A → Z</option>
-                  <option value="title_desc">Tên Z → A</option>
-                </select>
-              </label>
-              {category ? <input type="hidden" name="category" value={category} /> : null}
-              {tag ? <input type="hidden" name="tag" value={tag} /> : null}
-              <button
-                type="submit"
-                className="border border-ink-900 px-5 py-2 text-sm uppercase tracking-[0.06em] text-ink-900 transition-colors hover:bg-ink-900 hover:text-paper"
-              >
-                Lọc
-              </button>
-              <Link
-                href="/shop"
-                className="px-2 py-2 text-xs uppercase tracking-[0.06em] text-ink-600 underline-offset-4 hover:underline"
-              >
-                Xóa lọc
-              </Link>
-            </form>
-
-            <FacetList
-              label="Danh mục"
-              items={facets.categories}
-              selected={category}
-              hrefFor={(v) => facetLink("category", v, { q, category, tag, sort })}
-            />
-            <FacetList
-              label="Tag"
-              items={facets.tags}
-              selected={tag}
-              hrefFor={(v) => facetLink("tag", v, { q, category, tag, sort })}
-            />
+          <div className="mt-8 grid gap-8 lg:grid-cols-[290px_1fr]">
+            <aside className="h-fit space-y-6 border border-hairline bg-paper p-5 lg:sticky lg:top-24">
+              <form action="/shop" className="space-y-4">
+                <label className="flex flex-col gap-2 text-sm text-ink-600">
+                  Tim san pham
+                  <input
+                    name="q"
+                    defaultValue={q}
+                    className="w-full border border-hairline bg-paper px-3 py-2 text-sm outline-none focus:border-ink-300"
+                    placeholder="Nhap ten / mo ta"
+                  />
+                </label>
+                <label className="flex flex-col gap-2 text-sm text-ink-600">
+                  Sap xep
+                  <select
+                    name="sort"
+                    defaultValue={sort}
+                    className="border border-hairline bg-paper px-3 py-2 text-sm outline-none focus:border-ink-300"
+                  >
+                    <option value="newest">Moi nhat</option>
+                    <option value="title_asc">Ten A - Z</option>
+                    <option value="title_desc">Ten Z - A</option>
+                  </select>
+                </label>
+                {category ? <input type="hidden" name="category" value={category} /> : null}
+                {tag ? <input type="hidden" name="tag" value={tag} /> : null}
+                <div className="flex items-center gap-3">
+                  <button
+                    type="submit"
+                    className="border border-ink-900 bg-ink-900 px-4 py-2 text-xs uppercase tracking-[0.08em] text-paper hover:bg-paper hover:text-ink-900"
+                  >
+                    Loc
+                  </button>
+                  <Link href="/shop" className="text-xs uppercase tracking-[0.08em] text-ink-600 underline-offset-4 hover:underline">
+                    Xoa
+                  </Link>
+                </div>
+              </form>
+              <FacetList
+                label="Danh muc"
+                items={facets.categories}
+                selected={category}
+                hrefFor={(v) => facetLink("category", v, { q, category, tag, sort })}
+              />
+              <FacetList
+                label="Tag"
+                items={facets.tags}
+                selected={tag}
+                hrefFor={(v) => facetLink("tag", v, { q, category, tag, sort })}
+              />
+            </aside>
+            <section>
+              <ProductTeaserGrid items={data.items} heading="Danh sach san pham" />
+            </section>
           </div>
         </div>
 
-        <ProductTeaserGrid items={data.items} />
-
         {totalPages > 1 ? (
-          <div className="mx-auto mt-6 flex max-w-6xl items-center justify-between border-t border-hairline pt-8 text-[13px] uppercase tracking-[0.08em] text-ink-600">
+          <div className="mx-auto mt-8 flex max-w-[1600px] items-center justify-between border-t border-hairline pt-8 text-[13px] uppercase tracking-[0.08em] text-ink-600">
             {prevHref ? (
               <Link href={prevHref} className="hover:underline hover:decoration-platinum-deep">
                 ← Trang trước
