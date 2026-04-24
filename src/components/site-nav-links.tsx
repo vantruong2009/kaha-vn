@@ -26,6 +26,11 @@ export function SiteNavLinks({ showHome = false, showRss = false }: Props) {
       <Link href="/moodboard" className={SITE_NAV_LINK_CLASS}>
         Moodboard
       </Link>
+      {process.env.NEXT_PUBLIC_SHOW_HOME_MOCKUP_LINK === "1" ? (
+        <Link href="/home-mockup" className={SITE_NAV_LINK_CLASS}>
+          Mockup
+        </Link>
+      ) : null}
       {showHome ? (
         <Link href="/" className={SITE_NAV_LINK_CLASS}>
           Trang chủ
