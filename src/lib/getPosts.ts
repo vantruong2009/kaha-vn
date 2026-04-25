@@ -2,7 +2,7 @@
  * getPosts.ts — Blog posts từ Postgres (VPS) với fallback về Supabase.
  *
  * Chiến lược:
- *   1. VPS Postgres (hasPostgresConfigured) → nguồn chính
+ *   1. VPS Postgres `content_nodes` (post_type = post) — nguồn chính sau import WP
  *   2. Supabase REST API → fallback khi Postgres không tìm thấy hoặc chưa migrate
  */
 
@@ -94,15 +94,38 @@ async function queryPostgres<T extends QueryResultRow = QueryResultRow>(
   }
 }
 
+/** Alias Postgres columns → shape PostRow / Supabase `posts` */
 const SELECT_FIELDS = `
-  id, slug, title, excerpt, content, thumbnail, categories, tags,
-  date, focus_keyword, meta_title, meta_desc, og_title, og_desc,
-  og_image, schema_jsonld, status
+  id::text AS id,
+  slug,
+  title,
+  excerpt,
+  body_html AS content,
+  featured_image_source_url AS thumbnail,
+  categories,
+  tags,
+  COALESCE(published_at::text, '') AS date,
+  NULL::text AS focus_keyword,
+  seo_title AS meta_title,
+  seo_description AS meta_desc,
+  NULL::text AS og_title,
+  NULL::text AS og_desc,
+  featured_image_source_url AS og_image,
+  NULL::text AS schema_jsonld,
+  status
 `.trim();
 
 const SELECT_LIST_FIELDS = `
-  slug, title, excerpt, thumbnail, categories, tags, date,
-  focus_keyword, meta_desc, status
+  slug, title, excerpt,
+  featured_image_source_url AS thumbnail, categories, tags,
+  COALESCE(published_at::text, '') AS date,
+  NULL::text AS focus_keyword,
+  seo_description AS meta_desc, status
+`.trim();
+
+const FROM_PUBLISHED_POSTS = `
+  FROM public.content_nodes
+  WHERE post_type = 'post' AND status = 'publish'
 `.trim();
 
 // ── Helpers ──────────────────────────────────────────────────────
@@ -145,18 +168,16 @@ export const getAllPosts = unstable_cache(
   async (): Promise<Post[]> => {
     if (hasPostgresConfigured()) {
       const pgRows = await queryPostgres<PostRow>(
-        `select slug, title, excerpt, thumbnail, categories, tags, date, focus_keyword, meta_desc, status
-         from public.posts
-         where coalesce(status, '') <> 'deleted'
-           and status = 'published'
-         order by date desc
+        `select ${SELECT_LIST_FIELDS}
+         ${FROM_PUBLISHED_POSTS}
+         order by published_at desc nulls last
          limit 2000`
       );
       if (pgRows.length > 0) return pgRows.map((row) => normalize(row));
     }
     return [];
   },
-  ['all-posts'],
+  ['all-posts-cn'],
   { revalidate: 86400, tags: ['posts'] }
 );
 
@@ -170,9 +191,8 @@ export const getPostBySlug = unstable_cache(
     if (hasPostgresConfigured()) {
       const pgRows = await queryPostgres<PostRow>(
         `select ${SELECT_FIELDS}
-         from public.posts
-         where slug = $1
-           and coalesce(status, '') <> 'deleted'
+         from public.content_nodes
+         where post_type = 'post' and status = 'publish' and slug = $1
          limit 1`,
         [slug]
       );
@@ -190,7 +210,7 @@ export const getPostBySlug = unstable_cache(
 
     return null;
   },
-  ['post-by-slug'],
+  ['post-by-slug-cn'],
   { revalidate: 3600 * 24, tags: ['posts'] }
 );
 
@@ -201,11 +221,10 @@ export const getPostsByCategory = unstable_cache(
   async (category: string): Promise<Post[]> => {
     if (hasPostgresConfigured()) {
       const pgRows = await queryPostgres<PostRow>(
-        `select slug, title, excerpt, thumbnail, categories, tags, date, focus_keyword, meta_desc, status
-         from public.posts
-         where status = 'published'
+        `select ${SELECT_LIST_FIELDS}
+         ${FROM_PUBLISHED_POSTS}
            and categories @> ARRAY[$1]::text[]
-         order by date desc
+         order by published_at desc nulls last
          limit 100`,
         [category]
       );
@@ -213,7 +232,7 @@ export const getPostsByCategory = unstable_cache(
     }
     return [];
   },
-  ['posts-by-category'],
+  ['posts-by-category-cn'],
   { revalidate: 86400, tags: ['posts'] }
 );
 
@@ -236,15 +255,15 @@ export async function searchPosts(query: string): Promise<Post[]> {
   if (hasPostgresConfigured()) {
     const like = `%${q}%`;
     const pgRows = await queryPostgres<PostRow>(
-      `select slug, title, excerpt, thumbnail, categories, tags, date, focus_keyword, meta_desc, status
-       from public.posts
-       where status = 'published'
+      `select ${SELECT_LIST_FIELDS}
+       ${FROM_PUBLISHED_POSTS}
          and (
            lower(coalesce(title, '')) like $1
            or lower(coalesce(excerpt, '')) like $1
-           or lower(coalesce(focus_keyword, '')) like $1
+           or lower(coalesce(seo_title, '')) like $1
+           or lower(coalesce(seo_description, '')) like $1
          )
-       order by date desc
+       order by published_at desc nulls last
        limit 20`,
       [like]
     );
@@ -261,15 +280,14 @@ export const getAllPostSlugs = unstable_cache(
     if (hasPostgresConfigured()) {
       const pgRows = await queryPostgres<{ slug: string }>(
         `select slug
-         from public.posts
-         where coalesce(status, '') <> 'deleted'
+         ${FROM_PUBLISHED_POSTS}
          limit 2000`
       );
       if (pgRows.length > 0) return pgRows.map((r) => r.slug);
     }
     return [];
   },
-  ['all-post-slugs'],
+  ['all-post-slugs-cn'],
   { revalidate: 86400, tags: ['posts'] }
 );
 
@@ -304,9 +322,9 @@ export async function getPostsContentBySlug(slugs: string[]): Promise<Record<str
 
   if (hasPostgresConfigured()) {
     const pgRows = await queryPostgres<{ slug: string; content: string }>(
-      `select slug, content
-       from public.posts
-       where status = 'published'
+      `select slug, body_html as content
+       from public.content_nodes
+       where post_type = 'post' and status = 'publish'
          and slug = any($1::text[])`,
       [slugs]
     );
@@ -326,10 +344,9 @@ export const getLatestPosts = unstable_cache(
   async (limit = 6): Promise<Post[]> => {
     if (hasPostgresConfigured()) {
       const pgRows = await queryPostgres<PostRow>(
-        `select slug, title, excerpt, thumbnail, categories, tags, date, focus_keyword, meta_desc, status
-         from public.posts
-         where status = 'published'
-         order by date desc
+        `select ${SELECT_LIST_FIELDS}
+         ${FROM_PUBLISHED_POSTS}
+         order by published_at desc nulls last
          limit $1`,
         [limit]
       );
@@ -337,6 +354,6 @@ export const getLatestPosts = unstable_cache(
     }
     return [];
   },
-  ['latest-posts'],
+  ['latest-posts-cn'],
   { revalidate: 86400, tags: ['posts'] }
 );

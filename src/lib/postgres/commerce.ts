@@ -799,7 +799,9 @@ export async function listCustomerAccountsAdminPg(limit = 2000): Promise<Custome
 export async function fetchPostDateOverridesPg(): Promise<Record<string, string>> {
   const pool = getPostgresPool();
   const { rows } = await pool.query<{ slug: string; date: string | null }>(
-    `select slug, date::text as date from posts where date is not null and coalesce(status, 'published') <> 'deleted'`
+    `select slug, published_at::text as date
+     from public.content_nodes
+     where post_type = 'post' and status = 'publish' and published_at is not null`
   );
   const map: Record<string, string> = {};
   for (const r of rows) {
@@ -811,7 +813,8 @@ export async function fetchPostDateOverridesPg(): Promise<Record<string, string>
 export async function fetchDeletedPostSlugsPg(): Promise<string[]> {
   const pool = getPostgresPool();
   const { rows } = await pool.query<{ slug: string }>(
-    `select slug from posts where status = 'deleted'`
+    `select slug from public.content_nodes
+     where post_type = 'post' and status in ('deleted', 'trash')`
   );
   return rows.map((r) => r.slug).filter(Boolean);
 }
@@ -988,9 +991,17 @@ export async function listPostsAdminSummaryPg(): Promise<
 > {
   const pool = getPostgresPool();
   const { rows } = await pool.query(
-    `select slug, title, thumbnail, categories, tags, date::text as date, status,
-            meta_title, meta_desc, focus_keyword
-     from posts order by created_at desc`
+    `select slug, title,
+            featured_image_source_url as thumbnail,
+            categories, tags,
+            coalesce(published_at::text, imported_at::text) as date,
+            status,
+            seo_title as meta_title,
+            seo_description as meta_desc,
+            null::text as focus_keyword
+     from public.content_nodes
+     where post_type = 'post'
+     order by coalesce(published_at, imported_at) desc nulls last`
   );
   return rows as Array<{
     slug: string;

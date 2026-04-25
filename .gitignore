@@ -41,6 +41,9 @@ yarn-error.log*
 *.tsbuildinfo
 next-env.d.ts
 
+# generated at runtime / dev
+public/data/products-cache.json
+
 # Local-only migration drops (add with git add -f if needed)
 docs/migration-inputs/*
 !docs/migration-inputs/.gitkeep

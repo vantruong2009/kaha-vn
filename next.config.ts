@@ -35,8 +35,9 @@ const imageRemotePatterns: {
   // Cloudflare R2
   { protocol: "https", hostname: "**.r2.dev",                 pathname: "/**" },
   { protocol: "https", hostname: "**.r2.cloudflarestorage.com", pathname: "/**" },
-  // media.kaha.vn (custom R2 domain — đặt sẵn)
+  // media.kaha.vn / cdn.kaha.vn (custom R2 domain)
   { protocol: "https", hostname: "media.kaha.vn", pathname: "/**" },
+  { protocol: "https", hostname: "cdn.kaha.vn", pathname: "/**" },
   // External stock / unsplash (dev placeholders)
   { protocol: "https", hostname: "images.unsplash.com", pathname: "/**" },
   { protocol: "https", hostname: "images.pexels.com",   pathname: "/**" },
