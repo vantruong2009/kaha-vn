@@ -17,7 +17,7 @@ type SortKey = 'default' | 'price-asc' | 'price-desc' | 'newest' | 'bestseller';
  */
 function getImageSourceScore(url: string | null | undefined): number {
   if (!url) return -10;
-  if (url.includes('cdn.longdenviet.com')) return 22;    // Custom CDN domain (studio processed)
+  if (url.includes('cdn.kaha.vn')) return 22;    // Custom CDN domain (studio processed)
   if (url.startsWith('https://pub-')) return 20;          // Cloudflare R2 legacy
   if (url.includes('.supabase.co/storage')) return 18;    // URL ảnh legacy (host cũ trong DB)
   if (url.startsWith('https://')) return 10;              // CDN khác

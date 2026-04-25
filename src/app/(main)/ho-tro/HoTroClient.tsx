@@ -82,7 +82,7 @@ const FAQS = [
   // Sản phẩm
   {
     cat: 'Sản phẩm',
-    q: 'Đèn lồng của LongDenViet được làm từ chất liệu gì?',
+    q: 'Đèn lồng của KAHA được làm từ chất liệu gì?',
     a: 'Chúng tôi sử dụng các chất liệu truyền thống: tre già tự nhiên, mây rừng, vải lụa tơ tằm, vải cotton, giấy dó và giấy điệp. Tất cả khung đèn được đan/uốn thủ công, không dùng keo công nghiệp hoặc vật liệu tổng hợp có hại.',
   },
   {
@@ -98,7 +98,7 @@ const FAQS = [
   {
     cat: 'Sản phẩm',
     q: 'Tôi không tìm thấy sản phẩm mình muốn, có thể đặt theo yêu cầu không?',
-    a: 'Hoàn toàn có thể. LongDenViet nhận thiết kế và sản xuất đèn theo yêu cầu: kích thước, màu sắc, hình dạng, in logo thương hiệu. Thời gian sản xuất từ 7–21 ngày tùy số lượng và độ phức tạp. Liên hệ sales@longdenviet.com hoặc Zalo để được tư vấn miễn phí.',
+    a: 'Hoàn toàn có thể. KAHA nhận thiết kế và sản xuất đèn theo yêu cầu: kích thước, màu sắc, hình dạng, in logo thương hiệu. Thời gian sản xuất từ 7–21 ngày tùy số lượng và độ phức tạp. Liên hệ hi@kaha.vn hoặc Zalo để được tư vấn miễn phí.',
   },
   {
     cat: 'Sản phẩm',
@@ -119,7 +119,7 @@ const FAQS = [
   },
   {
     cat: 'Đặt sỉ & Doanh nghiệp',
-    q: 'LongDenViet có tư vấn trang trí không gian không?',
+    q: 'KAHA có tư vấn trang trí không gian không?',
     a: 'Có. Đội ngũ của chúng tôi có kinh nghiệm tư vấn trang trí cho quán cà phê, nhà hàng, resort, sự kiện và showroom. Dịch vụ tư vấn miễn phí khi đặt hàng. Chúng tôi có thể tư vấn qua ảnh/video không gian, hoặc đến trực tiếp tại TP.HCM.',
   },
   {
@@ -269,14 +269,14 @@ export default function HoTroClient() {
                 <p className="text-xs text-[#888]">Gọi ngay</p>
               </div>
             </a>
-            <a href="mailto:sales@longdenviet.com" className="flex items-center gap-3 group">
+            <a href="mailto:hi@kaha.vn" className="flex items-center gap-3 group">
               <div className="w-9 h-9 rounded-full flex items-center justify-center shrink-0 transition-colors" style={{ border: '1px solid #E8DDD0' }}>
                 <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round">
                   <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/>
                 </svg>
               </div>
               <div>
-                <p className="text-sm font-semibold text-[#1a1a1a] group-hover:text-brand-green transition-colors">sales@longdenviet.com</p>
+                <p className="text-sm font-semibold text-[#1a1a1a] group-hover:text-brand-green transition-colors">hi@kaha.vn</p>
                 <p className="text-xs text-[#888]">Email</p>
               </div>
             </a>

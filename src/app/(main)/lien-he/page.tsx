@@ -6,12 +6,12 @@ import type { FaqItem } from '@/lib/site-settings';
 import ContactClient from './ContactClient';
 
 export const metadata: Metadata = {
-  title: 'Liên Hệ — LongDenViet',
-  description: 'Liên hệ LongDenViet để đặt hàng, tư vấn đèn lồng thủ công, hoặc nhận báo giá sỉ.',
+  title: 'Liên Hệ — KAHA',
+  description: 'Liên hệ KAHA để đặt hàng, tư vấn đèn lồng thủ công, hoặc nhận báo giá sỉ.',
   alternates: { canonical: '/lien-he' },
   openGraph: {
-    title: 'Liên Hệ — LongDenViet',
-    description: 'Liên hệ LongDenViet để đặt hàng, tư vấn đèn lồng thủ công, hoặc nhận báo giá sỉ.',
+    title: 'Liên Hệ — KAHA',
+    description: 'Liên hệ KAHA để đặt hàng, tư vấn đèn lồng thủ công, hoặc nhận báo giá sỉ.',
     type: 'website',
   },
 };
@@ -32,7 +32,7 @@ export default async function ContactPage() {
   const contactFaq = parseJSON<FaqItem[]>(settings.contact_faq, defaultFaq);
 
   const phone = settings.contact_phone || '0989.778.247';
-  const email = settings.contact_email || 'sales@longdenviet.com';
+  const email = settings.contact_email || 'hi@kaha.vn';
   const address = settings.contact_address || '262/1/93 Phan Anh, Phường Phú Thạnh, Thành Phố Hồ Chí Minh, Việt Nam';
 
   const contact = {
@@ -62,20 +62,20 @@ export default async function ContactPage() {
   const contactPageLd = {
     '@context': 'https://schema.org',
     '@type': 'ContactPage',
-    name: 'Liên Hệ LongDenViet',
-    url: 'https://longdenviet.com/lien-he',
-    description: 'Liên hệ LongDenViet để đặt hàng, tư vấn đèn lồng thủ công, hoặc nhận báo giá sỉ.',
-    mainEntity: { '@id': 'https://longdenviet.com/#organization' },
+    name: 'Liên Hệ KAHA',
+    url: 'https://kaha.vn/lien-he',
+    description: 'Liên hệ KAHA để đặt hàng, tư vấn đèn lồng thủ công, hoặc nhận báo giá sỉ.',
+    mainEntity: { '@id': 'https://kaha.vn/#organization' },
   };
 
   const localBusinessLd = {
     '@context': 'https://schema.org',
     '@type': 'Store',
-    '@id': 'https://longdenviet.com/#organization',
-    name: 'LongDenViet — Xưởng Đèn Lồng Trang Trí',
-    url: 'https://longdenviet.com',
-    logo: 'https://longdenviet.com/logo.webp',
-    image: 'https://longdenviet.com/opengraph-image',
+    '@id': 'https://kaha.vn/#organization',
+    name: 'KAHA — Xưởng Đèn Lồng Trang Trí',
+    url: 'https://kaha.vn',
+    logo: 'https://kaha.vn/logo.webp',
+    image: 'https://kaha.vn/opengraph-image',
     description: 'Xưởng sản xuất 500+ mẫu đèn lồng trang trí thủ công Hội An. Bán sỉ lẻ, giao toàn quốc, nhận đặt theo yêu cầu.',
     telephone: `+84${phone.replace(/\D/g, '').replace(/^0/, '')}`,
     email,

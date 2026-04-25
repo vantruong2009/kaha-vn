@@ -2,8 +2,8 @@ import type { Metadata } from 'next';
 import Link from 'next/link';
 
 export const metadata: Metadata = {
-  title: '404 — Trang Không Tồn Tại | LongDenViet',
-  description: 'Trang bạn tìm kiếm không tồn tại. Hãy quay về trang chủ hoặc khám phá bộ sưu tập đèn lồng thủ công của LongDenViet.',
+  title: '404 — Trang Không Tồn Tại | KAHA',
+  description: 'Trang bạn tìm kiếm không tồn tại. Hãy quay về trang chủ hoặc khám phá bộ sưu tập đèn lồng thủ công của KAHA.',
 };
 
 const POPULAR = [
@@ -173,7 +173,7 @@ export default function NotFound() {
 
       {/* ── Footer note ──────────────────────────────────────── */}
       <p className="mt-16 text-[11px] text-[#ccc] tracking-wider uppercase">
-        LongDenViet® — Đèn Lồng Thủ Công Hội An
+        KAHA® — Đèn Lồng Thủ Công Hội An
       </p>
     </div>
   );

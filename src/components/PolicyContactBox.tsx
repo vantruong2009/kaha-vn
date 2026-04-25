@@ -41,7 +41,7 @@ const ICONS = {
 
 const DEFAULT_ITEMS: ContactItem[] = [
   { type: 'zalo',    label: 'Zalo',    value: '0989 778 247 (8:00–21:00 mỗi ngày)', href: 'https://zalo.me/0989778247' },
-  { type: 'email',   label: 'Email',   value: 'sales@longdenviet.com',               href: 'mailto:sales@longdenviet.com' },
+  { type: 'email',   label: 'Email',   value: 'hi@kaha.vn',               href: 'mailto:hi@kaha.vn' },
   { type: 'address', label: 'Địa chỉ', value: '262/1/93 Phan Anh, Phường Phú Thạnh, Thành Phố Hồ Chí Minh, Việt Nam' },
 ];
 

@@ -70,7 +70,7 @@ const IconMail = () => (
   </svg>
 );
 
-const MAPS_URL_DEFAULT = 'https://www.google.com/maps/place/LongDenViet%C2%AE+-+X%C6%B0%E1%BB%9Fng+%C4%90%C3%A8n+L%E1%BB%93ng+Trang+Tr%C3%AD+(Vietnam+Lanterns)/@10.7711243,106.6220421,911m/data=!3m2!1e3!4b1!4m6!3m5!1s0x31752f2d324f4659:0xe6b0024a73e13b8f!8m2!3d10.771119!4d106.624617!16s%2Fg%2F11c1p6nxwm';
+const MAPS_URL_DEFAULT = 'https://www.google.com/maps/place/KAHA%C2%AE+-+X%C6%B0%E1%BB%9Fng+%C4%90%C3%A8n+L%E1%BB%93ng+Trang+Tr%C3%AD+(Vietnam+Lanterns)/@10.7711243,106.6220421,911m/data=!3m2!1e3!4b1!4m6!3m5!1s0x31752f2d324f4659:0xe6b0024a73e13b8f!8m2!3d10.771119!4d106.624617!16s%2Fg%2F11c1p6nxwm';
 
 const DEFAULT_TICKER = ['KAHA · XƯỞNG TP.HCM','GIA CÔNG ĐÈN VẢI CAO CẤP','THEO BẢN VẼ DỰ ÁN','B2B · KHÁCH SẠN · F&B','PHẢN HỒI RFQ 48H','BẢO HÀNH KHUNG 12T','MADE IN VIETNAM','EST. 2016'];
 

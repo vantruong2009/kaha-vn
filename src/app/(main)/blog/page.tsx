@@ -1,11 +1,26 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import FallbackImage from '@/components/FallbackImage';
-import { getAllPosts, getPostsContentBySlug, extractFirstImageFromContent, isValidThumbnail, type Post } from '@/lib/getPosts';
+import { getAllPosts, getPostsContentBySlug, extractFirstImageFromContent, isValidThumbnail } from '@/lib/getPosts';
 
 export const revalidate = 86400;
 
 const POSTS_PER_PAGE = 12;
+
+function LanternPlaceholder({ size = 36 }: { size?: number }) {
+  return (
+    <svg width={size} height={Math.round(size * 1.44)} viewBox="0 0 60 86" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" style={{ opacity: 0.25 }}>
+      <line x1="30" y1="0" x2="30" y2="10" stroke="#a0907a" strokeWidth="2" strokeLinecap="round"/>
+      <rect x="18" y="8" width="24" height="5" rx="1.5" fill="#a0907a"/>
+      <path d="M18 14 C12 22 10 34 10 46 C10 58 12 70 18 76 L42 76 C48 70 50 58 50 46 C50 34 48 22 42 14 Z" stroke="#a0907a" strokeWidth="1.5" fill="rgba(160,144,122,0.1)"/>
+      <line x1="22" y1="14" x2="22" y2="76" stroke="#a0907a" strokeWidth="0.8" opacity="0.5"/>
+      <line x1="30" y1="14" x2="30" y2="76" stroke="#a0907a" strokeWidth="0.8" opacity="0.5"/>
+      <line x1="38" y1="14" x2="38" y2="76" stroke="#a0907a" strokeWidth="0.8" opacity="0.5"/>
+      <rect x="18" y="74" width="24" height="5" rx="1.5" fill="#a0907a"/>
+      <line x1="30" y1="79" x2="30" y2="86" stroke="#a0907a" strokeWidth="1.5" strokeLinecap="round"/>
+    </svg>
+  );
+}
 
 function formatDate(dateStr: string) {
   try {
@@ -26,8 +41,8 @@ export async function generateMetadata({
   const cat = params.cat || '';
 
   const title = cat
-    ? `${cat} | Blog LongDenViet`
-    : 'Blog & Tin Tức | LongDenViet';
+    ? `${cat} | Blog KAHA`
+    : 'Blog & Tin Tức | KAHA';
   const description =
     'Tin tức, câu chuyện về đèn lồng thủ công truyền thống Việt Nam — Đèn Hội An, đèn trung thu, nghệ nhân làng nghề.';
 
@@ -95,32 +110,19 @@ export default async function BlogPage({
   const itemListLd = {
     '@context': 'https://schema.org',
     '@type': 'Blog',
-    '@id': 'https://longdenviet.com/blog',
-    name: 'Blog LongDenViet — Đèn Lồng Thủ Công Việt Nam',
-    url: 'https://longdenviet.com/blog',
-    publisher: { '@id': 'https://longdenviet.com/#organization' },
+    '@id': 'https://kaha.vn/blog',
+    name: 'Blog KAHA — Đèn Lồng Thủ Công Việt Nam',
+    url: 'https://kaha.vn/blog',
+    publisher: { '@id': 'https://kaha.vn/#organization' },
     blogPost: pagePosts.slice(0, 10).map(p => ({
       '@type': 'BlogPosting',
       headline: p.title,
-      url: `https://longdenviet.com/blog/${p.slug}`,
+      url: `https://kaha.vn/blog/${p.slug}`,
       datePublished: p.date,
       description: p.excerpt,
       ...(p.thumbnail ? { image: p.thumbnail } : {}),
     })),
   };
-
-  const LanternPlaceholder = ({ size = 36 }: { size?: number }) => (
-    <svg width={size} height={Math.round(size * 1.44)} viewBox="0 0 60 86" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" style={{ opacity: 0.25 }}>
-      <line x1="30" y1="0" x2="30" y2="10" stroke="#a0907a" strokeWidth="2" strokeLinecap="round"/>
-      <rect x="18" y="8" width="24" height="5" rx="1.5" fill="#a0907a"/>
-      <path d="M18 14 C12 22 10 34 10 46 C10 58 12 70 18 76 L42 76 C48 70 50 58 50 46 C50 34 48 22 42 14 Z" stroke="#a0907a" strokeWidth="1.5" fill="rgba(160,144,122,0.1)"/>
-      <line x1="22" y1="14" x2="22" y2="76" stroke="#a0907a" strokeWidth="0.8" opacity="0.5"/>
-      <line x1="30" y1="14" x2="30" y2="76" stroke="#a0907a" strokeWidth="0.8" opacity="0.5"/>
-      <line x1="38" y1="14" x2="38" y2="76" stroke="#a0907a" strokeWidth="0.8" opacity="0.5"/>
-      <rect x="18" y="74" width="24" height="5" rx="1.5" fill="#a0907a"/>
-      <line x1="30" y1="79" x2="30" y2="86" stroke="#a0907a" strokeWidth="1.5" strokeLinecap="round"/>
-    </svg>
-  );
 
   return (
     <div style={{ background: '#FAF7F2', minHeight: '100vh' }}>
@@ -239,7 +241,7 @@ export default async function BlogPage({
                   <div className="relative overflow-hidden" style={{ height: '300px', minHeight: '300px', borderRadius: '24px 0 0 24px', background: 'linear-gradient(135deg, #f5efe5, #ede5d8)' }}>
                     <FallbackImage
                       src={featuredPost.thumbnail}
-                      alt={`${featuredPost.title} | LongDenViet`}
+                      alt={`${featuredPost.title} | KAHA`}
                       className="object-cover group-hover:scale-105 transition-transform duration-700 ease-out w-full h-full"
                     />
                     {/* Gradient overlay */}
@@ -336,7 +338,7 @@ export default async function BlogPage({
                     <div className="relative overflow-hidden" style={{ height: '220px', background: 'linear-gradient(135deg, #f5efe5, #ede5d8)', borderRadius: '20px 20px 0 0' }}>
                       <FallbackImage
                         src={post.thumbnail}
-                        alt={`${post.title} | LongDenViet`}
+                        alt={`${post.title} | KAHA`}
                         className="object-cover group-hover:scale-105 transition-transform duration-500 ease-out w-full h-full"
                       />
                       {/* Bottom gradient for readability */}

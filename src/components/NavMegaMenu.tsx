@@ -264,7 +264,7 @@ export default function NavMegaMenu({
               style={{ background: 'linear-gradient(to right, rgba(10,40,24,0.95) 0%, rgba(10,40,24,0.55) 100%)' }}
             />
             <div className="relative p-4">
-              <p className="text-[7.5px] font-bold uppercase tracking-[0.22em] mb-1.5" style={{ color: '#c9822a' }}>LongDenViet®</p>
+              <p className="text-[7.5px] font-bold uppercase tracking-[0.22em] mb-1.5" style={{ color: '#c9822a' }}>KAHA®</p>
               <p className="text-[13px] font-bold text-white leading-snug" style={{ letterSpacing: '-0.02em' }}>
                 {editorialTitle.split('\n')[0]}<br />
                 <span className="text-white/60 text-[10px] font-normal">{editorialTitle.split('\n')[1] ?? ''}</span>

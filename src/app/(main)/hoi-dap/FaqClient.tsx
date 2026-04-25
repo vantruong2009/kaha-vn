@@ -62,7 +62,7 @@ const HARDCODED_SECTIONS: FaqSection[] = [
         a: 'Bạn có thể đặt hàng trực tiếp trên website: chọn sản phẩm → thêm vào giỏ → điền thông tin giao hàng → chọn phương thức thanh toán → hoàn tất đơn hàng. Hoặc đặt qua điện thoại: 0989.778.247 (8:00–21:00 mỗi ngày).',
       },
       {
-        q: 'LongDenViet chấp nhận những phương thức thanh toán nào?',
+        q: 'KAHA chấp nhận những phương thức thanh toán nào?',
         a: 'Chúng tôi chấp nhận: COD (thanh toán khi nhận hàng), chuyển khoản ngân hàng, MoMo, VNPay, và thẻ ATM nội địa/quốc tế. Mọi giao dịch đều được mã hóa an toàn.',
       },
       {
@@ -103,7 +103,7 @@ const HARDCODED_SECTIONS: FaqSection[] = [
     items: [
       {
         q: 'Đèn được làm từ chất liệu gì?',
-        a: 'Đèn lồng LongDenViet được làm từ các chất liệu truyền thống: khung tre già (đèn Hội An), mây và bẹ chuối (đèn mây), gỗ tự nhiên (đèn gỗ), vải lụa và vải linen cao cấp. Tất cả đều là vật liệu tự nhiên, thân thiện môi trường.',
+        a: 'Đèn lồng KAHA được làm từ các chất liệu truyền thống: khung tre già (đèn Hội An), mây và bẹ chuối (đèn mây), gỗ tự nhiên (đèn gỗ), vải lụa và vải linen cao cấp. Tất cả đều là vật liệu tự nhiên, thân thiện môi trường.',
       },
       {
         q: 'Làm thế nào để bảo quản đèn?',
@@ -129,11 +129,11 @@ const HARDCODED_SECTIONS: FaqSection[] = [
       },
       {
         q: 'Quy trình đổi trả như thế nào?',
-        a: 'Bước 1: Liên hệ 0989.778.247 hoặc email sales@longdenviet.com để thông báo. Bước 2: Chụp ảnh sản phẩm lỗi gửi cho chúng tôi. Bước 3: Đội ngũ sẽ xác nhận và hướng dẫn gửi hàng về. Bước 4: Sau khi nhận hàng hoàn trả, chúng tôi sẽ gửi hàng mới hoặc hoàn tiền trong 3–5 ngày.',
+        a: 'Bước 1: Liên hệ 0989.778.247 hoặc email hi@kaha.vn để thông báo. Bước 2: Chụp ảnh sản phẩm lỗi gửi cho chúng tôi. Bước 3: Đội ngũ sẽ xác nhận và hướng dẫn gửi hàng về. Bước 4: Sau khi nhận hàng hoàn trả, chúng tôi sẽ gửi hàng mới hoặc hoàn tiền trong 3–5 ngày.',
       },
       {
         q: 'Phí vận chuyển đổi trả do ai chịu?',
-        a: 'Nếu lỗi do chúng tôi (sản xuất hoặc giao nhầm), LongDenViet chịu toàn bộ phí vận chuyển đổi/trả. Nếu khách hàng đổi ý hoặc chọn nhầm sản phẩm, khách hàng chịu phí vận chuyển chiều về.',
+        a: 'Nếu lỗi do chúng tôi (sản xuất hoặc giao nhầm), KAHA chịu toàn bộ phí vận chuyển đổi/trả. Nếu khách hàng đổi ý hoặc chọn nhầm sản phẩm, khách hàng chịu phí vận chuyển chiều về.',
       },
       {
         q: 'Có hoàn tiền mặt không?',

@@ -4,6 +4,13 @@ import { FloatingContactButtons } from "@/components/floating-contact-buttons";
 import { JsonLdOrganization } from "@/components/json-ld-organization";
 import { SkipLink } from "@/components/skip-link";
 import { JsonLdWebSite } from "@/components/json-ld-website";
+import { SiteHeader } from "@/components/site-header";
+import { SiteFooter } from "@/components/site-footer";
+import { CartProvider } from "@/context/CartContext";
+import { WishlistProvider } from "@/context/WishlistContext";
+import { ToastProvider } from "@/context/ToastContext";
+import { QuickViewProvider } from "@/context/QuickViewContext";
+import QuickViewSheet from "@/components/QuickViewSheet";
 import { getSiteUrl } from "@/lib/site-url";
 import { getSiteSettings } from "@/server/site-settings";
 import "./globals.css";
@@ -30,6 +37,9 @@ const site = getSiteUrl();
 
 export const metadata: Metadata = {
   metadataBase: new URL(site),
+  verification: {
+    google: process.env.NEXT_PUBLIC_GSC_VERIFICATION || undefined,
+  },
   alternates: {
     types: {
       "application/rss+xml": `${site}/feed.xml`,
@@ -75,7 +85,20 @@ export default async function RootLayout({
         <SkipLink />
         <JsonLdOrganization />
         <JsonLdWebSite />
-        {children}
+        <CartProvider>
+          <WishlistProvider>
+            <ToastProvider>
+              <QuickViewProvider>
+                <SiteHeader />
+                <main id="main-content" className="flex-1 bg-paper-warm text-ink-900">
+                  {children}
+                </main>
+                <SiteFooter />
+                <QuickViewSheet />
+              </QuickViewProvider>
+            </ToastProvider>
+          </WishlistProvider>
+        </CartProvider>
         <FloatingContactButtons settings={settings} />
       </body>
     </html>

@@ -10,12 +10,12 @@ const faqLd = {
     {
       '@type': 'Question',
       name: 'Tôi có thể đổi trả hàng trong bao lâu?',
-      acceptedAnswer: { '@type': 'Answer', text: 'LongDenViet chấp nhận đổi trả trong vòng 7 ngày kể từ ngày nhận hàng, áp dụng cho sản phẩm lỗi kỹ thuật từ nhà sản xuất hoặc giao không đúng mẫu.' },
+      acceptedAnswer: { '@type': 'Answer', text: 'KAHA chấp nhận đổi trả trong vòng 7 ngày kể từ ngày nhận hàng, áp dụng cho sản phẩm lỗi kỹ thuật từ nhà sản xuất hoặc giao không đúng mẫu.' },
     },
     {
       '@type': 'Question',
       name: 'Phí vận chuyển đổi trả do ai chịu?',
-      acceptedAnswer: { '@type': 'Answer', text: 'Phí vận chuyển đổi trả lần đầu do LongDenViet chịu nếu lỗi từ phía chúng tôi. Từ lần thứ hai trở đi, khách hàng chịu phí vận chuyển một chiều.' },
+      acceptedAnswer: { '@type': 'Answer', text: 'Phí vận chuyển đổi trả lần đầu do KAHA chịu nếu lỗi từ phía chúng tôi. Từ lần thứ hai trở đi, khách hàng chịu phí vận chuyển một chiều.' },
     },
     {
       '@type': 'Question',
@@ -38,7 +38,7 @@ const faqLd = {
 export const metadata: Metadata = {
   title: 'Chính Sách Đổi Trả Hàng',
   description:
-    'Chính sách đổi trả hàng của LongDenViet — Đổi trả trong 7 ngày, miễn phí đổi lần đầu. Cam kết hỗ trợ khách hàng tận tình.',
+    'Chính sách đổi trả hàng của KAHA — Đổi trả trong 7 ngày, miễn phí đổi lần đầu. Cam kết hỗ trợ khách hàng tận tình.',
   alternates: { canonical: '/chinh-sach-doi-tra' },
 };
 
@@ -90,7 +90,7 @@ export default async function ReturnPolicyPage() {
                     Đổi trả trong 7 ngày — Miễn phí lần đầu
                   </div>
                   <p className="text-[13px] leading-[1.8]" style={{ color: '#4a4a4a' }}>
-                    LongDenViet cam kết hỗ trợ đổi trả trong vòng 7 ngày kể từ ngày nhận hàng nếu sản phẩm bị lỗi từ nhà sản xuất hoặc không đúng với mô tả.
+                    KAHA cam kết hỗ trợ đổi trả trong vòng 7 ngày kể từ ngày nhận hàng nếu sản phẩm bị lỗi từ nhà sản xuất hoặc không đúng với mô tả.
                   </p>
                 </div>
               </div>
@@ -131,8 +131,8 @@ export default async function ReturnPolicyPage() {
                 {[
                   {
                     step: '01',
-                    title: 'Liên hệ LongDenViet',
-                    desc: 'Nhắn Zalo 0989 778 247 hoặc email sales@longdenviet.com kèm mã đơn hàng, ảnh/video sản phẩm lỗi.',
+                    title: 'Liên hệ KAHA',
+                    desc: 'Nhắn Zalo 0989 778 247 hoặc email hi@kaha.vn kèm mã đơn hàng, ảnh/video sản phẩm lỗi.',
                   },
                   {
                     step: '02',
@@ -147,7 +147,7 @@ export default async function ReturnPolicyPage() {
                   {
                     step: '04',
                     title: 'Hoàn tất',
-                    desc: 'Sản phẩm mới sẽ được giao đến bạn trong 3–5 ngày làm việc. Phí vận chuyển đổi trả lần đầu do LongDenViet chịu.',
+                    desc: 'Sản phẩm mới sẽ được giao đến bạn trong 3–5 ngày làm việc. Phí vận chuyển đổi trả lần đầu do KAHA chịu.',
                   },
                 ].map((item) => (
                   <div key={item.step} className="flex gap-4 items-start">

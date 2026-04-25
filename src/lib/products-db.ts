@@ -122,6 +122,59 @@ export async function getCatalogProducts(): Promise<Product[]> {
   }
 }
 
+export interface HomepageImageSet {
+  hero: string[];        // 3 ảnh mosaic hero
+  showcase: string[];    // 4 ảnh category showcase
+  spaces: string[];      // 4 ảnh không gian ứng dụng
+  b2b: string;           // 1 ảnh xưởng
+}
+
+/** Lấy tập ảnh cho homepage từ catalog products (ưu tiên den-vai, den-chum, den-may-tre, long-den) */
+export async function getHomepageImages(): Promise<HomepageImageSet> {
+  const FALLBACK: HomepageImageSet = { hero: [], showcase: [], spaces: [], b2b: '' };
+  try {
+    const products = await getCatalogProducts();
+    const withImg = products.filter((p) => p.image);
+    if (withImg.length === 0) return FALLBACK;
+
+    const pick = (cat: string, n = 1) => {
+      const matches = withImg.filter((p) => p.tags.includes(cat));
+      const pool = matches.length >= n ? matches : withImg;
+      return pool.slice(0, n).map((p) => p.image);
+    };
+
+    const hero = [
+      ...pick('den-vai-treo-tran', 1),
+      ...pick('den-chum', 1),
+      ...pick('den-may-tre', 1),
+    ].filter(Boolean).slice(0, 3);
+    if (hero.length < 3) {
+      const extra = withImg.filter((p) => !hero.includes(p.image)).slice(0, 3 - hero.length).map((p) => p.image);
+      hero.push(...extra);
+    }
+
+    const showcase = [
+      pick('gia-cong-den-trang-tri', 1)[0] || '',
+      pick('long-den', 1)[0] || pick('den-may-tre', 1)[0] || '',
+      pick('den-chum', 1)[0] || pick('den-sat-son-tinh-dien', 1)[0] || '',
+      pick('den-khach-san', 1)[0] || withImg[3]?.image || '',
+    ];
+
+    const spaces = [
+      pick('den-khach-san', 1)[0] || withImg[4]?.image || '',
+      pick('den-nha-hang', 1)[0] || withImg[5]?.image || '',
+      pick('den-quan-cafe', 1)[0] || withImg[6]?.image || '',
+      pick('den-gan-tuong', 1)[0] || withImg[7]?.image || '',
+    ];
+
+    const b2b = pick('gia-cong-den-trang-tri', 1)[0] || withImg[8]?.image || '';
+
+    return { hero, showcase, spaces, b2b };
+  } catch {
+    return FALLBACK;
+  }
+}
+
 /** Slugs từ wishlist — server / API only */
 export async function fetchProductsBySlugsFromCatalog(slugs: string[]): Promise<Product[]> {
   const uniq = [...new Set(slugs.filter(Boolean))];

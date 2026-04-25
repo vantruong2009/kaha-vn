@@ -8,12 +8,12 @@ export const revalidate = 86400;
 
 
 export const metadata: Metadata = {
-  title: 'Về Chúng Tôi — Câu Chuyện LongDenViet | Đèn Lồng Thủ Công Việt Nam',
+  title: 'Về Chúng Tôi — Câu Chuyện KAHA | Đèn Lồng Thủ Công Việt Nam',
   description:
-    'LongDenViet thành lập năm 2016, kết nối nghệ nhân làng nghề Hội An, Huế, Bà Rịa-Vũng Tàu với những người yêu đèn thủ công truyền thống Việt Nam.',
+    'KAHA thành lập năm 2016, kết nối nghệ nhân làng nghề Hội An, Huế, Bà Rịa-Vũng Tàu với những người yêu đèn thủ công truyền thống Việt Nam.',
   alternates: { canonical: '/ve-chung-toi' },
   openGraph: {
-    title: 'Về Chúng Tôi — LongDenViet',
+    title: 'Về Chúng Tôi — KAHA',
     description: 'Câu chuyện của một gia đình và hành trình gìn giữ nghề đèn truyền thống Việt Nam.',
     type: 'website',
   },
@@ -35,7 +35,7 @@ export default async function AboutPage() {
     parseJSON<TimelineItem[]>(SETTINGS_DEFAULTS.about_timeline, [])
   );
 
-  const heroTitle = settings.about_hero_title || 'Câu Chuyện LongDenViet';
+  const heroTitle = settings.about_hero_title || 'Câu Chuyện KAHA';
   const heroSubtitle =
     settings.about_hero_subtitle ||
     'Từ tình yêu đèn lồng Hội An đến thương hiệu đèn trang trí thủ công hàng đầu Việt Nam';
@@ -142,7 +142,7 @@ export default async function AboutPage() {
                 ) : (
                   <>
                     <p>
-                      Năm 2016, hai vợ chồng người sáng lập LongDenViet — Minh và Hà — đi du lịch
+                      Năm 2016, hai vợ chồng người sáng lập KAHA — Minh và Hà — đi du lịch
                       Hội An trong tuần trăng mật. Giữa phố cổ lung linh ánh đèn, Hà mua một chiếc
                       đèn lồng từ một bà cụ 70 tuổi. Chiếc đèn đó không chỉ đẹp — nó kể câu chuyện
                       của một nghệ nhân đã dành cả đời gìn giữ nghề.
@@ -153,7 +153,7 @@ export default async function AboutPage() {
                       khách du lịch tại làng nghề, và con cháu họ không còn muốn tiếp tục nghề.
                     </p>
                     <p>
-                      LongDenViet ra đời để giải quyết vấn đề đó:{' '}
+                      KAHA ra đời để giải quyết vấn đề đó:{' '}
                       <strong className="text-[#1a1a1a]">
                         kết nối người yêu thủ công mỹ nghệ với những nghệ nhân tài năng
                       </strong>

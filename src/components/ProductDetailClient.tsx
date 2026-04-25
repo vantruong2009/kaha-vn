@@ -199,7 +199,7 @@ export default function ProductDetailClient({ product, zaloPhone = '0989778247',
               className="absolute bottom-3 left-4 pointer-events-none select-none"
               style={{ fontSize: '9px', fontWeight: 600, letterSpacing: '0.1em', color: 'rgba(16,78,46,0.10)', lineHeight: 1, mixBlendMode: 'multiply' }}
             >
-              longdenviet.com
+              kaha.vn
             </div>
 
             {/* Zoom hint */}
@@ -282,7 +282,7 @@ export default function ProductDetailClient({ product, zaloPhone = '0989778247',
           <div className="flex items-center gap-2 mb-4">
             <span className="text-[11px] font-medium" style={{ color: '#aaa' }}>Chia sẻ:</span>
             <a
-              href={`https://zalo.me/share/url?url=${encodeURIComponent('https://longdenviet.com/p/' + product.slug)}&title=${encodeURIComponent(product.name)}`}
+              href={`https://zalo.me/share/url?url=${encodeURIComponent('https://kaha.vn/p/' + product.slug)}&title=${encodeURIComponent(product.name)}`}
               target="_blank" rel="noopener noreferrer"
               title="Chia sẻ qua Zalo"
               className="w-7 h-7 rounded-lg flex items-center justify-center transition-all hover:scale-110"
@@ -295,7 +295,7 @@ export default function ProductDetailClient({ product, zaloPhone = '0989778247',
               </svg>
             </a>
             <a
-              href={`https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent('https://longdenviet.com/p/' + product.slug)}`}
+              href={`https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent('https://kaha.vn/p/' + product.slug)}`}
               target="_blank" rel="noopener noreferrer"
               title="Chia sẻ Facebook"
               className="w-7 h-7 rounded-lg flex items-center justify-center transition-all hover:scale-110"
@@ -307,7 +307,7 @@ export default function ProductDetailClient({ product, zaloPhone = '0989778247',
             </a>
             <button
               onClick={() => {
-                navigator.clipboard.writeText('https://longdenviet.com/p/' + product.slug).then(() => {
+                navigator.clipboard.writeText('https://kaha.vn/p/' + product.slug).then(() => {
                   setLinkCopied(true);
                   setTimeout(() => setLinkCopied(false), 2000);
                 });
@@ -596,7 +596,7 @@ export default function ProductDetailClient({ product, zaloPhone = '0989778247',
                 </div>
                 <div>
                   <div className="text-xs font-bold text-[#7a5000]">Sản phẩm độc quyền</div>
-                  <div className="text-[11px] text-[#a07020]">Chỉ có tại LongDenViet</div>
+                  <div className="text-[11px] text-[#a07020]">Chỉ có tại KAHA</div>
                 </div>
               </div>
             )}

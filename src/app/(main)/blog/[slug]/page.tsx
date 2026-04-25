@@ -3,7 +3,7 @@ import Link from 'next/link';
 import FallbackImage from '@/components/FallbackImage';
 import { notFound } from 'next/navigation';
 import { unstable_cache } from 'next/cache';
-import { getAllPosts, getAllPostSlugs, getPostBySlug, type Post } from '@/lib/getPosts';
+import { getAllPosts, getPostBySlug, type Post } from '@/lib/getPosts';
 import BlogShareButtons from './BlogShareButtons';
 import { products } from '@/lib/products';
 import type { Product } from '@/data/products';
@@ -61,7 +61,7 @@ export async function generateMetadata({
   if (!post) return { title: 'Bài viết không tồn tại' };
   const shouldIndex = !post.noindex;
   return {
-    title: { absolute: `${post.title} | LongDenViet` },
+    title: { absolute: `${post.title} | KAHA` },
     description: post.excerpt,
     alternates: { canonical: `/blog/${slug}` },
     robots: shouldIndex ? { index: true, follow: true } : { index: false, follow: true },
@@ -69,17 +69,17 @@ export async function generateMetadata({
       title: post.title,
       description: post.excerpt,
       type: 'article',
-      siteName: 'LongDenViet',
+      siteName: 'KAHA',
       locale: 'vi_VN',
       publishedTime: post.date,
-      authors: ['https://longdenviet.com/ve-chung-toi'],
-      ...(post.thumbnail ? { images: [{ url: post.thumbnail.startsWith('http') ? post.thumbnail : `https://longdenviet.com${post.thumbnail}`, alt: post.title, width: 1200, height: 630 }] } : {}),
+      authors: ['https://kaha.vn/ve-chung-toi'],
+      ...(post.thumbnail ? { images: [{ url: post.thumbnail.startsWith('http') ? post.thumbnail : `https://kaha.vn${post.thumbnail}`, alt: post.title, width: 1200, height: 630 }] } : {}),
     },
     twitter: {
       card: 'summary_large_image',
       title: post.title,
       description: post.excerpt,
-      ...(post.thumbnail ? { images: [post.thumbnail.startsWith('http') ? post.thumbnail : `https://longdenviet.com${post.thumbnail}`] } : {}),
+      ...(post.thumbnail ? { images: [post.thumbnail.startsWith('http') ? post.thumbnail : `https://kaha.vn${post.thumbnail}`] } : {}),
     },
   };
 }
@@ -259,20 +259,20 @@ export default async function BlogPostPage({
   const postCatSlug = getPostCatSlug(post);
   const postCatLabel = postCatSlug ? (CAT_LABEL[postCatSlug] ?? '') : '';
   const readingTime = getReadingTime(cleanContent);
-  const postUrl = `https://longdenviet.com/blog/${post.slug}`;
+  const postUrl = `https://kaha.vn/blog/${post.slug}`;
 
   const author = {
     '@type': 'Person',
-    name: 'Đội Ngũ LongDenViet',
-    url: 'https://longdenviet.com/ve-chung-toi',
+    name: 'Đội Ngũ KAHA',
+    url: 'https://kaha.vn/ve-chung-toi',
   };
 
   const publisher = {
     '@type': 'Organization',
-    '@id': 'https://longdenviet.com/#organization',
-    name: 'LongDenViet® — Xưởng Đèn Lồng',
-    url: 'https://longdenviet.com',
-    logo: { '@type': 'ImageObject', url: 'https://longdenviet.com/logo.webp' },
+    '@id': 'https://kaha.vn/#organization',
+    name: 'KAHA® — Xưởng Đèn Lồng',
+    url: 'https://kaha.vn',
+    logo: { '@type': 'ImageObject', url: 'https://kaha.vn/logo.webp' },
   };
 
   const jsonLd = {
@@ -288,17 +288,17 @@ export default async function BlogPostPage({
     mainEntityOfPage: { '@type': 'WebPage', '@id': postUrl },
     ...(post.thumbnail ? {
       image: (() => {
-        const imgUrl = post.thumbnail.startsWith('http') ? post.thumbnail : `https://longdenviet.com${post.thumbnail}`;
+        const imgUrl = post.thumbnail.startsWith('http') ? post.thumbnail : `https://kaha.vn${post.thumbnail}`;
         return {
           '@type': 'ImageObject',
           url: imgUrl,
           contentUrl: imgUrl,
-          creator: { '@type': 'Organization', name: 'LongDenViet', url: 'https://longdenviet.com' },
-          copyrightHolder: { '@type': 'Organization', name: 'LongDenViet', url: 'https://longdenviet.com' },
-          copyrightNotice: `© ${new Date().getFullYear()} LongDenViet — longdenviet.com. All rights reserved.`,
-          license: 'https://longdenviet.com/dieu-khoan',
-          acquireLicensePage: 'https://longdenviet.com/lien-he',
-          creditText: 'LongDenViet — longdenviet.com',
+          creator: { '@type': 'Organization', name: 'KAHA', url: 'https://kaha.vn' },
+          copyrightHolder: { '@type': 'Organization', name: 'KAHA', url: 'https://kaha.vn' },
+          copyrightNotice: `© ${new Date().getFullYear()} KAHA — kaha.vn. All rights reserved.`,
+          license: 'https://kaha.vn/dieu-khoan',
+          acquireLicensePage: 'https://kaha.vn/lien-he',
+          creditText: 'KAHA — kaha.vn',
         };
       })(),
     } : {}),
@@ -308,8 +308,8 @@ export default async function BlogPostPage({
     '@context': 'https://schema.org',
     '@type': 'BreadcrumbList',
     itemListElement: [
-      { '@type': 'ListItem', position: 1, name: 'Trang chủ', item: 'https://longdenviet.com' },
-      { '@type': 'ListItem', position: 2, name: 'Blog', item: 'https://longdenviet.com/blog' },
+      { '@type': 'ListItem', position: 1, name: 'Trang chủ', item: 'https://kaha.vn' },
+      { '@type': 'ListItem', position: 2, name: 'Blog', item: 'https://kaha.vn/blog' },
       { '@type': 'ListItem', position: 3, name: post.title, item: postUrl },
     ],
   };
@@ -374,7 +374,7 @@ export default async function BlogPostPage({
               <div className="relative w-full max-h-96 overflow-hidden">
                 <FallbackImage
                   src={post.thumbnail}
-                  alt={`${post.title} | LongDenViet`}
+                  alt={`${post.title} | KAHA`}
                   className="w-full object-cover max-h-96"
                   loading="eager"
                 />
@@ -414,7 +414,7 @@ export default async function BlogPostPage({
 
               {/* Author + Date + Reading time */}
               <div className="flex flex-wrap items-center gap-x-3 gap-y-1 mb-6 text-sm" style={{ color: '#888' }}>
-                <Link href="/ve-chung-toi" style={{ color: '#104e2e', fontWeight: 500 }}>Xưởng LongDenViet</Link>
+                <Link href="/ve-chung-toi" style={{ color: '#104e2e', fontWeight: 500 }}>Xưởng KAHA</Link>
                 <span>·</span>
                 <time dateTime={postDate}>{formatDate(postDate)}</time>
                 <span>·</span>
@@ -453,7 +453,7 @@ export default async function BlogPostPage({
                 <h2 className="text-2xl font-semibold text-[#1a1a1a]">
                   Sản Phẩm Liên Quan
                 </h2>
-                <p className="text-sm text-[#888] mt-1">Xem và mua ngay tại LongDenViet</p>
+                <p className="text-sm text-[#888] mt-1">Xem và mua ngay tại KAHA</p>
               </div>
               <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
                 {recommendedProducts.map(product => (

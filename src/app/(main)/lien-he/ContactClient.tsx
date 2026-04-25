@@ -281,7 +281,7 @@ export default function ContactClient({ contact }: { contact: ContactInfo }) {
                   </svg>
                 </div>
                 <div className="flex-1 min-w-0">
-                  <p className="text-[12px] font-bold truncate" style={{ color: '#1a1a1a' }}>LongDenViet — Xưởng Đèn Lồng</p>
+                  <p className="text-[12px] font-bold truncate" style={{ color: '#1a1a1a' }}>KAHA — Xưởng Đèn Lồng</p>
                   <p className="text-[10px]" style={{ color: '#a0907a' }}>262/1/93 Phan Anh, TP.HCM</p>
                 </div>
                 <a href={MAP_URL} target="_blank" rel="noopener noreferrer" className="text-[11px] font-bold hover:underline whitespace-nowrap shrink-0" style={{ color: '#104e2e' }}>
@@ -292,7 +292,7 @@ export default function ContactClient({ contact }: { contact: ContactInfo }) {
                 <iframe src={MAP_SRC} width="100%" height="100%"
                   style={{ border: 0, display: 'block', position: 'absolute', inset: 0 }}
                   allowFullScreen loading="lazy" referrerPolicy="no-referrer-when-downgrade"
-                  title="LongDenViet — Địa chỉ kinh doanh" />
+                  title="KAHA — Địa chỉ kinh doanh" />
               </div>
             </div>
 

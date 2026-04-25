@@ -116,7 +116,7 @@ export async function POST(req: NextRequest) {
 
       const emailHtml = `
         <div style="font-family:'Be Vietnam Pro',Arial,sans-serif;max-width:600px;margin:0 auto;padding:24px;">
-          <h2 style="color:#c9822a;margin-bottom:24px;">Liên hệ mới từ LongDenViet</h2>
+          <h2 style="color:#c9822a;margin-bottom:24px;">Liên hệ mới từ KAHA</h2>
           <table style="width:100%;border-collapse:collapse;">
             <tr>
               <td style="padding:10px 0;border-bottom:1px solid #EEF0F8;color:#888;width:140px;font-size:13px;">Họ và tên</td>
@@ -140,7 +140,7 @@ export async function POST(req: NextRequest) {
             </tr>
             ${filesHtml}
           </table>
-          <p style="margin-top:32px;font-size:12px;color:#888;">Gửi qua form liên hệ tại longdenviet.com</p>
+          <p style="margin-top:32px;font-size:12px;color:#888;">Gửi qua form liên hệ tại kaha.vn</p>
         </div>
       `;
 
@@ -151,9 +151,9 @@ export async function POST(req: NextRequest) {
           'Content-Type': 'application/json',
         },
         body: JSON.stringify({
-          from: 'LongDenViet Contact <contact@longdenviet.com>',
+          from: 'KAHA Contact <contact@kaha.vn>',
           to: recipients,
-          subject: `[LongDenViet] Liên hệ mới từ ${cleanName}`,
+          subject: `[KAHA] Liên hệ mới từ ${cleanName}`,
           html: emailHtml,
           reply_to: cleanEmail || undefined,
         }),

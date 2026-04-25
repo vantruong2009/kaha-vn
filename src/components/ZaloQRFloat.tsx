@@ -154,7 +154,7 @@ export default function ZaloQRFloat({ settings }: { settings: ZaloQRSettings }) 
               {/* QR image + animated border */}
               <div style={{ position:'relative',width:SIZE,height:SIZE }}>
                 {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img src={settings.img} alt="QR Chat Zalo LongDenViet" width={SIZE} height={SIZE}
+                <img src={settings.img} alt="QR Chat Zalo KAHA" width={SIZE} height={SIZE}
                   style={{ display:'block',width:SIZE,height:SIZE,borderRadius:10 }} />
 
                 {settings.borderEffect !== 'none' && (
@@ -371,7 +371,7 @@ export default function ZaloQRFloat({ settings }: { settings: ZaloQRSettings }) 
                     <p style={{ fontSize:8, color:'#aaa', letterSpacing:'0.05em' }}>Quét để thêm bạn</p>
                   </div>
                   {/* eslint-disable-next-line @next/next/no-img-element */}
-                  <img src={settings.wechatImg} alt="QR WeChat LongDenViet" width={SIZE} height={SIZE}
+                  <img src={settings.wechatImg} alt="QR WeChat KAHA" width={SIZE} height={SIZE}
                     style={{ display:'block', width:SIZE, height:SIZE, borderRadius:8, border:'1.5px solid rgba(26,173,25,0.25)' }} />
                 </div>
               )}
@@ -379,7 +379,7 @@ export default function ZaloQRFloat({ settings }: { settings: ZaloQRSettings }) 
               {/* Footer brand */}
               <div style={{ marginTop:8,paddingTop:7,borderTop:'1px solid rgba(212,175,55,0.2)',display:'flex',alignItems:'center',justifyContent:'center',gap:6 }}>
                 <div style={{ width:20,height:1.5,background:'linear-gradient(90deg,transparent,#D4AF37)' }} />
-                <p style={{ fontSize:9,fontWeight:700,letterSpacing:'0.16em',color:'#C9922A',textTransform:'uppercase' }}>LongDenViet®</p>
+                <p style={{ fontSize:9,fontWeight:700,letterSpacing:'0.16em',color:'#C9922A',textTransform:'uppercase' }}>KAHA®</p>
                 <div style={{ width:20,height:1.5,background:'linear-gradient(90deg,#D4AF37,transparent)' }} />
               </div>
             </div>
