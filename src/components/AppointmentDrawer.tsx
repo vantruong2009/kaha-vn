@@ -11,7 +11,7 @@ const C = {
   waPhone:     '84905151701',
   iMsgPhone:   '+84905151701',
   facebookUrl: 'https://m.me/longdenviet',
-  salesEmail:  'sales@longdenviet.com',
+  salesEmail:  'hi@kaha.vn',
   googleMap:   'https://maps.app.goo.gl/longdenviet',
 };
 
@@ -107,14 +107,14 @@ export default function AppointmentDrawer({ open, onClose }: Props) {
   function handleEmailSubmit(e: React.FormEvent) {
     e.preventDefault();
     const body = encodeURIComponent([
-      'Xin chào / Hello LongDenViet,', '',
+      'Xin chào / Hello KAHA,', '',
       'Tôi muốn được tư vấn sản phẩm.',
       'I would like to request a product consultation.',
       ...(name.trim() ? [`\nTên / Name: ${name.trim()}`] : []),
       ...(note.trim() ? [`Nhu cầu / Message: ${note.trim()}`] : []),
       '\nCảm ơn / Thank you!',
     ].join('\n'));
-    const subject = encodeURIComponent('Tư vấn sản phẩm / Consultation Request – LongDenViet');
+    const subject = encodeURIComponent('Tư vấn sản phẩm / Consultation Request – KAHA');
     window.location.href = `mailto:${C.salesEmail}?subject=${subject}&body=${body}`;
     handleClose();
   }
@@ -535,8 +535,8 @@ export default function AppointmentDrawer({ open, onClose }: Props) {
                 ['Địa chỉ', '262/1/93 Phan Anh, P.Phú Thạnh, TP.HCM'],
                 ['MST', '079192026914'],
                 ['Điện thoại', '0989.778.247'],
-                ['Email', 'sales@longdenviet.com'],
-                ['Website', 'longdenviet.com'],
+                ['Email', 'hi@kaha.vn'],
+                ['Website', 'kaha.vn'],
               ].map(([label, value]) => (
                 <div key={label} style={{ display: 'flex', gap: 7, marginBottom: 4 }}>
                   <span style={{ fontSize: 11, color: '#b0a898', minWidth: 58, flexShrink: 0 }}>{label}:</span>
@@ -546,7 +546,7 @@ export default function AppointmentDrawer({ open, onClose }: Props) {
               <a href="https://maps.app.goo.gl/longdenviet" target="_blank" rel="noopener noreferrer"
                 style={{ display: 'inline-flex', alignItems: 'center', gap: 5, marginTop: 7, fontSize: 11, fontWeight: 600, color: '#104e2e', textDecoration: 'none' }}>
                 <IcoMap />
-                LongDenViet® — Xưởng Đèn Lồng Trang Trí
+                KAHA® — Xưởng Đèn Lồng Trang Trí
               </a>
             </div>
           </form>

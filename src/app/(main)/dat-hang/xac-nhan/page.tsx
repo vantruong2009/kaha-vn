@@ -3,7 +3,7 @@ import { fetchOrderWithItemsByIdPg, hasPostgresConfigured } from '@/lib/postgres
 import { HoverLink, HoverLinkWithShadow } from './HoverLink';
 
 export const metadata = {
-  title: 'Đặt Hàng Thành Công | LongDenViet',
+  title: 'Đặt Hàng Thành Công | KAHA',
   robots: { index: false, follow: false },
 };
 
@@ -30,7 +30,7 @@ export default async function OrderConfirmPage({ searchParams }: Props) {
     <div style={{ background: '#FAF7F2', minHeight: '100vh' }}>
       <div style={{ background: 'linear-gradient(to bottom, #FFFDF8, #FAF7F2)', borderBottom: '1px solid #EDE5D8' }}>
         <div className="max-w-2xl mx-auto px-6 py-10 md:py-14">
-          <p className="text-[10px] uppercase tracking-[0.22em] font-bold mb-2" style={{ color: '#c9822a' }}>LongDenViet</p>
+          <p className="text-[10px] uppercase tracking-[0.22em] font-bold mb-2" style={{ color: '#c9822a' }}>KAHA</p>
           <h1 className="text-2xl md:text-3xl font-bold" style={{ color: '#1a1a1a', letterSpacing: '-0.03em' }}>Xác nhận đơn hàng</h1>
         </div>
       </div>
@@ -59,7 +59,7 @@ export default async function OrderConfirmPage({ searchParams }: Props) {
               Đơn hàng đã được tiếp nhận!
             </h2>
             <p className="text-[14px] leading-[1.8] mb-5" style={{ color: '#6a5840' }}>
-              Cảm ơn bạn đã tin tưởng và lựa chọn LongDenViet.
+              Cảm ơn bạn đã tin tưởng và lựa chọn KAHA.
             </p>
 
             {/* Order ID badge */}

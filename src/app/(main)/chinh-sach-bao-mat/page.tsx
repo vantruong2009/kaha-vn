@@ -6,7 +6,7 @@ import PolicyContactBox from '@/components/PolicyContactBox';
 export const metadata: Metadata = {
   title: 'Chính Sách Bảo Mật',
   description:
-    'Chính sách bảo mật thông tin khách hàng của LongDenViet. Chúng tôi cam kết bảo vệ dữ liệu cá nhân và không chia sẻ với bên thứ ba.',
+    'Chính sách bảo mật thông tin khách hàng của KAHA. Chúng tôi cam kết bảo vệ dữ liệu cá nhân và không chia sẻ với bên thứ ba.',
   alternates: { canonical: '/chinh-sach-bao-mat' },
 };
 
@@ -16,23 +16,23 @@ const faqLd = {
   mainEntity: [
     {
       '@type': 'Question',
-      name: 'LongDenViet thu thập những thông tin gì của tôi?',
-      acceptedAnswer: { '@type': 'Answer', text: 'LongDenViet chỉ thu thập thông tin cần thiết: họ tên, số điện thoại, địa chỉ giao hàng (để xử lý đơn hàng); phương thức thanh toán (qua cổng bảo mật VNPay/MoMo); dữ liệu duyệt web qua cookie để cải thiện website.' },
+      name: 'KAHA thu thập những thông tin gì của tôi?',
+      acceptedAnswer: { '@type': 'Answer', text: 'KAHA chỉ thu thập thông tin cần thiết: họ tên, số điện thoại, địa chỉ giao hàng (để xử lý đơn hàng); phương thức thanh toán (qua cổng bảo mật VNPay/MoMo); dữ liệu duyệt web qua cookie để cải thiện website.' },
     },
     {
       '@type': 'Question',
-      name: 'LongDenViet có bán thông tin của tôi cho bên thứ ba không?',
-      acceptedAnswer: { '@type': 'Answer', text: 'Không. LongDenViet cam kết không bán, cho thuê hoặc chia sẻ thông tin cá nhân của khách hàng với bên thứ ba vì mục đích thương mại.' },
+      name: 'KAHA có bán thông tin của tôi cho bên thứ ba không?',
+      acceptedAnswer: { '@type': 'Answer', text: 'Không. KAHA cam kết không bán, cho thuê hoặc chia sẻ thông tin cá nhân của khách hàng với bên thứ ba vì mục đích thương mại.' },
     },
     {
       '@type': 'Question',
       name: 'Tôi có thể yêu cầu xóa thông tin cá nhân không?',
-      acceptedAnswer: { '@type': 'Answer', text: 'Có, bạn có quyền yêu cầu xóa dữ liệu cá nhân bằng cách liên hệ Zalo 0989 778 247 hoặc email sales@longdenviet.com, trừ trường hợp pháp luật yêu cầu lưu giữ.' },
+      acceptedAnswer: { '@type': 'Answer', text: 'Có, bạn có quyền yêu cầu xóa dữ liệu cá nhân bằng cách liên hệ Zalo 0989 778 247 hoặc email hi@kaha.vn, trừ trường hợp pháp luật yêu cầu lưu giữ.' },
     },
     {
       '@type': 'Question',
-      name: 'LongDenViet bảo vệ thông tin tôi như thế nào?',
-      acceptedAnswer: { '@type': 'Answer', text: 'LongDenViet sử dụng mã hóa SSL/TLS cho toàn bộ dữ liệu truyền tải, kiểm soát truy cập nội bộ chặt chẽ, lưu trữ trên máy chủ có tường lửa bảo vệ và giám sát hệ thống liên tục.' },
+      name: 'KAHA bảo vệ thông tin tôi như thế nào?',
+      acceptedAnswer: { '@type': 'Answer', text: 'KAHA sử dụng mã hóa SSL/TLS cho toàn bộ dữ liệu truyền tải, kiểm soát truy cập nội bộ chặt chẽ, lưu trữ trên máy chủ có tường lửa bảo vệ và giám sát hệ thống liên tục.' },
     },
   ],
 };
@@ -96,7 +96,7 @@ export default async function PrivacyPolicyPage() {
             {/* Intro */}
             <div className="p-5 rounded-2xl" style={{ background: 'rgba(26,107,60,0.05)', border: '1px solid rgba(26,107,60,0.15)' }}>
               <p className="text-[13px] leading-[1.8]" style={{ color: '#4a4a4a' }}>
-                LongDenViet cam kết bảo vệ quyền riêng tư và thông tin cá nhân của khách hàng. Chính sách này mô tả cách chúng tôi thu thập, sử dụng và bảo vệ dữ liệu của bạn khi sử dụng dịch vụ tại longdenviet.com.
+                KAHA cam kết bảo vệ quyền riêng tư và thông tin cá nhân của khách hàng. Chính sách này mô tả cách chúng tôi thu thập, sử dụng và bảo vệ dữ liệu của bạn khi sử dụng dịch vụ tại kaha.vn.
               </p>
             </div>
 
@@ -116,7 +116,7 @@ export default async function PrivacyPolicyPage() {
                   },
                   {
                     title: 'Thông tin thanh toán',
-                    desc: 'Phương thức thanh toán bạn chọn. LongDenViet không lưu trữ thông tin thẻ ngân hàng; việc xử lý thanh toán do VNPay/MoMo thực hiện theo chuẩn PCI-DSS.',
+                    desc: 'Phương thức thanh toán bạn chọn. KAHA không lưu trữ thông tin thẻ ngân hàng; việc xử lý thanh toán do VNPay/MoMo thực hiện theo chuẩn PCI-DSS.',
                   },
                   {
                     title: 'Dữ liệu duyệt web',
@@ -166,7 +166,7 @@ export default async function PrivacyPolicyPage() {
                 ))}
               </ul>
               <div className="mt-4 p-4 rounded-2xl text-[13px] leading-[1.8]" style={{ background: 'linear-gradient(135deg, #f5efe5, #ede5d8)', border: '1px solid #EDE5D8', color: '#4a4a4a' }}>
-                <strong style={{ color: '#1a1a1a' }}>Cam kết:</strong> LongDenViet <strong>không bán, cho thuê hoặc chia sẻ</strong> thông tin cá nhân của bạn với bên thứ ba vì mục đích thương mại.
+                <strong style={{ color: '#1a1a1a' }}>Cam kết:</strong> KAHA <strong>không bán, cho thuê hoặc chia sẻ</strong> thông tin cá nhân của bạn với bên thứ ba vì mục đích thương mại.
               </div>
             </section>
 
@@ -241,10 +241,10 @@ export default async function PrivacyPolicyPage() {
                 Nếu bạn có bất kỳ câu hỏi, yêu cầu hoặc khiếu nại liên quan đến chính sách bảo mật này, vui lòng liên hệ:
               </p>
               <PolicyContactBox items={[
-                { type: 'company', label: 'LongDenViet', value: 'Đèn Lồng Thủ Công Truyền Thống' },
+                { type: 'company', label: 'KAHA', value: 'Đèn Lồng Thủ Công Truyền Thống' },
                 { type: 'address', label: 'Địa chỉ',    value: '262/1/93 Phan Anh, Phường Phú Thạnh, Thành Phố Hồ Chí Minh, Việt Nam' },
                 { type: 'zalo',    label: 'Zalo',        value: '0989 778 247', href: 'https://zalo.me/0989778247' },
-                { type: 'email',   label: 'Email',       value: 'sales@longdenviet.com', href: 'mailto:sales@longdenviet.com' },
+                { type: 'email',   label: 'Email',       value: 'hi@kaha.vn', href: 'mailto:hi@kaha.vn' },
               ]} />
             </section>
           </div>

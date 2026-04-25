@@ -18,7 +18,7 @@ export async function resolveNotificationRecipients(options: {
   fallbackEmail?: string;
 } = {}): Promise<string[]> {
   const recipients = new Set<string>();
-  const fallbackEmail = options.fallbackEmail || 'sales@longdenviet.com';
+  const fallbackEmail = options.fallbackEmail || 'hi@kaha.vn';
 
   addEmails(recipients, options.envEmail);
 

@@ -8,6 +8,7 @@ const envSchema = z.object({
   NODE_ENV: z.enum(["development", "test", "production"]).default("development"),
 
   NEXT_PUBLIC_GA_ID: z.string().optional(),
+  NEXT_PUBLIC_GSC_VERIFICATION: z.string().optional(),
 
   ADMIN_PASSWORD: z.string().optional(),
 

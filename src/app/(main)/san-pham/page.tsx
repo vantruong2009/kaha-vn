@@ -28,7 +28,7 @@ export async function generateMetadata({ searchParams }: PageProps): Promise<Met
       title: '800+ Mẫu Đèn Lồng Thủ Công — Giá Sỉ Lẻ Toàn Quốc',
       description: '800+ mẫu đèn lồng thủ công Hội An, đèn tre mây, đèn vải lụa cao cấp. Bán sỉ lẻ toàn quốc.',
       type: 'website',
-      siteName: 'LongDenViet',
+      siteName: 'KAHA',
       locale: 'vi_VN',
     },
   };
@@ -40,11 +40,11 @@ const DEFAULT_PRICE_MAX = 2_000_000;
 const collectionPageLd = {
   '@context': 'https://schema.org',
   '@type': 'CollectionPage',
-  '@id': 'https://longdenviet.com/san-pham',
-  name: 'Tất Cả Sản Phẩm Đèn Lồng | LongDenViet',
+  '@id': 'https://kaha.vn/san-pham',
+  name: 'Tất Cả Sản Phẩm Đèn Lồng | KAHA',
   description: 'Khám phá 800+ mẫu đèn lồng, đèn tre mây, đèn vải lụa thủ công truyền thống Việt Nam.',
-  url: 'https://longdenviet.com/san-pham',
-  isPartOf: { '@type': 'WebSite', '@id': 'https://longdenviet.com/#website' },
+  url: 'https://kaha.vn/san-pham',
+  isPartOf: { '@type': 'WebSite', '@id': 'https://kaha.vn/#website' },
 };
 
 export default async function ProductsPage({ searchParams }: PageProps) {
@@ -106,11 +106,11 @@ export default async function ProductsPage({ searchParams }: PageProps) {
     allRegions.map(r => [r, products.filter(p => p.makerRegion === r).length])
   );
 
-  const BASE = 'https://longdenviet.com';
+  const BASE = 'https://kaha.vn';
   const itemListLd = {
     '@context': 'https://schema.org',
     '@type': 'ItemList',
-    name: 'Sản Phẩm Đèn Lồng Thủ Công | LongDenViet',
+    name: 'Sản Phẩm Đèn Lồng Thủ Công | KAHA',
     url: `${BASE}/san-pham`,
     numberOfItems: totalCount,
     itemListElement: paginated.slice(0, 10).map((p, idx) => ({

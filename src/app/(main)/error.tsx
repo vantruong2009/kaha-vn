@@ -11,7 +11,7 @@ export default function Error({
   reset: () => void;
 }) {
   useEffect(() => {
-    console.error('[LongDenViet Error]', error);
+    console.error('[KAHA Error]', error);
   }, [error]);
 
   return (
@@ -108,7 +108,7 @@ export default function Error({
       )}
 
       <p className="mt-12 text-[11px] text-[#ccc] tracking-wider uppercase">
-        LongDenViet® — Đèn Lồng Thủ Công Hội An
+        KAHA® — Đèn Lồng Thủ Công Hội An
       </p>
     </div>
   );

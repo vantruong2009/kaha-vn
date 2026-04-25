@@ -4,8 +4,8 @@ import { getPage } from '@/lib/get-page';
 import PolicyContactBox from '@/components/PolicyContactBox';
 
 export const metadata: Metadata = {
-  title: 'Điều Khoản và Điều Kiện | LongDenViet',
-  description: 'Điều khoản và điều kiện sử dụng dịch vụ tại LongDenViet — Chính sách bảo mật, bán hàng, chia sẻ thông tin khách hàng.',
+  title: 'Điều Khoản và Điều Kiện | KAHA',
+  description: 'Điều khoản và điều kiện sử dụng dịch vụ tại KAHA — Chính sách bảo mật, bán hàng, chia sẻ thông tin khách hàng.',
   alternates: { canonical: '/dieu-khoan' },
 };
 
@@ -15,8 +15,8 @@ const faqLd = {
   mainEntity: [
     {
       '@type': 'Question',
-      name: 'LongDenViet có chia sẻ thông tin khách hàng cho bên thứ ba không?',
-      acceptedAnswer: { '@type': 'Answer', text: 'Không. LongDenViet cam kết không chia sẻ thông tin khách hàng cho bất kỳ bên thứ ba nào, ngoại trừ đơn vị vận chuyển liên quan trực tiếp đến giao hàng.' },
+      name: 'KAHA có chia sẻ thông tin khách hàng cho bên thứ ba không?',
+      acceptedAnswer: { '@type': 'Answer', text: 'Không. KAHA cam kết không chia sẻ thông tin khách hàng cho bất kỳ bên thứ ba nào, ngoại trừ đơn vị vận chuyển liên quan trực tiếp đến giao hàng.' },
     },
     {
       '@type': 'Question',
@@ -25,13 +25,13 @@ const faqLd = {
     },
     {
       '@type': 'Question',
-      name: 'Phương thức thanh toán nào được chấp nhận tại LongDenViet?',
-      acceptedAnswer: { '@type': 'Answer', text: 'LongDenViet chấp nhận: COD (tiền mặt khi nhận hàng), chuyển khoản ngân hàng, VNPay và MoMo. Đơn từ 3 triệu VNĐ hoặc giao ngoài TP.HCM cần đặt cọc 50%.' },
+      name: 'Phương thức thanh toán nào được chấp nhận tại KAHA?',
+      acceptedAnswer: { '@type': 'Answer', text: 'KAHA chấp nhận: COD (tiền mặt khi nhận hàng), chuyển khoản ngân hàng, VNPay và MoMo. Đơn từ 3 triệu VNĐ hoặc giao ngoài TP.HCM cần đặt cọc 50%.' },
     },
     {
       '@type': 'Question',
       name: 'Sau khi đặt hàng bao lâu tôi sẽ nhận được xác nhận?',
-      acceptedAnswer: { '@type': 'Answer', text: 'LongDenViet sẽ xác nhận đơn hàng qua Zalo hoặc SMS trong vòng 2–4 giờ trong giờ làm việc (8:00–21:00 mỗi ngày). Đơn hàng chỉ được xử lý sau khi xác nhận.' },
+      acceptedAnswer: { '@type': 'Answer', text: 'KAHA sẽ xác nhận đơn hàng qua Zalo hoặc SMS trong vòng 2–4 giờ trong giờ làm việc (8:00–21:00 mỗi ngày). Đơn hàng chỉ được xử lý sau khi xác nhận.' },
     },
   ],
 };
@@ -43,7 +43,7 @@ const sections = [
       {
         heading: 'Mục đích',
         content:
-          'Website Lồng Đèn Việt (longdenviet.com) tôn trọng sự riêng tư, muốn bảo vệ thông tin cá nhân và thông tin thanh toán của bạn. Chính sách bảo mật dưới đây là những cam kết mà chúng tôi thực hiện nhằm tôn trọng và bảo vệ quyền lợi của người truy cập.',
+          'Website Lồng Đèn Việt (kaha.vn) tôn trọng sự riêng tư, muốn bảo vệ thông tin cá nhân và thông tin thanh toán của bạn. Chính sách bảo mật dưới đây là những cam kết mà chúng tôi thực hiện nhằm tôn trọng và bảo vệ quyền lợi của người truy cập.',
       },
       {
         heading: '2.1/ Thu thập thông tin',
@@ -73,7 +73,7 @@ const sections = [
       {
         heading: 'Phạm vi áp dụng',
         content:
-          'Các điều khoản này áp dụng cho tất cả khách hàng và người dùng truy cập website longdenviet.com. Bằng việc sử dụng website, bạn đồng ý với toàn bộ điều khoản được nêu.',
+          'Các điều khoản này áp dụng cho tất cả khách hàng và người dùng truy cập website kaha.vn. Bằng việc sử dụng website, bạn đồng ý với toàn bộ điều khoản được nêu.',
       },
       {
         heading: 'Quyền và nghĩa vụ của khách hàng',
@@ -83,12 +83,12 @@ const sections = [
       {
         heading: 'Giới hạn trách nhiệm',
         content:
-          'LongDenViet không chịu trách nhiệm với những thiệt hại phát sinh do sự cố kỹ thuật ngoài tầm kiểm soát, thiên tai, hoặc hành động của bên thứ ba. Mức bồi thường tối đa không vượt quá giá trị đơn hàng.',
+          'KAHA không chịu trách nhiệm với những thiệt hại phát sinh do sự cố kỹ thuật ngoài tầm kiểm soát, thiên tai, hoặc hành động của bên thứ ba. Mức bồi thường tối đa không vượt quá giá trị đơn hàng.',
       },
       {
         heading: 'Thay đổi điều khoản',
         content:
-          'LongDenViet có quyền thay đổi điều khoản mà không cần thông báo trước. Phiên bản điều khoản mới nhất luôn được đăng tải trên website. Việc tiếp tục sử dụng dịch vụ đồng nghĩa với việc chấp nhận điều khoản mới.',
+          'KAHA có quyền thay đổi điều khoản mà không cần thông báo trước. Phiên bản điều khoản mới nhất luôn được đăng tải trên website. Việc tiếp tục sử dụng dịch vụ đồng nghĩa với việc chấp nhận điều khoản mới.',
       },
     ],
   },
@@ -163,7 +163,7 @@ export default async function TermsPage() {
         {/* Intro notice */}
         <div className="p-5 rounded-2xl mb-6" style={{ background: 'rgba(26,107,60,0.05)', border: '1px solid rgba(26,107,60,0.15)' }}>
           <p className="text-[13px] leading-[1.8]" style={{ color: '#4a4a4a' }}>
-            Vui lòng đọc kỹ các điều khoản và điều kiện dưới đây trước khi sử dụng dịch vụ tại longdenviet.com. Bằng việc truy cập và sử dụng website, bạn đồng ý tuân thủ các điều khoản này.
+            Vui lòng đọc kỹ các điều khoản và điều kiện dưới đây trước khi sử dụng dịch vụ tại kaha.vn. Bằng việc truy cập và sử dụng website, bạn đồng ý tuân thủ các điều khoản này.
           </p>
         </div>
 
@@ -196,7 +196,7 @@ export default async function TermsPage() {
           <p className="text-sm font-bold mb-3" style={{ color: '#1a1a1a' }}>Liên hệ về điều khoản</p>
           <PolicyContactBox items={[
             { type: 'zalo',    label: 'Zalo',    value: '0989 778 247',             href: 'https://zalo.me/0989778247' },
-            { type: 'email',   label: 'Email',   value: 'sales@longdenviet.com',    href: 'mailto:sales@longdenviet.com' },
+            { type: 'email',   label: 'Email',   value: 'hi@kaha.vn',    href: 'mailto:hi@kaha.vn' },
             { type: 'address', label: 'Địa chỉ', value: '262/1/93 Phan Anh, Phường Phú Thạnh, Thành Phố Hồ Chí Minh, Việt Nam' },
           ]} />
         </div>

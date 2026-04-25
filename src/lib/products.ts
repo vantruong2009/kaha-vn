@@ -223,9 +223,9 @@ function deriveMaker(raw: RawProduct): string {
     }
   }
   if ((raw.categoryLabels ?? []).length > 0) {
-    return 'Xưởng LongDenViet';
+    return 'Xưởng KAHA';
   }
-  return 'Xưởng LongDenViet';
+  return 'Xưởng KAHA';
 }
 
 // Extract image URLs → keep original URL for <img src>, or fall back to placeholder

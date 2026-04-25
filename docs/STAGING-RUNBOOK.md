@@ -8,7 +8,7 @@ Runbook rút gọn để kiểm tra staging trước cutover.
 - Bắt buộc:
   - `NEXT_PUBLIC_SITE_URL=https://staging.kaha.vn` (hoặc URL staging thật)
   - `DATABASE_URL=.../kaha_vn`
-  - `NEXT_PUBLIC_MEDIA_BASE=.../kaha` (nếu đã dùng R2)
+  - `NEXT_PUBLIC_MEDIA_BASE=... (public URL bucket kahavn, không slash cuối)` (nếu đã dùng R2)
 
 ## 2. Build và chạy
 
@@ -43,16 +43,16 @@ Runbook rút gọn để kiểm tra staging trước cutover.
 - Chạy thật + merge redirect candidates:
   - `DATABASE_URL=.../kaha_vn npm run migrate:run-all -- --apply-redirects`
 
-## 4c. R2 — sync `wp-content/uploads` → prefix `kaha/`
+## 4c. R2 — sync `wp-content/uploads` -> bucket `kahavn` (không prefix `kaha/`)
 
-- Code thay `https://kaha.vn/wp-content/uploads/` → `NEXT_PUBLIC_MEDIA_BASE/` (`src/lib/rewrite-kaha-media-url.ts`). Ví dụ `NEXT_PUBLIC_MEDIA_BASE=https://pub-….r2.dev/kaha` (không slash cuối).
-- Object trên R2 (bucket `media`) cần key dạng `kaha/<năm>/<tháng>/…` khớp đường dẫn sau `uploads/` (vd. file WP `…/uploads/2024/10/x.jpg` → key `kaha/2024/10/x.jpg`).
+- Code thay `https://kaha.vn/wp-content/uploads/` → `NEXT_PUBLIC_MEDIA_BASE/` (`src/lib/rewrite-kaha-media-url.ts`). Ví dụ `NEXT_PUBLIC_MEDIA_BASE=https://pub-….r2.dev` (không slash cuối).
+- Object trên R2 (bucket `kahavn`) cần key dạng `<nam>/<thang>/...` khớp đường dẫn sau `uploads/` (vd. file WP `.../uploads/2024/10/x.jpg` -> key `2024/10/x.jpg`).
 - **Oracle** (đặt credential trong `~/.aws/credentials` hoặc env; `ACCOUNT_ID` từ dashboard R2):
 
 ```bash
 export AWS_DEFAULT_REGION=auto
 export AWS_ENDPOINT_URL=https://ACCOUNT_ID.r2.cloudflarestorage.com
-aws s3 sync /var/www/kaha.vn/httpdocs/wp-content/uploads/ s3://media/kaha/ --only-show-errors
+aws s3 sync /var/www/kaha.vn/httpdocs/wp-content/uploads/ s3://kahavn/ --only-show-errors
 ```
 
 - Sau khi sync + đã có `NEXT_PUBLIC_MEDIA_BASE` trong `.env.local`: `docker compose up -d --build`, mở `/shop` — `src` ảnh phải trỏ R2 (hoặc `/_next/image?url=…r2…`).

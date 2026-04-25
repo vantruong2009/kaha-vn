@@ -510,7 +510,7 @@ export default function CheckoutPageClient() {
                   </button>
 
                   <p className="text-[10px] text-center mt-3 leading-relaxed" style={{ color: '#c0b0a0' }}>
-                    Bằng cách đặt hàng, bạn đồng ý với điều khoản và chính sách bảo mật của LongDenViet.
+                    Bằng cách đặt hàng, bạn đồng ý với điều khoản và chính sách bảo mật của KAHA.
                   </p>
 
                   {/* Trust / Business Verification */}
@@ -521,7 +521,7 @@ export default function CheckoutPageClient() {
                       <div style={{ flex: 1.2, borderRadius: 10, overflow: 'hidden', border: '1px solid #e8e0d5', flexShrink: 0 }}>
                         <img
                           src="/images/trust/storefront.jpg"
-                          alt="Cửa hàng LongDenViet 262/1/93 Phan Anh"
+                          alt="Cửa hàng KAHA 262/1/93 Phan Anh"
                           style={{ width: '100%', height: 80, objectFit: 'cover', objectPosition: 'center top', display: 'block' }}
                         />
                       </div>
@@ -584,7 +584,7 @@ export default function CheckoutPageClient() {
                           <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="#104e2e" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                             <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/>
                           </svg>
-                          <span style={{ fontSize: 10, color: '#5a4a3a' }}>sales@longdenviet.com</span>
+                          <span style={{ fontSize: 10, color: '#5a4a3a' }}>hi@kaha.vn</span>
                         </div>
                       </div>
                     </div>
@@ -602,10 +602,10 @@ export default function CheckoutPageClient() {
                         style={{ scrollbarWidth: 'none', msOverflowStyle: 'none', paddingBottom: 2 }}
                       >
                         {[
-                          { src: '/images/en/international-customer-longdenviet-4.webp', alt: 'Khách quốc tế tại LongDenViet' },
+                          { src: '/images/en/international-customer-longdenviet-4.webp', alt: 'Khách quốc tế tại KAHA' },
                           { src: '/images/en/international-customer-longdenviet-8.webp', alt: 'Khách du lịch tại cửa hàng đèn lồng' },
                           { src: '/images/en/international-customer-longdenviet-1.webp', alt: 'Khách nước ngoài mua đèn lồng' },
-                          { src: '/images/en/international-customer-longdenviet-6.webp', alt: 'Khách châu Âu tại LongDenViet' },
+                          { src: '/images/en/international-customer-longdenviet-6.webp', alt: 'Khách châu Âu tại KAHA' },
                         ].map((photo, i) => (
                           <div
                             key={i}

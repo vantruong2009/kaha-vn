@@ -336,7 +336,7 @@ export default function MobileMenuDrawer({ onClose, onSearchOpen, navItems, menu
 
           {/* Logo */}
           <Link href="/" onClick={handleClose}>
-            <Image src="/logo.webp" alt="LongDenViet" width={120} height={44} className="h-9 w-auto" />
+            <Image src="/logo.webp" alt="KAHA" width={120} height={44} className="h-9 w-auto" />
           </Link>
 
           {/* Search + Cart */}
@@ -478,7 +478,7 @@ export default function MobileMenuDrawer({ onClose, onSearchOpen, navItems, menu
               <div className="mx-4 mt-5 mb-1 rounded-2xl overflow-hidden relative" style={{ aspectRatio: '16/7' }}>
                 <img
                   src="/images/hero/hero-2.webp"
-                  alt="Đèn lồng Hội An thủ công truyền thống — LongDenViet"
+                  alt="Đèn lồng Hội An thủ công truyền thống — KAHA"
                   className="absolute inset-0 w-full h-full object-cover"
                   loading="lazy"
                 />
@@ -487,7 +487,7 @@ export default function MobileMenuDrawer({ onClose, onSearchOpen, navItems, menu
                   style={{ background: 'linear-gradient(to right, rgba(0,0,0,0.82) 0%, rgba(0,0,0,0.45) 60%, rgba(0,0,0,0.1) 100%)' }}
                 />
                 <div className="relative p-4 h-full flex flex-col justify-center">
-                  <p className="text-[10px] font-bold uppercase tracking-[0.22em] text-brand-amber mb-1">LongDenViet®</p>
+                  <p className="text-[10px] font-bold uppercase tracking-[0.22em] text-brand-amber mb-1">KAHA®</p>
                   <p className="text-[16px] font-bold text-white leading-snug" style={{ letterSpacing: '-0.02em' }}>
                     Đèn thủ công<br/>Hội An chính gốc
                   </p>
@@ -520,7 +520,7 @@ export default function MobileMenuDrawer({ onClose, onSearchOpen, navItems, menu
                     >
                       <img
                         src={card.img}
-                        alt={`${card.label} — đèn lồng thủ công LongDenViet`}
+                        alt={`${card.label} — đèn lồng thủ công KAHA`}
                         className="absolute inset-0 w-full h-full object-cover transition-transform duration-300 group-active:scale-[1.03]"
                         loading="lazy"
                       />

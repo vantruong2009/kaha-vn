@@ -6,7 +6,7 @@ import PolicyContactBox from '@/components/PolicyContactBox';
 export const metadata: Metadata = {
   title: 'Chính Sách Vận Chuyển',
   description:
-    'Thông tin phí vận chuyển, thời gian giao hàng và các đơn vị vận chuyển của LongDenViet. Miễn phí ship cho đơn từ 500.000đ.',
+    'Thông tin phí vận chuyển, thời gian giao hàng và các đơn vị vận chuyển của KAHA. Miễn phí ship cho đơn từ 500.000đ.',
   alternates: { canonical: '/chinh-sach-van-chuyen' },
 };
 
@@ -16,8 +16,8 @@ const faqLd = {
   mainEntity: [
     {
       '@type': 'Question',
-      name: 'LongDenViet có miễn phí vận chuyển không?',
-      acceptedAnswer: { '@type': 'Answer', text: 'Có, LongDenViet miễn phí vận chuyển toàn quốc cho đơn hàng từ 500.000đ trở lên qua GHN Tiêu Chuẩn. Đơn dưới 500.000đ phí ship 35.000đ.' },
+      name: 'KAHA có miễn phí vận chuyển không?',
+      acceptedAnswer: { '@type': 'Answer', text: 'Có, KAHA miễn phí vận chuyển toàn quốc cho đơn hàng từ 500.000đ trở lên qua GHN Tiêu Chuẩn. Đơn dưới 500.000đ phí ship 35.000đ.' },
     },
     {
       '@type': 'Question',
@@ -26,8 +26,8 @@ const faqLd = {
     },
     {
       '@type': 'Question',
-      name: 'LongDenViet hợp tác với đơn vị vận chuyển nào?',
-      acceptedAnswer: { '@type': 'Answer', text: 'LongDenViet hợp tác chính với Giao Hàng Nhanh (GHN) phủ sóng 63 tỉnh thành, và Giao Hàng Tiết Kiệm (GHTK) tại một số tỉnh miền Bắc, miền Trung.' },
+      name: 'KAHA hợp tác với đơn vị vận chuyển nào?',
+      acceptedAnswer: { '@type': 'Answer', text: 'KAHA hợp tác chính với Giao Hàng Nhanh (GHN) phủ sóng 63 tỉnh thành, và Giao Hàng Tiết Kiệm (GHTK) tại một số tỉnh miền Bắc, miền Trung.' },
     },
     {
       '@type': 'Question',
@@ -185,7 +185,7 @@ export default async function ShippingPolicyPage() {
                 3. Đơn Vị Vận Chuyển
               </h2>
               <p className="text-[13px] mb-4 leading-[1.8]" style={{ color: '#6a5840' }}>
-                LongDenViet hợp tác với các đơn vị vận chuyển uy tín để đảm bảo đèn thủ công được đóng gói cẩn thận và giao đến tay bạn an toàn.
+                KAHA hợp tác với các đơn vị vận chuyển uy tín để đảm bảo đèn thủ công được đóng gói cẩn thận và giao đến tay bạn an toàn.
               </p>
               <div className="flex flex-col gap-3">
                 {[
@@ -237,7 +237,7 @@ export default async function ShippingPolicyPage() {
               </p>
               <PolicyContactBox items={[
                 { type: 'zalo',      label: 'Zalo',      value: '0989 778 247 (8:00–21:00 mỗi ngày)', href: 'https://zalo.me/0989778247' },
-                { type: 'email',     label: 'Email',     value: 'sales@longdenviet.com',               href: 'mailto:sales@longdenviet.com' },
+                { type: 'email',     label: 'Email',     value: 'hi@kaha.vn',               href: 'mailto:hi@kaha.vn' },
                 { type: 'messenger', label: 'Messenger', value: 'm.me/longdenviet',                   href: 'https://m.me/longdenviet' },
               ]} />
             </section>

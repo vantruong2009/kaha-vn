@@ -144,7 +144,7 @@ export default function ProductCard({ product, featured = false, priority = fals
 
         {/* Watermark */}
         <div aria-hidden="true" className="absolute bottom-2 right-2 pointer-events-none select-none" style={{ fontSize: '7px', fontWeight: 600, letterSpacing: '0.08em', color: 'rgba(16,78,46,0.10)', mixBlendMode: 'multiply' }}>
-          longdenviet.com
+          kaha.vn
         </div>
 
         {/* Badge */}

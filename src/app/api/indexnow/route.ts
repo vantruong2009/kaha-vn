@@ -1,7 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server';
 
 const KEY = '71000cb497ae734415da2b7b7b6745eb';
-const HOST = 'longdenviet.com';
+const HOST = 'kaha.vn';
 const KEY_LOCATION = `https://${HOST}/${KEY}.txt`;
 
 const ENDPOINTS = [

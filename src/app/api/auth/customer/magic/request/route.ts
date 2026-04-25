@@ -41,9 +41,9 @@ export async function POST(req: Request) {
         method: 'POST',
         headers: { Authorization: `Bearer ${key}`, 'Content-Type': 'application/json' },
         body: JSON.stringify({
-          from: 'LongDenViet <orders@longdenviet.com>',
+          from: 'KAHA <orders@kaha.vn>',
           to: [row.email],
-          subject: 'Đăng nhập LongDenViet',
+          subject: 'Đăng nhập KAHA',
           html: `<p>Nhấn liên kết để đăng nhập (2 giờ):</p><p><a href="${link}">${link}</a></p>`,
         }),
         signal: AbortSignal.timeout(12_000),

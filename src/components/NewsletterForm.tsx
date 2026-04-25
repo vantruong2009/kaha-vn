@@ -19,7 +19,7 @@ export default function NewsletterForm() {
       <div className="text-base text-brand-green font-semibold py-4">
         <span className="flex items-center gap-2">
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round"><polyline points="20 6 9 17 4 12"/></svg>
-          Đăng ký thành công! Cảm ơn bạn đã tham gia cộng đồng LongDenViet.
+          Đăng ký thành công! Cảm ơn bạn đã tham gia cộng đồng KAHA.
         </span>
       </div>
     );

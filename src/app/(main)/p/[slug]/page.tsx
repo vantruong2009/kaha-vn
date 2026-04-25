@@ -131,13 +131,13 @@ export async function generateMetadata({ params }: Props) {
   const stripShortcodes = (s: string) => s.replace(/\[[^\]]*\]?/g, '').replace(/\s{2,}/g, ' ').trim();
   const rawDesc = product.description?.slice(0, 200) || product.story?.slice(0, 200) || `Đèn lồng thủ công ${region}`;
   const descBase = stripShortcodes(rawDesc).slice(0, 120);
-  const autoDesc = `${descBase}. ${priceStr}. Giao toàn quốc, đổi trả 7 ngày | LongDenViet`;
+  const autoDesc = `${descBase}. ${priceStr}. Giao toàn quốc, đổi trả 7 ngày | KAHA`;
   const metaTitle = (product as Record<string, unknown>).meta_title as string | null;
   const rawMetaDesc = (product as Record<string, unknown>).meta_desc as string | null;
   const metaDesc = rawMetaDesc ? stripShortcodes(rawMetaDesc) : null;
 
   return {
-    title: { absolute: metaTitle || `${product.name} | ${priceStr} | LongDenViet` },
+    title: { absolute: metaTitle || `${product.name} | ${priceStr} | KAHA` },
     description: metaDesc || autoDesc,
     keywords: `${product.name}, đèn lồng ${region}, đèn lồng thủ công, đèn lồng Việt Nam, đèn lồng Hội An, ${product.category}`,
     alternates: { canonical: `/p/${slug}` },
@@ -147,15 +147,15 @@ export async function generateMetadata({ params }: Props) {
       description: metaDesc || autoDesc,
       images: product.image
         ? [{
-            url: product.image.startsWith('http') ? product.image : `https://longdenviet.com${product.image}`,
+            url: product.image.startsWith('http') ? product.image : `https://kaha.vn${product.image}`,
             width: 800,
             height: 800,
-            alt: `${product.name} — Đèn lồng thủ công ${region} | LongDenViet`,
+            alt: `${product.name} — Đèn lồng thủ công ${region} | KAHA`,
           }]
         : [],
       type: 'website' as const,
       locale: 'vi_VN',
-      siteName: 'LongDenViet',
+      siteName: 'KAHA',
     },
   };
 }
@@ -219,8 +219,9 @@ export default async function ProductDetailPage({ params }: Props) {
   const bundleTotalPrice = bundleItems.reduce((sum, p) => sum + p.price, 0);
 
   const categoryLabel = categories.find(c => c.id === product.category)?.label ?? 'Sản phẩm';
-  const BASE = 'https://longdenviet.com';
+  const BASE = 'https://kaha.vn';
   const productUrl = `${BASE}/p/${product.slug}`;
+  const priceValidUntil = '2099-12-31';
 
   const stripHtml = (s: string) => s.replace(/<[^>]{0,500}>/g, '').replace(/\[[^\]]*\]?/g, '').replace(/\s{2,}/g, ' ').trim();
 
@@ -239,13 +240,13 @@ export default async function ProductDetailPage({ params }: Props) {
           '@type': 'ImageObject',
           url,
           contentUrl: url,
-          creator: { '@type': 'Organization', name: 'LongDenViet', url: BASE },
-          copyrightHolder: { '@type': 'Organization', name: 'LongDenViet', url: BASE },
+          creator: { '@type': 'Organization', name: 'KAHA', url: BASE },
+          copyrightHolder: { '@type': 'Organization', name: 'KAHA', url: BASE },
           copyrightYear: new Date().getFullYear(),
-          copyrightNotice: `© ${new Date().getFullYear()} LongDenViet — longdenviet.com. All rights reserved.`,
+          copyrightNotice: `© ${new Date().getFullYear()} KAHA — kaha.vn. All rights reserved.`,
           license: `${BASE}/dieu-khoan`,
           acquireLicensePage: `${BASE}/lien-he`,
-          creditText: 'LongDenViet — longdenviet.com',
+          creditText: 'KAHA — kaha.vn',
         };
       }),
     } : {}),
@@ -255,12 +256,12 @@ export default async function ProductDetailPage({ params }: Props) {
         url: productUrl,
         price: product.price,
         priceCurrency: 'VND',
-        priceValidUntil: new Date(Date.now() + 90 * 24 * 60 * 60 * 1000).toISOString().split('T')[0],
+        priceValidUntil,
         availability: product.stock > 0 ? 'https://schema.org/InStock' : 'https://schema.org/OutOfStock',
-        seller: { '@type': 'Organization', name: 'LongDenViet', url: BASE },
+        seller: { '@type': 'Organization', name: 'KAHA', url: BASE },
       },
     }),
-    brand: { '@type': 'Brand', name: 'LongDenViet' },
+    brand: { '@type': 'Brand', name: 'KAHA' },
     manufacturer: { '@type': 'Organization', name: product.maker },
     ...(product.rating && product.reviewCount ? {
       aggregateRating: {
@@ -302,7 +303,7 @@ export default async function ProductDetailPage({ params }: Props) {
     },
     {
       q: 'Chính sách đổi trả như thế nào?',
-      a: 'Đổi trả trong 7 ngày kể từ ngày nhận hàng nếu sản phẩm có lỗi sản xuất. Khách hàng chụp ảnh sản phẩm lỗi gửi qua Zalo, chúng tôi xác nhận và gửi đổi trong 2–3 ngày làm việc. Chi phí vận chuyển đổi trả do LongDenViet chịu.',
+      a: 'Đổi trả trong 7 ngày kể từ ngày nhận hàng nếu sản phẩm có lỗi sản xuất. Khách hàng chụp ảnh sản phẩm lỗi gửi qua Zalo, chúng tôi xác nhận và gửi đổi trong 2–3 ngày làm việc. Chi phí vận chuyển đổi trả do KAHA chịu.',
     },
   ];
 
@@ -346,12 +347,12 @@ export default async function ProductDetailPage({ params }: Props) {
           {/* Product detail interactive section */}
           <ProductDetailClient product={product} zaloPhone={siteSettings.zalo_phone || '0989778247'} storePhone={siteSettings.store_phone || '0989.778.247'} />
 
-          {/* ── Tại sao chọn LongDenViet ── */}
+          {/* ── Tại sao chọn KAHA ── */}
           <div className="mb-16">
             <div className="text-center mb-8">
               <div className="text-[11px] uppercase tracking-[0.16em] text-brand-amber font-bold mb-2">Cam kết của chúng tôi</div>
               <h2 className="text-2xl md:text-3xl font-bold text-[#1a1a1a]" style={{ letterSpacing: '-0.025em' }}>
-                Tại sao chọn <span className="text-brand-green">LongDenViet</span>?
+                Tại sao chọn <span className="text-brand-green">KAHA</span>?
               </h2>
             </div>
             <div className="grid grid-cols-2 md:grid-cols-4 gap-4">

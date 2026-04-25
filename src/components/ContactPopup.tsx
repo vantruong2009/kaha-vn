@@ -168,7 +168,7 @@ export default function ContactPopup({ settings }: Props) {
       <div
         role="dialog"
         aria-modal="true"
-        aria-label="Tư vấn LongDenViet"
+        aria-label="Tư vấn KAHA"
         style={{
           position: 'fixed', inset: 0, zIndex: 9999,
           display: 'flex', alignItems: 'center', justifyContent: 'center',

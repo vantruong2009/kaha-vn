@@ -5,12 +5,12 @@ import { getSettings } from '@/lib/site-settings-server';
 import type { FaqItem } from '@/lib/site-settings';
 
 export const metadata: Metadata = {
-  title: 'Hỏi & Đáp — LongDenViet',
-  description: 'Giải đáp các câu hỏi thường gặp về đèn lồng thủ công, giao hàng, đổi trả và thanh toán tại LongDenViet.',
+  title: 'Hỏi & Đáp — KAHA',
+  description: 'Giải đáp các câu hỏi thường gặp về đèn lồng thủ công, giao hàng, đổi trả và thanh toán tại KAHA.',
   alternates: { canonical: '/hoi-dap' },
   openGraph: {
-    title: 'Hỏi & Đáp — LongDenViet',
-    description: 'Giải đáp các câu hỏi thường gặp về đèn lồng thủ công, giao hàng, đổi trả và thanh toán tại LongDenViet.',
+    title: 'Hỏi & Đáp — KAHA',
+    description: 'Giải đáp các câu hỏi thường gặp về đèn lồng thủ công, giao hàng, đổi trả và thanh toán tại KAHA.',
     type: 'website',
   },
 };
@@ -27,7 +27,7 @@ const HARDCODED_FAQ_LD = [
     },
     {
       '@type': 'Question',
-      name: 'LongDenViet chấp nhận những phương thức thanh toán nào?',
+      name: 'KAHA chấp nhận những phương thức thanh toán nào?',
       acceptedAnswer: {
         '@type': 'Answer',
         text: 'Chúng tôi chấp nhận: COD (thanh toán khi nhận hàng), chuyển khoản ngân hàng, MoMo, VNPay, và thẻ ATM nội địa/quốc tế. Mọi giao dịch đều được mã hóa an toàn.',
@@ -88,7 +88,7 @@ const HARDCODED_FAQ_LD = [
       name: 'Đèn được làm từ chất liệu gì?',
       acceptedAnswer: {
         '@type': 'Answer',
-        text: 'Đèn lồng LongDenViet được làm từ các chất liệu truyền thống: khung tre già (đèn Hội An), mây và bẹ chuối (đèn mây), gỗ tự nhiên (đèn gỗ), vải lụa và vải linen cao cấp. Tất cả đều là vật liệu tự nhiên, thân thiện môi trường.',
+        text: 'Đèn lồng KAHA được làm từ các chất liệu truyền thống: khung tre già (đèn Hội An), mây và bẹ chuối (đèn mây), gỗ tự nhiên (đèn gỗ), vải lụa và vải linen cao cấp. Tất cả đều là vật liệu tự nhiên, thân thiện môi trường.',
       },
     },
     {
@@ -129,7 +129,7 @@ const HARDCODED_FAQ_LD = [
       name: 'Quy trình đổi trả như thế nào?',
       acceptedAnswer: {
         '@type': 'Answer',
-        text: 'Bước 1: Liên hệ 0989.778.247 hoặc email sales@longdenviet.com để thông báo. Bước 2: Chụp ảnh sản phẩm lỗi gửi cho chúng tôi. Bước 3: Đội ngũ sẽ xác nhận và hướng dẫn gửi hàng về. Bước 4: Sau khi nhận hàng hoàn trả, chúng tôi sẽ gửi hàng mới hoặc hoàn tiền trong 3–5 ngày.',
+        text: 'Bước 1: Liên hệ 0989.778.247 hoặc email hi@kaha.vn để thông báo. Bước 2: Chụp ảnh sản phẩm lỗi gửi cho chúng tôi. Bước 3: Đội ngũ sẽ xác nhận và hướng dẫn gửi hàng về. Bước 4: Sau khi nhận hàng hoàn trả, chúng tôi sẽ gửi hàng mới hoặc hoàn tiền trong 3–5 ngày.',
       },
     },
     {
@@ -137,7 +137,7 @@ const HARDCODED_FAQ_LD = [
       name: 'Phí vận chuyển đổi trả do ai chịu?',
       acceptedAnswer: {
         '@type': 'Answer',
-        text: 'Nếu lỗi do chúng tôi (sản xuất hoặc giao nhầm), LongDenViet chịu toàn bộ phí vận chuyển đổi/trả. Nếu khách hàng đổi ý hoặc chọn nhầm sản phẩm, khách hàng chịu phí vận chuyển chiều về.',
+        text: 'Nếu lỗi do chúng tôi (sản xuất hoặc giao nhầm), KAHA chịu toàn bộ phí vận chuyển đổi/trả. Nếu khách hàng đổi ý hoặc chọn nhầm sản phẩm, khách hàng chịu phí vận chuyển chiều về.',
       },
     },
     {

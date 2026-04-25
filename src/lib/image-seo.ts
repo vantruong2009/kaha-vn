@@ -68,21 +68,21 @@ function getCategoryKeyword(category: string): string {
 
 /**
  * Alt text tối ưu SEO cho ảnh chính sản phẩm.
- * Formula: "{tên đầy đủ} — {từ khóa danh mục} {vùng sản xuất} | LongDenViet"
+ * Formula: "{tên đầy đủ} — {từ khóa danh mục} {vùng sản xuất} | KAHA"
  */
 export function productAlt(product: Product): string {
   const catKw = getCategoryKeyword(product.category);
-  return `${product.name} — ${catKw} ${product.makerRegion} | LongDenViet`;
+  return `${product.name} — ${catKw} ${product.makerRegion} | KAHA`;
 }
 
 /**
  * Alt text cho ảnh thumbnail thứ N (index bắt đầu từ 0).
- * Formula: "{tên đầy đủ} — hình ảnh {N+1} — {danh mục} | LongDenViet"
+ * Formula: "{tên đầy đủ} — hình ảnh {N+1} — {danh mục} | KAHA"
  */
 export function productThumbAlt(product: Product, index: number): string {
   if (index === 0) return productAlt(product);
   const catKw = getCategoryKeyword(product.category);
-  return `${product.name} — hình ${index + 1} — ${catKw} | LongDenViet`;
+  return `${product.name} — hình ${index + 1} — ${catKw} | KAHA`;
 }
 
 /**
@@ -91,5 +91,5 @@ export function productThumbAlt(product: Product, index: number): string {
  */
 export function productImageCaption(product: Product): string {
   const catKw = getCategoryKeyword(product.category);
-  return `${product.name} — ${catKw} thủ công tại ${product.makerRegion}. Sản xuất bởi ${product.maker}. Chính hãng tại LongDenViet.`;
+  return `${product.name} — ${catKw} thủ công tại ${product.makerRegion}. Sản xuất bởi ${product.maker}. Chính hãng tại KAHA.`;
 }
